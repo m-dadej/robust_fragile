@@ -32,7 +32,7 @@ end
 
 
 # Load data
-#data = CSV.read("src/data/bank_cor.csv", DataFrame)
+data = CSV.read("src/data/bank_cor.csv", DataFrame)
 
 #granger_df = CSV.read("data/granger_ts.csv", DataFrame)
 granger_df = CSV.read("src/data/granger_ts.csv", DataFrame)
