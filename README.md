@@ -1,0 +1,1 @@
+### Code to replicate the paper "Systemic Risk and Financial Connectedness: Empirical Evidence" authored by Mateusz Dadej, Roberto Savona.
