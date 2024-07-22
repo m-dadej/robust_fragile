@@ -68,7 +68,7 @@ if args.region == 'eu':
     print('region: EU')
     spread = fred.get_series('BAMLHE00EHYIOAS') # euro
     tickers = "EBO.DE RAW.DE KBC.BR CBK.DE DBK.DE NDA-SE.ST DANSKE.CO JYSK.CO SYDB.CO BBVA BKT.MC CABK.MC SAB.MC SAN.MC UNI.MC BNP.PA ACA.PA GLE.PA ALPHA.AT EUROB.AT ETE.AT TPEIR.AT OTP.BD A5G.IR BARC.L BIRG.IR BAMI.MI ISP.MI MB.MI BMPS.MI BPE.MI UCG.MI ABN.AS INGA.AS DNB.OL PKO.WA PEO.WA BCP.LS SEB-A.ST SHB-A.ST SWED-A.ST"
-    banks_index = pd.read_excel("data/stoxx_banks.xlsx")\
+    banks_index = pd.read_excel("src/data/stoxx_banks.xlsx")\
                     .sort_index(ascending=False)\
                     .set_index('Date')
                     
@@ -112,7 +112,7 @@ if args.freq == 'weekly':
 
     df_rets = df_rets.query('Date in @first_days')            
 
-df_rets.to_csv("data/df_rets_granger.csv") 
+df_rets.to_csv("src/data/df_rets_granger.csv") 
 
 #granger = pd.DataFrame({'degree': []})
 #cor_w = 100

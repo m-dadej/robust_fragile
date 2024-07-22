@@ -18,7 +18,7 @@ run(`py granger_ts.py
 
 replace(x, to) = ismissing(x) ? to : x
 
-data_raw = CSV.read("data/df_rets_granger.csv", DataFrame)
+data_raw = CSV.read("src/data/df_rets_granger.csv", DataFrame)
 data = Matrix(replace.(data_raw[:, 2:end], Inf))
 
 function na_share(df::Matrix{Float64})
@@ -117,4 +117,4 @@ end
 
 granger_out = DataFrame(Date = data_raw.Date[cor_w:end], granger = granger_ts)
 
-CSV.write("data/granger_ts.csv", granger_out)
+CSV.write("src/data/granger_ts.csv", granger_out)

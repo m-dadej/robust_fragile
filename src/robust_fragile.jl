@@ -11,16 +11,14 @@ using Plots
 
 # odejmij jakis AR proces of R
 
-
 # download data
 # args: region us/eu, freq weekly/daily
-run(`py stocks_download.py
-    --region us
-    --freq weekly
-    --cor_window 20
+run(`py src/stocks_download.py
+    --region eu
+    --freq daily
+    --cor_window 63
     --eig_k 1
     --excess False`)
-
 
 function remove_outlier(data, m = 3)
     
@@ -34,14 +32,14 @@ end
 
 
 # Load data
-#data = CSV.read("C:/Users/HP/Documents/julia/finansowe/contagion/data/bank_cor.csv", DataFrame)
-data = CSV.read("data/bank_cor.csv", DataFrame)
+#data = CSV.read("src/data/bank_cor.csv", DataFrame)
 
 #granger_df = CSV.read("data/granger_ts.csv", DataFrame)
-granger_df = CSV.read("data/bs_granger40_w_log.csv", DataFrame)
-data = sort(innerjoin(data, granger_df, on = :Date), :Date)
+granger_df = CSV.read("src/data/granger_ts.csv", DataFrame)
+data = sort(leftjoin(data, granger_df, on = :Date), :Date)
 
-df_model = Matrix(dropmissing(data[:, ["banks_index", "index", "spread", "bs_granger"]]))
+df_model = Matrix(dropmissing(data[:, ["banks_index", "index", "granger"]]))
+
 df_model = remove_outlier(df_model, 5)
 
 standard(x) = (x .- mean(x)) ./ std(x)
@@ -60,7 +58,7 @@ y_hat = df_model[2:end,1] .- X_mean*β_mean
 
 exog = add_lags(abs.(y_hat), 4)[:,2:5]
 #exog = add_lags(df_model[:,1], 1)[:,2]
-exog_switch = add_lags(df_model[5:end,4],1)[:,2] #[df_model[2:end, 3] df_model[2:end,2]]
+exog_switch = add_lags(df_model[5:end,3],1)[:,2] #[df_model[2:end, 3] df_model[2:end,2]]
 
 #tvtp = [ones(length(exog[:,1])) add_lags(df_model[:,3], 1)[2:end,2]]
 #tvtp[:, 2] = standard(tvtp[:, 2])
@@ -86,7 +84,6 @@ p2 = plot(standard(plot_ts[:,3]), title = "granger-based")
 connect_plot = plot(p1, p2, p3, layout=(3,1), legend=false,
                     size = (600,600))                    
 
-savefig("C:/Users/HP/Documents/julia/finansowe/contagion/poc/empirical/connectmeasures.png")
 
 
 plot(sqrt.((df_model[:,1] .- df_model[:,2]).^2))
@@ -106,7 +103,7 @@ plot(ed, label = ["Calm market conditions" "Volatile market conditions"],
 
 mean(expected_duration(model), dims = 1)
 
-plot(smoothed_probs(model),
+plot(smoothed_probs(model)[1:500,],
          label     = ["Calm market conditions" "Volatile market conditions"],
          title     = "Regime probabilities", 
          linewidth = 0.5,

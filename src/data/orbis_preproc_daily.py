@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
-df = pd.read_excel('data/Export 14_04_2024 14_01.xlsx', sheet_name = 'Results')
+df = pd.read_excel('src/data/Export 14_04_2024 14_01.xlsx', sheet_name = 'Results')
 #df.columns.str.replace(r'(\d*\.\d+|\d+)', '', regex=True).unique()
 
 df.drop(df.filter(regex=' yr').columns, axis=1, inplace=True)
@@ -142,4 +142,4 @@ df_long = df.pivot(index=['comp', 'date', 'month', 'Country', 'ticker'],
 df_long.assign(prof_ch = df_long.groupby('comp').opincome.pct_change())\
     .melt(id_vars=['comp', 'date', 'month', 'Country', 'ticker'],
           var_name='variable', value_name='value')\
-    .to_csv('data/orbis_preproc.csv', index=False)
+    .to_csv('src/data/orbis_preproc.csv', index=False)

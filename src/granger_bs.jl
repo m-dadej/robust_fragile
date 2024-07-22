@@ -91,8 +91,8 @@ run(`py granger_ts.py
     --region eu
     --freq weekly`) # daily or weekly
 
-data_raw = CSV.read("data/df_rets_granger.csv", DataFrame)
-orbis_data = CSV.read("data/orbis_preproc.csv", DataFrame)
+data_raw = CSV.read("src/data/df_rets_granger.csv", DataFrame)
+orbis_data = CSV.read("src/data/orbis_preproc.csv", DataFrame)
 #orbis_data = subset(orbis_data, :comp => x -> x .!= "AIB GROUP PUBLIC LIMITED COMPANY")
 
 # number of observations per group
@@ -147,7 +147,7 @@ end
 plot(granger_ts)
 
 
-CSV.write("data/bs_granger40_w_log.csv", 
+CSV.write("src/data/bs_granger40_w_log.csv", 
           DataFrame(Date = df_dates[cor_w:end],
                     bs_granger = granger_ts))
 

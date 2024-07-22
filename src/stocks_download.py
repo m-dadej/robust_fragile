@@ -132,7 +132,7 @@ df['spread_ch'] = df['spread'].pct_change()
 df["banks_index"] = df["banks_index"].pct_change()
 df['index'] = df['index'].pct_change()
 
-df.to_csv("data/bank_cor.csv") 
+df.to_csv("src/data/bank_cor.csv") 
 
 # robust yet fragile
 
