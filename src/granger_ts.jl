@@ -3,17 +3,15 @@
 @time using DataFrames
 @time using CSV
 @time using MarSwitching
-@time using GLM
-@time using BenchmarkTools
 @time using Tables
-@time using Plots
 
+2+2
 
-cor_w = 252
+cor_w = 63
 n_covariates = 5
 
-run(`py granger_ts.py
-    --region us
+run(`py src/granger_ts.py
+    --region eu
     --freq daily`) # daily or weekly
 
 replace(x, to) = ismissing(x) ? to : x
