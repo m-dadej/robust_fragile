@@ -3,11 +3,9 @@
 @time using DataFrames
 @time using CSV
 @time using MarSwitching
-@time using GLM
-@time using BenchmarkTools
 @time using Tables
-@time using Plots
 
+2+2
 
 cor_w = 63
 n_covariates = 5
