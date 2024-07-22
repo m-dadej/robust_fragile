@@ -1,0 +1,290 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{anand18}{article}{}{}
+      \name{author}{17}{}{%
+        {{un=0,uniquepart=base,hash=02fd745acacc872840fd2f858a8bab08}{%
+           family={Anand},
+           familyi={A\bibinitperiod},
+           given={Kartik},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=690ee50dfb4275a732f543fab3cc121b}{%
+           family={{van Lelyveld}},
+           familyi={v\bibinitperiod},
+           given={Iman},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=25aaacae156c61402c8ee5d87c544b79}{%
+           family={Banai},
+           familyi={B\bibinitperiod},
+           given={Ádám},
+           giveni={Á\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=26997f70f9550c0562235693b362e5eb}{%
+           family={Friedrich},
+           familyi={F\bibinitperiod},
+           given={Soeren},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8c3d7e0908d40cf0d032acdf9d988204}{%
+           family={Garratt},
+           familyi={G\bibinitperiod},
+           given={Rodney},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8440accdbac12f9d6421c25ea29b4e9c}{%
+           family={Hałaj},
+           familyi={H\bibinitperiod},
+           given={Grzegorz},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=31f4840254b09e3ea1b7474ad1a02a84}{%
+           family={Fique},
+           familyi={F\bibinitperiod},
+           given={Jose},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4240b68d1172d6b1a66be6a539666e9}{%
+           family={Hansen},
+           familyi={H\bibinitperiod},
+           given={Ib},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8fd423b587e21c2e554b95b71e09156e}{%
+           family={Jaramillo},
+           familyi={J\bibinitperiod},
+           given={Serafín\bibnamedelima Martínez},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ca19132597b7f59aa5dfed3556c53a44}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Hwayun},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2ec799aab97b1c1b92a1c45ba6ce985b}{%
+           family={Molina-Borboa},
+           familyi={M\bibinithyphendelim B\bibinitperiod},
+           given={José\bibnamedelima Luis},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e3663f3a8b86dbe04d1d4b5e77bb435f}{%
+           family={Nobili},
+           familyi={N\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=378a54b1b35b22d50336ffa713be9f9f}{%
+           family={Rajan},
+           familyi={R\bibinitperiod},
+           given={Sriram},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=863798a2afc29e4fac53eb0f40ec75c0}{%
+           family={Salakhova},
+           familyi={S\bibinitperiod},
+           given={Dilyara},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c7a63ba27188fe1fc078450dd56d36b3}{%
+           family={Silva},
+           familyi={S\bibinitperiod},
+           given={Thiago\bibnamedelima Christiano},
+           giveni={T\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=343fdf49cf78209c0762f0363a800fc3}{%
+           family={Silvestri},
+           familyi={S\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a41d46f4c9f519c99fac16bae31567e}{%
+           family={{de Souza}},
+           familyi={d\bibinitperiod},
+           given={Sergio\bibnamedelimb Rubens\bibnamedelima Stancato},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d41114c588b9cc0cb453ceec67ce9253}
+      \strng{fullhash}{3dfba8bd5a5ca9acd92d2885820ba51a}
+      \strng{fullhashraw}{3dfba8bd5a5ca9acd92d2885820ba51a}
+      \strng{bibnamehash}{d41114c588b9cc0cb453ceec67ce9253}
+      \strng{authorbibnamehash}{d41114c588b9cc0cb453ceec67ce9253}
+      \strng{authornamehash}{d41114c588b9cc0cb453ceec67ce9253}
+      \strng{authorfullhash}{3dfba8bd5a5ca9acd92d2885820ba51a}
+      \strng{authorfullhashraw}{3dfba8bd5a5ca9acd92d2885820ba51a}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Capturing financial network linkages and contagion in stress test models are important goals for banking supervisors and central banks responsible for micro- and macroprudential policy. However, granular data on financial networks is often lacking, and instead the networks must be reconstructed from partial data. In this paper, we conduct a horse race of network reconstruction methods using network data obtained from 25 different markets spanning 13 jurisdictions. Our contribution is two-fold: first, we collate and analyze data on a wide range of financial networks. And second, we rank the methods in terms of their ability to reconstruct the structures of links and exposures in networks.}
+      \field{issn}{1572-3089}
+      \field{journaltitle}{Journal of Financial Stability}
+      \field{note}{Network models, stress testing and other tools for financial stability monitoring and macroprudential policy design and implementation}
+      \field{title}{The missing links: A global study on uncovering financial network structures from partial data}
+      \field{volume}{35}
+      \field{year}{2018}
+      \field{pages}{107\bibrangedash 119}
+      \range{pages}{13}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.jfs.2017.05.012
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S1572308917303649
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S1572308917303649
+      \endverb
+      \keyw{Network reconstruction,Market structure,Intermediation}
+    \endentry
+    \entry{deibold}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=15cc2e3b52b5ea2d3045be532376a348}{%
+           family={Diebold},
+           familyi={D\bibinitperiod},
+           given={Francis\bibnamedelima X.},
+           giveni={F\bibinitperiod\bibinitdelim X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2fe2b59063fd59caddf1c2ed6829992a}{%
+           family={Yılmaz},
+           familyi={Y\bibinitperiod},
+           given={Kamil},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5667291c8797dcbd1eb3c7e9a3970824}
+      \strng{fullhash}{5667291c8797dcbd1eb3c7e9a3970824}
+      \strng{fullhashraw}{5667291c8797dcbd1eb3c7e9a3970824}
+      \strng{bibnamehash}{5667291c8797dcbd1eb3c7e9a3970824}
+      \strng{authorbibnamehash}{5667291c8797dcbd1eb3c7e9a3970824}
+      \strng{authornamehash}{5667291c8797dcbd1eb3c7e9a3970824}
+      \strng{authorfullhash}{5667291c8797dcbd1eb3c7e9a3970824}
+      \strng{authorfullhashraw}{5667291c8797dcbd1eb3c7e9a3970824}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose several connectedness measures built from pieces of variance decompositions, and we argue that they provide natural and insightful measures of connectedness. We also show that variance decompositions define weighted, directed networks, so that our connectedness measures are intimately related to key measures of connectedness used in the network literature. Building on these insights, we track daily time-varying connectedness of major US financial institutions’ stock return volatilities in recent years, with emphasis on the financial crisis of 2007–2008.}
+      \field{issn}{0304-4076}
+      \field{journaltitle}{Journal of Econometrics}
+      \field{note}{Causality, Prediction, and Specification Analysis: Recent Advances and Future Directions}
+      \field{number}{1}
+      \field{title}{On the network topology of variance decompositions: Measuring the connectedness of financial firms}
+      \field{volume}{182}
+      \field{year}{2014}
+      \field{pages}{119\bibrangedash 134}
+      \range{pages}{16}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.jeconom.2014.04.012
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0304407614000712
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0304407614000712
+      \endverb
+      \keyw{Risk measurement,Risk management,Portfolio allocation,Market risk,Credit risk,Systemic risk,Asset markets,Degree distribution}
+    \endentry
+    \entry{godley}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f6bfabc3bb1587ddfc005f7ede21614c}{%
+           family={Godley},
+           familyi={G\bibinitperiod},
+           given={Wynne},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dcd7b0a6002af14d170a5a19365c27f2}{%
+           family={Lavoie},
+           familyi={L\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{f441e789606878aa4ec4a6387dfbee0c}
+      \strng{fullhash}{f441e789606878aa4ec4a6387dfbee0c}
+      \strng{fullhashraw}{f441e789606878aa4ec4a6387dfbee0c}
+      \strng{bibnamehash}{f441e789606878aa4ec4a6387dfbee0c}
+      \strng{authorbibnamehash}{f441e789606878aa4ec4a6387dfbee0c}
+      \strng{authornamehash}{f441e789606878aa4ec4a6387dfbee0c}
+      \strng{authorfullhash}{f441e789606878aa4ec4a6387dfbee0c}
+      \strng{authorfullhashraw}{f441e789606878aa4ec4a6387dfbee0c}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Monetary economics: an integrated approach to credit, money, income, production and wealth}
+      \field{year}{2006}
+    \endentry
+    \entry{mcleay}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=bc432bbeebe2be24bb908c96301afa0c}{%
+           family={McLeay},
+           familyi={M\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4efdc2fe16462626ea846ce7333e7a5a}{%
+           family={Radia},
+           familyi={R\bibinitperiod},
+           given={Amar},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c13e0dc4e9c5527a23626487a118ab83}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={Ryland},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e466ee22cbd7079141cb186c883e0544}
+      \strng{fullhash}{e466ee22cbd7079141cb186c883e0544}
+      \strng{fullhashraw}{e466ee22cbd7079141cb186c883e0544}
+      \strng{bibnamehash}{e466ee22cbd7079141cb186c883e0544}
+      \strng{authorbibnamehash}{e466ee22cbd7079141cb186c883e0544}
+      \strng{authornamehash}{e466ee22cbd7079141cb186c883e0544}
+      \strng{authorfullhash}{e466ee22cbd7079141cb186c883e0544}
+      \strng{authorfullhashraw}{e466ee22cbd7079141cb186c883e0544}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bank of England quarterly bulletin}
+      \field{title}{Money creation in the modern economy}
+      \field{year}{2014}
+      \field{pages}{Q1}
+      \range{pages}{-1}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

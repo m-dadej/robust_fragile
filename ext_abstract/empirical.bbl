@@ -1,0 +1,28 @@
+\begin{thebibliography}{}
+
+\bibitem[Acemoglu et~al., 2015]{acemoglu}
+Acemoglu, D., Ozdaglar, A., and Tahbaz-Salehi, A. (2015).
+\newblock Systemic risk and stability in financial networks.
+\newblock {\em American Economic Review}, 105(2):564--608.
+
+\bibitem[Billio et~al., 2012]{billio}
+Billio, M., Getmansky, M., Lo, A.~W., and Pelizzon, L. (2012).
+\newblock Econometric measures of connectedness and systemic risk in the finance and insurance sectors.
+\newblock {\em Journal of Financial Economics}, 104:535--559.
+
+\bibitem[Granger, 1969]{granger}
+Granger, C. W.~J. (1969).
+\newblock Investigating causal relations by econometric models and cross-spectral methods.
+\newblock {\em Econometrica}, 37(3):424--438.
+
+\bibitem[Haldane, 2009]{haldane}
+Haldane, A.~G. (2009).
+\newblock Rethinking the financial network.
+\newblock Speech delivered at the Financial Student Association, Amsterdam.
+
+\bibitem[Ledoit and Wolf, 2003]{ledoit}
+Ledoit, O. and Wolf, M. (2003).
+\newblock Honey, i shrunk the sample covariance matrix.
+\newblock {\em UPF economics and business working paper}, (691).
+
+\end{thebibliography}

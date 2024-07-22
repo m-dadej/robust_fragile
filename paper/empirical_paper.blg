@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: empirical_paper.aux
+The style file: apalike.bst
+Database file #1: bibliography.bib
+Warning--I'm ignoring gallegati08's extra "title" field
+--line 131 of file bibliography.bib
+Warning--there's a number but no volume in ledoit03
+You've used 63 entries,
+            1935 wiz_defined-function locations,
+            869 strings with 14281 characters,
+and the built_in function-call counts, 25151 in all, are:
+= -- 2471
+> -- 995
+< -- 42
++ -- 338
+- -- 328
+* -- 2240
+:= -- 4401
+add.period$ -- 195
+call.type$ -- 63
+change.case$ -- 479
+chr.to.int$ -- 63
+cite$ -- 64
+duplicate$ -- 875
+empty$ -- 1779
+format.name$ -- 441
+if$ -- 4887
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 59
+newline$ -- 324
+num.names$ -- 189
+pop$ -- 332
+preamble$ -- 1
+purify$ -- 479
+quote$ -- 0
+skip$ -- 666
+stack$ -- 0
+substring$ -- 1966
+swap$ -- 68
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 374
+warning$ -- 1
+while$ -- 199
+width$ -- 0
+write$ -- 828
+(There were 2 warnings)

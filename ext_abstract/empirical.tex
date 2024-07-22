@@ -1,0 +1,209 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{authblk}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=2cm,right=2cm,
+            marginparwidth=1cm]{geometry}
+\usepackage{booktabs,siunitx}
+\sisetup{%
+  output-decimal-marker={,},
+}
+\hypersetup{
+colorlinks=false,
+pdfborder={0 0 0},
+}
+\title{Systemic risk and financial connectedness: empirical evidence \\
+\textbf{Extended abstract}}
+\bibliographystyle{apalike}
+\author[1]{Mateusz Dadej}
+\affil[1]{Univeristy of Brescia, Italy}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Keywords:} Systemic risk, Financial connectedness, Volatility modeling, regime switching models.
+\subsection*{Introduction}
+
+One of the main contributions of literature on financial networks is the property of financial system called robust-yet-fragile. The term was first coined by chief economist of Bank of England, Andrew Haldane (\citet{haldane}). He posits, that financial connections can serve at the same time as shock-absorbers and shock-amplifiers to the financial sector. This makes the system robust, when the magnitude of shock is relatively small, but fragile, when the shock is large. 
+
+A seminal paper by \citet{acemoglu}, provides a formal model, in which an extent of financial contagion exhibits a form of regime transition. In a densely connected network of financial institutions, when the shocks are small, the damages are dissipated through large number of financial institutions, e.g. akin to diversification effect. On the other hand, when the shock is above some threshold, the properties of the system changes markedly. The damages are no longer dissipated, but amplified through the network. The effect stems from the initial default from the shock that induces further credit losses among the interconnected banks. 
+
+This research aims at providing empirical evidence for the regime-dependent effect of connectedness on financial stability. To the best of our knowledge this is the first paper filling this gap.
+
+\subsection*{Research design}
+
+The research design is a two-step process. Using stock prices data of the banks taking part in the stress tests exercises in eurozone and US (respectively 41 and 30), various statistical measures of system connectedness are estimated. The measures are calculated on a rolling window basis, providing the time series of connectedness of the banking system. 
+
+In the second step, in order to assess the regime-dependent effect of connectedness on financial stability, the time series of connectedness is used as an exogenous variable in a Markov switching ARCH model. Here, the volatility of the banking sector (the proper banking index) is a proxy of a financial stability.
+
+\subsection*{Measures of financial connectedness}
+
+Because of lack of transaction-level data among banks, the econometric literature provides several methods that aim at estimating a level of connectedness of financial sector. The measures are all estimated based only on a stock prices data, therefore providing a relatively high frequency variables. 
+\
+
+\textbf{1. Ledoit-Wolf covariance} 
+
+\[\kappa_{\rho} = \frac{\sum_{i \neq i}^{N} \sum_{j \neq j}^{N} \rho_{i,j}(R)}{N^2-N}\]
+
+Where $R$ is a matrix of stock's rates of return, $\rho_{i,j}(R)$ is a correlation matrix, estimated with a Ledoit-Wolf estimator (\citet{ledoit}). This estimator is shown to have smaller estimation error than sample covariance when the number of observations is relatively small. This is the case for the research design, where the measures of financial connectedness are estimated on a rolling basis. The measure calculates the average correlation across the banks in the sample. The higher the average correlation, the more connected the system is.
+\
+
+\textbf{2. Covariance eigenvalues}
+
+Given the sample covariance matrix of the rates of returns $\bf{\Sigma}$, the covariance eigenvalues $\lambda$ are obtained solving the below equation:
+
+\[|\bf{\Sigma} - \lambda \bf{I}| = 0\]
+
+Where $|\cdot|$ is a determinant and $\bf{I}$ an identity matrix. The eigenvalues based measure of connectedness is then defined as:
+
+\[\kappa_{\lambda} = \frac{\sum_{i}^{k} \lambda_i}{\sum_{i}^{N} \lambda_i}\]
+
+This measure captures the proportion of variance of the system that is explained by the first $k$ eigenvalues, as in the principal component analysis. The higher the proportion, the more connected the system is.
+
+\
+
+\textbf{3. Granger causality network degree}
+
+This measure is based on the Granger defined causality (\citet{granger}). In which a time-series variable $x_t$ "granger" cause variable $y_t$, when it contains enough information at time $t$ to predict value of $y_{t+1}$. 
+
+Specifically, the granger causality is investigated with following regression:
+
+\[r_{i,t+1} = \beta_0 + \underbrace{\beta_1 r_{m, t}}_{\text{market return}} + \underbrace{\beta_2 r_{j, t}}_{\text{counterparty}} + \underbrace{\sum_{k}^{s} \beta_{c+2} x_{c, t}}_{\text{sectoral controls}} + \epsilon_t\]
+
+Where $r_{j, t}$ is a rate of return of bank $j$ stock price at time $t$, which allegedly granger causes the rate of return of bank $i$ stock price. The regression also controls for the market rate of return $r_{m, t}$ and a set of sectoral returns (various ETFs) controlling for common exposures among the pair of banks.
+
+The banks $j$ and $i$ are said to be connected when the coefficient $\beta_2$ is statistically significant. 
+
+Given the procedure above, calculated for each of the bank pairs, we can define a binary adjacency matrix $G$ describing the relationship between the banks:
+
+\[G_{i,j} = \begin{cases}
+    1  & \text{if } j \text{ granger cause } i \\
+    0 & \text{otherwise}
+  \end{cases} \forall i \neq j\]
+
+Which can be interpreted as a financial network. Then the measure of granger connectedness is defined as:
+
+\[\kappa_{\beta} = \frac{\sum_{i \neq j}^{N} \sum_{j \neq i}^{N} G_{i,j}}{ N \times (N-1)}\]
+
+Which is an equivalent of average degree of a graph. The last two of the above connectedness measures are as described in \citet{billio}, additionally providing a more extensive analysis of their properties.
+
+The above measures are then calculated on a rolling basis. That is, at each time $t$, the measures are calculated for the last $w$ observations, where $w$ is a window size. 
+
+\subsection*{Modeling the regime-dependent effect of connectedness}
+
+As the theory suggests, the effect of connectedness on financial stability is regime-dependent. In order to capture this property, a Markov switching ARCH model is used to describe the time-varying volatility of banking sector. The proxy of the banking sector being the appropriate banking index.
+
+The mean specification of the model controls for the first order autocorrelation of the broad market rate of returns (S\&P 500 or STOXX600) and an autoregressive component:
+
+\[r_{b,t} = \beta_0 + \beta_1 r_{b,t-1} + \beta_1 r_{m,t-1} + \epsilon_t\]
+
+Where $r_{b,t}$ is the rate of return of the banking sector index and $r_{m,t}$ is the rate of return of the broad market index. The Markov-switching ARCH specification is then:
+
+\[\sqrt{\epsilon^2_t} = \alpha_{0,s} + \underbrace{\alpha_{1,s}\kappa_{t-1}}_{\text{connectedness}} + \underbrace{\sum_{i=1}^{p} \alpha_{i+1} \sqrt{\epsilon^2_{t-i}}}_{\text{Lag controls}}\]
+
+With $\kappa_t$ being one of the connectedness measures described previously. The model parameters indexed with $s$ are regime-dependent. Differentiating the effect of connectedness on the banking volatility for different market conditions. The regime is described by the Markov process $s_t$ with transition probabilities $\pi_{ij}$:
+
+\begin{equation*}
+  P(S_t = i | S_{t-1} = j) = \begin{bmatrix}
+    \pi_1 & 1 - \pi_2\\
+      1 - \pi_1 & \pi_2
+      \end{bmatrix}
+\end{equation*}
+
+A well documented phenomena is the increase of the correlation across assets during the financial distress. This is mostly because of the fly to safety effect and search for liquidity. In order to avoid this endogeneity, the connectedness measures are lagged by one period, thus providing a causal effect on the volatility of banking sector.
+
+\subsection*{Results}
+
+The results are presented in the tables \ref{table:us} and \ref{table:eu}. Parameters of the mean specifications ($\beta$) and parameters of ARCH effects ($\alpha_{2,\cdots,p}$) are omitted for the sake of brevity (almost always positive and statistically significant). The $\pi_{i,i}$ are diagonal elements of the transition matrix.
+
+The model distinguished two regimes. The first one can be briefly described as low-volatility regime (with lower $\alpha_0$ and $\eta$ - the variance of ARCH error), while the second one as high-volatility regime. Unsurprisingly, the transition probabilities suggests that the former one is less prevalent. 
+
+The models provide partial evidence in favor of the robust-yet-fragile narrative. During low-shock regime, the connectedness plays a negligible role. Although, the effect is often statistically significant and positive, the magnitude is always economically irrelevant. Ranging from $-0.002$ to $0.041$, this suggests that in the best case, one standard deviation change in connectedness measure leads to $0.041$ percentage point change in conditional volatility (the data is standardized and multiplied by 100). 
+
+On the other hand, the behavior in the high-shock regime is well-align with the theory. When the markets are in the unstable market regime, the interconnectedness serves as a mechanism for the propagation of the shock, undermining the financial stability. The magnitude of the effect is economically relevant and statistically significant, ranging from $0.052$ to $0.276$. 
+
+The paper also provides a series of robustness checks, including the use of data from financial statements of the banks (interpolated to weekly data) and results for different combinations of window sizes. The results are consistent with the main findings.
+
+\
+\begin{table}[H]
+  \begin{center}
+  \caption{Models for US banking sector and rolling window of 63 trading days (quarter)}
+  \label{table:us}
+  \begin{tabular}{cccccc}
+    \toprule
+     Connectedness measure &  & \multicolumn{2}{c}{\bfseries Regime 1} & \multicolumn{2}{c}{\bfseries Regime 2}  \\
+     %\cmidrule(lr){1-6}
+     \hline
+     & & Estimate & S.E. & Estimate & S.E. \\
+     \hline
+     \multirow{3}{*}[\normalbaselineskip]{Correlation-based} & $\alpha_0$ & 0.402* & 0.013 & 1.517*  & 0.054 \\
+      & $\alpha_1$ & 0.027* & 0.007 & 0.239* & 0.044 \\
+      & $\eta$ & 0.373 & 0.007 & 1.268 & 0.017 \\
+      & $\pi_{i,i}$ &  \multicolumn{2}{c}{89.4\%} & \multicolumn{2}{c}{67\%}\\
+      \hline
+      \multirow{3}{*}[\normalbaselineskip]{Eigenvalue-based} & $\alpha_0$ & 0.416* & 0.014 & 1.554*  & 0.057 \\
+      & $\alpha_1$ & 0.041* & 0.007 & 0.194* & 0.046 \\
+      & $\eta$ & 0.38 & 0.006 & 1.304 & 0.016 \\
+      & $\pi_{i,i}$ &  \multicolumn{2}{c}{90\%} & \multicolumn{2}{c}{67.2\%}\\
+      \hline
+      \multirow{3}{*}[\normalbaselineskip]{Granger-based} & $\alpha_0$ & 0.379* & 0.013 & 1.472*  & 0.047 \\
+      & $\alpha_1$ & 0.009 & 0.007 & 0.205* & 0.032 \\
+      & $\eta$ & 0.356 & 0.006 & 1.161 & 0.013 \\
+      & $\pi_{i,i}$ &  \multicolumn{2}{c}{87.4\%} & \multicolumn{2}{c}{65\%}\\
+      \hline
+    \multicolumn{6}{l}{\footnotesize * coefficient with 5\% statistical significance} \\
+    \hline
+  \end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}
+  \begin{center}
+  \caption{Models for EU banking sector and rolling window of 252 trading days (year)}
+  \label{table:eu}
+  \begin{tabular}{cccccc}
+    \toprule
+     Connectedness measure &  & \multicolumn{2}{c}{\bfseries Regime 1} & \multicolumn{2}{c}{\bfseries Regime 2}  \\
+     %\cmidrule(lr){1-6}
+     \hline
+     & & Estimate & S.E. & Estimate & S.E. \\
+     \hline
+     \multirow{3}{*}[\normalbaselineskip]{Correlation-based} & $\alpha_0$ & 0.466* & 0.019 & 1.988*  & 0.06 \\
+      & $\alpha_1$ & 0.017 & 0.009 & 0.22* & 0.043 \\
+      & $\eta$ & 0.435 & 0.009 & 1.4 & 0.012 \\
+      & $\pi_{i,i}$ &  \multicolumn{2}{c}{78.6\%} & \multicolumn{2}{c}{52\%}\\
+      \hline
+      \multirow{3}{*}[\normalbaselineskip]{Eigenvalue-based} & $\alpha_0$ & 0.458* & 0.018 & 1.975*  & 0.061 \\
+      & $\alpha_1$ & -0.002 & 0.008 & 0.052 & 0.048 \\
+      & $\eta$ & 0.435 & 0.009 & 1.42 & 0.012 \\
+      & $\pi_{i,i}$ &  \multicolumn{2}{c}{90\%} & \multicolumn{2}{c}{67.2\%}\\
+      \hline
+      \multirow{3}{*}[\normalbaselineskip]{Granger-based} & $\alpha_0$ & 0.468* & 0.018 & 1.984*  & 0.059 \\
+      & $\alpha_1$ & 0.018* & 0.008 & 0.276* & 0.05 \\
+      & $\eta$ & 0.433 & 0.009 & 1.394 & 0.013 \\
+      & $\pi_{i,i}$ &  \multicolumn{2}{c}{78.5\%} & \multicolumn{2}{c}{52.5\%}\\
+      \hline
+    \multicolumn{6}{l}{\footnotesize * coefficient with 5\% statistical significance} \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\end{table}
+
+
+\newpage
+
+\bibliography{sample}
+
+
+\end{document}
