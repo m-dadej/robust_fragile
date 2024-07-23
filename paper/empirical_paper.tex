@@ -96,7 +96,7 @@ Table \ref{table:descriptive} reports descriptive statistics of the stock price 
 The American market is on average more correlated than the European one. The reason is more fragmented banking sector\footnote{Although, the concept of Banking union is discussed.} in Europe, with different member states having a separate banking law, regulators, capital markets and in general a more heterogeneous real economy. That being said, the systemic risk of the banking sector is indeed a EU-wide concern (see e.g. \cite{song21}). 
 
 
-\section{Financial network Connectedness}\label{section:fin_network}
+\section{Financial network connectedness}\label{section:fin_network}
 
 Because of lack of public data from the interbank market, or as a matter of fact, any bilateral contractual obligations between the banks, the academic literature developed a set of tools to estimate the financial networks from available sources. As shown in the literature, these methods are well established and commonly applied in order to estimate the financial connections. This is despite some of their limitations. One may wonder, how can the stock prices reflect an information that is not public? There is however, evidence, that the stock prices discount also some unknown information to the public, e.g. due to insider trading or inferred from other data. A classic example is \cite{newhard14}, describing the, allegedly, the first ever event study performed on the stock prices. Based on the outperformance of lithium producers he inferred the fuel material used in the manufacturing of the newly-developed hydrogen bomb. An information which was non-public, to the extent, that his paper was confiscated. The literature on insider trading and non-public information on the stock market is vast and extends beyond the scope of herein paper (see e.g. \cite{hawk90}, \cite{huddart07} or \cite{klein20}). As well as assessment of the methods to estimate the financial network.
 
@@ -210,7 +210,7 @@ The estimators of $\beta^2$, $\delta^2$, $\alpha^2$ and $\mu$ being:
 Once the shrinked covariance matrix is estimated, it is assumed to reflect the underlying connections among the financial institutions. The connectedness is thus measured as an average Ledoit-Wolf covariance among the entities:
 
 \begin{equation}
-	\gamma_{LW} = \frac{\sum_{i \neq j}^{N} \sum_{j \neq i}^N \tilde{\sigma}_{i,j}}{N^2 - N}
+	\gamma_{lw} = \frac{\sum_{i \neq j}^{N} \sum_{j \neq i}^N \tilde{\sigma}_{i,j}}{N^2 - N}
 \end{equation}
 
 Where $\tilde{\sigma}_{i,j}$ are, as before, elements of the matrix $\tilde{\Sigma}$.
@@ -237,7 +237,7 @@ Where $\mathbf{\Lambda} = \text{diag} \{\lambda_1, \lambda_2, \dots, \lambda_n \
 In the context of the data used in this research, the biggest eigenvalue shows the amount of variance of the returns, explained by the most important factor. Thus, the relevant measure of the connectedness is:
 
 \begin{equation}
-	\gamma_{PCA} = \frac{\max \{\mathbf{\lambda}\}}{\mathbf{\lambda}'\mathbf{1}}
+	\gamma_{pca} = \frac{\max \{\mathbf{\lambda}\}}{\mathbf{\lambda}'\mathbf{1}}
 \end{equation}
 
 Where $\mathbf{1}$ is a vector of ones with appropriate size. The measure may be interpreted as a share of the single most important component in explaining the total sum of the variances. It is clear, that the measure have some drawbacks when analyzing connectedness. The procedure does not yield the connections among the institutions (other than covariance itself) but a single measure of connectedness. Notwithstanding this disadvantage, the measure is useful in the context of herein research design, as the main objective of this stage is to obtain the single connectedness measure. 
@@ -250,10 +250,36 @@ The approach, that yields not only a network of the connections but also its dir
 	y_t = \beta_0 + \beta_1 x_t + \underbrace{\sum_{i=1}^{p} \beta_{i+1} y_{t - p}}_{\text{lag controls}} + \epsilon_t
 \end{equation}
 
-Where $\beta$ are the estimated coefficients and $\epsilon_t$ the error term. The variable $x_t$ Granger-cause $y_t$ if the respective coefficient $\beta_1$ is significantly different from zero.
+Where $\beta$ are the estimated coefficients and $\epsilon_t$ the uncorrelated error term. The variable $x_t$ is said to Granger-cause $y_t$ if the respective coefficient $\beta_1$ is significantly different from zero.
 In the context of financial markets, the above approach may appear to be implausible to a lot of financial economists. That is because of the relatively high degree of information efficiency, considering we analyze the most liquid markets in the world. This efficiency implies that any publicly accessible information should yield no predictive ability, thus rendering the equation \ref{equation:granger} pointless. That being said, the test indeed finds the underlying connections \footnote{Even with a frequency higher than the applied confidence interval.}. This is due to several factors. The primary one, is that the statistical significance is not equal to the economical one. Any execution of potential strategy following the equation \ref{equation:granger}, will stumble upon the transaction costs, including slippage and commisions, which will make the exercise unprofitable. Thus, the granger causality may just as well be seen as a return spillover between the institutions, as shown in \cite{battison12}.
 
-The exact procedure employed in the research design that follows i
+The exact procedure employed in the research design is slightly modified\footnote{\cite{billio12} performs the Granger causality test by filtering the returns with GARCH(1,1) process and then using the time-varying variance to test the significance of the $\beta$ coefficient from the regression. This approach is, however, computationally more expensive. This technical dimension is more relevant to this study as the connectedness is measured in a rolling window basis. Unlike in the original study of \cite{billio12}.}. The procedures uses excess returns of the institutions stock prices over a relevant benchmark of market rates of return. Consequently, the returns of the institutions will have a purely idiosyncratic character. The regression has a following specification:
+
+\begin{equation}
+	r_{i,t+1} = \beta_0 + \beta_1 r_{j,t} + \beta_2 r_{i, t} + \underbrace{\sum_{i=1}^{k} \beta_{i+2} x_{t}}_{\text{Sectoral controls}} + \epsilon_t
+\end{equation}
+
+The financial institutions are assumed to be connected when the $\beta_1$ coefficient is statistically different from 0. The sectoral controls consists of rates of returns of consumer discretionary ETF, Real Estate ETF, crude oil WTI and treasure bills of 3-month and 10 year maturity. These variables control for common shocks among the institutions. Since the institutions may have a common exposures (e.g. to real estate through mortgages portfolio), a shock to the real estate market could hit both of the institutions equaly, showing potential Granger causality, despite no bilateral contractual obligations among them. By introducing some of the sectoral controls the research design is free from this sort of relationship. It is however important to note, that these channels are also of concern by the theoretical literature studying contagion on the financial networks. This channel is described e.g. by \cite{cifuentes05} and may play an actual role in the mechanism describing the \textit{robust-yet-fragile} phenomena. That being said, this is one of the three other methods estimating the financial connectedness in herein study and the only one where controlling for the common shock is possible. Thus, the other measures will be allowed to capture this channel. 
+
+The above Granger analysis is ran on every pair of the institutions. The adjacency matrix of the financial network $\boldsymbol{A}$ has following entries:
+
+\begin{equation}
+	a_{i,j} = \begin{cases}
+		1  & \text{if } \beta_1 \text{ is significant} \\
+		0 & \text{otherwise}
+	\end{cases} \; \forall \; i \neq j
+\end{equation}
+
+Thus, the resulting graph is unweighted, because the adjacency matrix is binary. Although, this is only a matter of choice. The entries might as well be equal to the effect size $\beta_1$. This is however unnecessary, given the research design. Since the Granger causality is not granted, the network is also directed. Clearly, these properties of the approach are beneficial with respect to the rest employed. The method is also different in a way that it measures the lagged connection among the entities. It is unclear if that is the most suitable approach, considering that the information is discounted in real time on the financial markets. 
+
+The connectedness measure is then calculated in a similar manner as for the Ledoit-Wolf approach:
+
+\begin{equation}
+\gamma_{g} = \frac{\sum_{i \neq j}^{N} \sum_{j \neq i}^N a_{i,j}}{N^2 - N}	
+\end{equation}
+
+\subsection{Network estimation results}\label{subsection:network_results}
+
 
 \bibliography{bibliography}
 

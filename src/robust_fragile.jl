@@ -45,9 +45,10 @@ df_model = remove_outlier(df_model, 5)
 standard(x) = (x .- mean(x)) ./ std(x)
 ols(y, X) = (X'X) \ X'y
 
-X_mean = [ones(length(df_model[2:end,1])) add_lags(df_model[:,2], 1)]
-β_mean = ols(df_model[2:end,1] ,X_mean)
-y_hat = df_model[2:end,1] .- X_mean*β_mean 
+X_mean = [ones(length(df_model[3:end,1])) add_lags(df_model[:,1], 2)[:,2:3] add_lags(df_model[:,2], 2)[:,2:3]]
+β_mean = ols(df_model[3:end,1] ,X_mean)
+y_hat = df_model[3:end,1] .- X_mean*β_mean 
+
 
 # y_hat = sqrt.((df_model[:,1] .- mean(df_model[:,1])).^2)
 # df_model[:,2] = sqrt.(df_model[:,2].^2)
@@ -58,7 +59,7 @@ y_hat = df_model[2:end,1] .- X_mean*β_mean
 
 exog = add_lags(abs.(y_hat), 4)[:,2:5]
 #exog = add_lags(df_model[:,1], 1)[:,2]
-exog_switch = add_lags(df_model[5:end,3],1)[:,2] #[df_model[2:end, 3] df_model[2:end,2]]
+exog_switch = add_lags(df_model[6:end,3],1)[:,2] #[df_model[2:end, 3] df_model[2:end,2]]
 
 #tvtp = [ones(length(exog[:,1])) add_lags(df_model[:,3], 1)[2:end,2]]
 #tvtp[:, 2] = standard(tvtp[:, 2])

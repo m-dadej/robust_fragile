@@ -4,14 +4,12 @@
 # notatki
 
 - jeszcze raz sprawdz czy to nie problem ze connectedness jest autoskorelowane.
-- dodaj w paperze ze to r_bank - r_banking_index (bo chcemy idiosyncratic rets)
 - warto byc moze przepisac kod
 
 - opisz wady i zalety billio vs diebold?
 - niekorzystny efekt connectedness jest zgodny z acemoglu 2015 (banki nie internalizuja efektow zewnetrznych) jest jeszcze jakis paper co tez jest git - elliot? golub?
 - eu connectedness seems on average smaller, which makes sense considering its a group of ocuntries, unlike USA.
-- dodac grafike pokazujaca co to adjacency matrix i network w lit review???
-
+s
 # further research 
 
 - VAR kontrolujacy o firm specific i macro do szacowania network
