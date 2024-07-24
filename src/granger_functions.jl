@@ -1,5 +1,6 @@
 using LinearAlgebra
 using MarSwitching
+using Base.Threads
 
 replace(x, to) = ismissing(x) ? to : x
 
@@ -43,41 +44,39 @@ function granger_cause(df::Matrix{Float64}, covariates::Matrix{Float64})
     return β[2], abs(β[2] / Σ[2]) > 1.96
 end
 
-function granger_connect(df::Matrix{Float64}, covariates::Matrix{Float64}, verbose::Bool)
+
+function granger_connect(df::Matrix{Float64}, covariates::Matrix{Float64})
     
-    granger_mat = zeros(size(df, 2), size(df, 2))
+    N = size(df, 2)
+    granger_mat = zeros(N, N)
     
-    for i in 1:size(df, 2)      
-
-        verbose && println(round((i / size(df, 2))*100, digits = 2), "%")
-
-        for j in 1:size(df, 2)
-
-            pair = df[:, [i, j]]          
-            if i == j
-                granger_mat[i, j] = 0
-                continue
-            end
-
-            if any(na_share(pair) .>= 0.9)
-                granger_mat[i, j] = Inf
-                continue
-            end
-
-            if any(na_share(covariates) .>= 0.9)
-                granger_mat[i, j] = Inf
-                continue
-            end
-
-            if rank(preproc_df(pair, covariates)) != 4 + n_covariates
-                granger_mat[i, j] = Inf
-                continue
-            end           
-
-            #println(i, " ", j)
-            _, signif = granger_cause(pair, covariates)
-            granger_mat[i, j] = signif ? 1 : 0
+    @threads for (i, j) in collect(Iterators.product(1:N, 1:N))      
+            
+        if i == j
+            granger_mat[i, j] = 0
+            continue
         end
+
+        pair = df[:, [i, j]]  
+
+        if any(na_share(pair) .>= 0.9)
+            granger_mat[i, j] = Inf
+            continue
+        end
+
+        if any(na_share(covariates) .>= 0.9)
+            granger_mat[i, j] = Inf
+            continue
+        end
+
+        if rank(preproc_df(pair, covariates)) != 4 + n_covariates
+            granger_mat[i, j] = Inf
+            continue
+        end           
+
+        #println(i, " ", j)
+        _, signif = granger_cause(pair, covariates)
+        granger_mat[i, j] = signif ? 1 : 0
     end
 
     return granger_mat
