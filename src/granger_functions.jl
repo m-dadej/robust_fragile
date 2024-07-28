@@ -83,7 +83,8 @@ function granger_connect(df::Matrix{Float64}, covariates::Matrix{Float64})
 end
 
 replace_inf(x) = isinf(x) ? 0.0 : x
+ 
 
 function granger_degree(x)
-    return sum(replace_inf.(x)) / ((size(x)[2])^2 - size(x)[2] - sum(isinf.(x)))
+    return sum(replace_inf.(x) .== 1) / (size(x)[2]^2 - size(x)[2])
 end    
