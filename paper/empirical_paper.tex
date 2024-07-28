@@ -282,9 +282,9 @@ The connectedness measure is then calculated in a similar manner as for the Ledo
 
 \subsection{Static analysis}\label{subsection:static}
 
-Although, the ground truth of the true financial network is unknown, it is still informative to investigate the properties of the estimated network. 
+Although, the ground truth of the true financial network is unknown, it is still informative to investigate the properties of the estimated networks. This way we can evaluate if the estimation results are economically sensible. Figure \ref{fig:actual_network} shows two representations of the same graph, estimated with the Granger-based method. The data used for the estimation is from 2023, as the actual links among the financial institutions is concentrated within this horizon\footnote{The data on maturity structure on interbank market is scarce as well. A bit outdated but complete sample from the German interbank market from 2000 reports that around 40\% of the interbank debt has a maturity of less than a year. The inclusion of derivatives would most likely increase this share.}. 
 
-\begin{figure}[h]%
+\begin{figure}%
 	\centering
 	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_eu_circl.png} }}
 	\quad
@@ -294,7 +294,7 @@ Although, the ground truth of the true financial network is unknown, it is still
 %	\quad	
 %	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_us_circl.png} }}
 		
-	\caption{Financial network visualization based on the data from 2023. Each point (node) represents a financial institution and the connections (edges) are estimated links.}	\label{fig:actual_network}
+	\caption{Financial network visualization based on the data from 2023. Each point (node) represents a financial institution and the connections (edges) are links estimated with the Granger causality method.}	\label{fig:actual_network}
 \end{figure}
 
 
@@ -425,7 +425,7 @@ Although, the ground truth of the true financial network is unknown, it is still
 
 % latex table generated in R 4.3.2 by xtable 1.8-4 package
 % Sat Jul 20 14:54:42 2024
-\begin{table}[ht]
+\begin{table}[h]
 	\centering
 	\renewcommand{\arraystretch}{0.7}
 	\begin{tabular}{l|l|l|l}\multicolumn{2}{c|}{USA} & \multicolumn{2}{c}{EU} \\
@@ -494,7 +494,7 @@ Although, the ground truth of the true financial network is unknown, it is still
 \end{figure}
 
 \begin{figure}[h]
-	\centering
+		\centering
 	\subfloat[\centering Circle representation of EU financial network]{{\includegraphics[width=7cm, height=7cm]{img/graph_eu_lw_circl.png} }}
 	\quad
 	\subfloat[\centering EU financial network representation with random position]{{\includegraphics[width=7cm, height=7cm]{img/graph_eu_lw.png} }}\\
@@ -505,5 +505,25 @@ Although, the ground truth of the true financial network is unknown, it is still
 	
 	\caption{Graph visualization based on the data from 2023. Each point (node) represents a financial institution and the connections (edges) are estimated links. The network is estimated with the Ledoit-Wolf covariance estimator. The nodes are assumed to be connected if the estimated covariance exceeds 0.02\%}	\label{fig:actual_network_lw}
 \end{figure}
+
+\begin{table}
+	\center
+	\begin{tabular}{l |c|c}
+		Metric & EU & US \\
+		\hline
+		Density & 0.117 & 0.135 \\
+		Average degree & 9.36 & 7.86 \\
+		Median degree & 8 & 3 \\
+		Assortativity & -0.485 & -0.372 \\
+		Cluster coefficient & 0.105 & 0.162 \\
+		Intermediator share & 0.682 & 0.633 \\
+		Max path & 3 & 4 \\
+		Eigenvector centrality & 0.109 & 0.121 \\
+		Core size (\%) & 17.07 & 19.51 \\
+		Absolute core size & 7 & 8 \\
+	\end{tabular}
+	\label{table:lw_stats}
+	\caption{Network metrics of financial network estimated with Ledoit-Wolf shrinkage method. Data from 2023}
+\end{table}
 
 \end{document}

@@ -1,4 +1,3 @@
-
 @time using Statistics
 @time using DataFrames
 @time using CSV
@@ -12,7 +11,7 @@ using Latexify
 using CovarianceEstimation
 
 n_covariates = 5
-lw_tol = 0.0001
+lw_tol = 0.0002
 
 # run(`py src/granger_ts.py
 #     --region us
@@ -79,9 +78,28 @@ function get_lw_network(df::Matrix{Float64}, tol::Float64)
     return mat_us_lw
 end
 
+function graph_stats(mat::Matrix{Float64}, region::String, period::String = "daily")
+
+    g = SimpleDiGraph(mat)
+
+    df = DataFrame(region = region,
+          period = period,
+          density = density(g),
+          degree = mean(degree(g)),
+          median_degree = median(degree(g)),
+          assortativity = assortativity(g),
+          cluster_coef = global_clustering_coefficient(g),
+          interm_share = sum(intermediaries(mat)) / size(mat)[1],
+          max_path = max_path(mat),
+          eigenvector_centrality = mean(eigenvector_centrality(g)),
+          core_size_rel = sum(core_periphery_deg(SimpleGraph(g)) .== 1) / size(mat_eu)[1],
+          core_size_abs = sum(core_periphery_deg(SimpleGraph(g)) .== 1))
+    return df
+end
+
 size(mat_eu)
 
-granger_degree(unweight(Matrix(mat_eu_lw), 0.0002))
+granger_degree(unweight(Matrix(mat_eu_lw), lw_tol))
 maximum(mat_eu_lw)
 granger_degree(mat_eu_lw)
 
@@ -104,35 +122,14 @@ make_graph_image!(mat_eu, names(data_raw_eu), "eu")
 make_graph_image!(mat_us, names(data_raw_us), "us")
 
 
-function graph_stats(mat::Matrix{Float64}, region::String, period::String = "daily")
-
-    g = SimpleDiGraph(mat)
-
-    df = DataFrame(region = region,
-          period = period,
-          density = density(g),
-          degree = mean(degree(g)),
-          median_degree = median(degree(g)),
-          assortativity = assortativity(g),
-          cluster_coef = global_clustering_coefficient(g),
-          interm_share = sum(intermediaries(mat)) / size(mat)[1],
-          max_path = max_path(mat),
-          eigenvector_centrality = mean(eigenvector_centrality(g)),
-          core_size_rel = sum(core_periphery_deg(SimpleGraph(g)) .== 1) / size(mat_eu)[1],
-          core_size_abs = sum(core_periphery_deg(SimpleGraph(g)) .== 1))
-    return df
-end
-
-us_id06 = findall(x -> (x .> Date("2005-01-01")) .& (x .< Date("2007-01-01")), data_raw_us[:, 1])
-eu_id06 = findall(x -> (x .> Date("2005-01-01")) .& (x .< Date("2007-01-01")), data_raw_eu[:, 1])
+us_id06 = findall(x -> (x .> Date("2006-01-01")) .& (x .< Date("2007-01-01")), data_raw_us[:, 1])
+eu_id06 = findall(x -> (x .> Date("2006-01-01")) .& (x .< Date("2007-01-01")), data_raw_eu[:, 1])
 
 data_us06 = clean_infs(data_us, us_id06)
 data_eu06 = clean_infs(data_eu, eu_id06)
 
 mat_us06 = granger_connect(data_us06[:,1:(end-n_covariates)], data_us06[:, (end-n_covariates+1):end])
 mat_eu06 = granger_connect(data_eu06[:,1:(end-n_covariates)], data_eu06[:, (end-n_covariates+1):end])
-mat_us06_lw = get_lw_network(data_us06[:,1:(end-n_covariates)], lw_tol)
-mat_eu06_lw = get_lw_network(data_eu06[:,1:(end-n_covariates)], lw_tol)
 
 
 granger_stats_df = permutedims([graph_stats(mat_eu, "eu", "recent");
@@ -142,11 +139,8 @@ granger_stats_df = permutedims([graph_stats(mat_eu, "eu", "recent");
                                 1, makeunique=true)
 
 lw_stats_df = permutedims([graph_stats(mat_eu_lw, "eu", "recent");
-                            graph_stats(mat_us_lw, "us", "recent");
-                            graph_stats(mat_us06_lw, "us", "pre_gfc");
-                            graph_stats(mat_eu06_lw, "eu", "pre_gfc")],
+                            graph_stats(mat_us_lw, "us", "recent")],
                             1, makeunique=true)
 
 show(stdout, MIME("text/latex"), granger_stats_df)                            
 show(stdout, MIME("text/latex"), lw_stats_df)
-
