@@ -1,6 +1,7 @@
 using LinearAlgebra
 using MarSwitching
 using Base.Threads
+using Graphs
 
 replace(x, to) = ismissing(x) ? to : x
 
@@ -88,3 +89,36 @@ replace_inf(x) = isinf(x) ? 0.0 : x
 function granger_degree(x)
     return sum(replace_inf.(x) .== 1) / (size(x)[2]^2 - size(x)[2])
 end    
+
+function intermediaries(x)
+    interm_vec = zeros(size(x)[1])
+
+    for i in 1:size(x)[1]
+        interm_vec[i] = (sum(x[:,i]) > 0) & (sum(x[i,:]) > 0) ? 1 : 0
+    end
+
+    return interm_vec
+end
+
+function max_path(g::Matrix{Float64})
+
+    path = Float64[]
+    N = size(g)[1]
+
+    g = SimpleDiGraph(g)
+
+    for node in 1:N
+    
+        dist = dijkstra_shortest_paths(g, node).dists
+        dist = dist[dist .< 1000]
+        dist = dist[dist .!= 0.0]
+    
+        if length(dist) == 0
+            continue
+        end
+    
+        push!(path, maximum(dist))
+    end
+
+    return maximum(path)
+end  

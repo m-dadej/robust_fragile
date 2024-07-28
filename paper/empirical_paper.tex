@@ -280,9 +280,11 @@ The connectedness measure is then calculated in a similar manner as for the Ledo
 
 \subsection{Network estimation results}\label{subsection:network_results}
 
+\subsection{Static analysis}\label{subsection:static}
 
+Although, the ground truth of the true financial network is unknown, it is still informative to investigate the properties of the estimated network. 
 
-\begin{figure}%
+\begin{figure}[h]%
 	\centering
 	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_eu_circl.png} }}
 	\quad
@@ -294,6 +296,30 @@ The connectedness measure is then calculated in a similar manner as for the Ledo
 		
 	\caption{Financial network visualization based on the data from 2023. Each point (node) represents a financial institution and the connections (edges) are estimated links.}	\label{fig:actual_network}
 \end{figure}
+
+
+\begin{table}
+	\center
+	\begin{tabular}{lcc c cc}
+		\hline
+		 & \multicolumn{2}{c}{USA} && \multicolumn{2}{c}{EU}\\
+		\cline{2-3} \cline{5-6} 
+		\multicolumn{1}{l}{Network measures} & \multicolumn{1}{c}{2006} & \multicolumn{1}{c}{2023} && \multicolumn{1}{c}{2006} & \multicolumn{1}{c}{2023}\\
+		\hline
+		Density & 0.0756 & 0.108 && 0.0953 & 0.2031 \\
+		Average degree & 6.04 & 6.2 && 4.7 & 14.2 \\
+		Median degree & 4 & 5 && 4 & 12 \\
+		Assortativity & -0.373 & -0.324 && -0.371 & -0.229 \\
+		Cluster coefficient & 0.0339 & 0.0459 && 0.0369 & 0.072 \\
+		Share of intermediators & 0.682 & 0.866 && 0.846 & 0.972 \\
+		max path & 6 & 11 && 6 & 5 \\
+		Mean eigenvector centrality & 0.127 & 0.0843 && 0.0921 & 0.114817 \\ 
+		\hline
+	\end{tabular}
+	
+	\label{table:network_metrics}
+	\caption{Network metrics}
+\end{table}
 
 \bibliography{bibliography}
 
@@ -451,5 +477,33 @@ The connectedness measure is then calculated in a similar manner as for the Ledo
 		\caption{First available data for each of the stock prices. }
 	\label{table:ipo}
 \end{table}
+
+\section{Network metrics}\label{appendix:network_metrics}
+
+\begin{figure}[h]
+	\centering
+	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_us_circl.png} }}
+	\quad
+	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_us.png} }}\\
+	
+	%	\subfloat[\centering Representation with random position]{{\includegraphics[width=7cm, height=7cm]{img/graph_us.png} }}
+	%	\quad	
+	%	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_us_circl.png} }}
+	
+	\caption{Financial network visualization based on the US market data from 2023. Each point (node) represents a financial institution and the connections (edges) are estimated links.}	\label{fig:actual_network}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\subfloat[\centering Circle representation of EU financial network]{{\includegraphics[width=7cm, height=7cm]{img/graph_eu_lw_circl.png} }}
+	\quad
+	\subfloat[\centering EU financial network representation with random position]{{\includegraphics[width=7cm, height=7cm]{img/graph_eu_lw.png} }}\\
+	
+	\subfloat[\centering US financial network representation with random position]{{\includegraphics[width=7cm, height=7cm]{img/graph_us_lw.png} }}
+	\quad	
+	\subfloat[\centering Circle representation of US financial network]{{\includegraphics[width=7cm, height=7cm]{img/graph_us_lw_circl.png} }}
+	
+	\caption{Graph visualization based on the data from 2023. Each point (node) represents a financial institution and the connections (edges) are estimated links. The network is estimated with the Ledoit-Wolf covariance estimator. The nodes are assumed to be connected if the estimated covariance exceeds 0.02\%}	\label{fig:actual_network_lw}
+\end{figure}
 
 \end{document}
