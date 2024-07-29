@@ -88,6 +88,9 @@ function graph_stats(mat::Matrix{Float64}, region::String, period::String = "dai
           degree = mean(degree(g)),
           median_degree = median(degree(g)),
           assortativity = assortativity(g),
+          assort_indegree = assort_degree(mat, "in"),
+          assort_outdegree = assort_degree(mat, "out"),
+          assort_degree = assort_degree(mat, "total"),
           cluster_coef = global_clustering_coefficient(g),
           interm_share = sum(intermediaries(mat)) / size(mat)[1],
           max_path = max_path(mat),
@@ -144,19 +147,20 @@ show(stdout, MIME("text/latex"), lw_stats_df)
 
 outdegree(SimpleDiGraph(mat_eu))
 
-g = SimpleDiGraph(mat_eu)
+g = star_graph(5)#SimpleDiGraph(mat_eu)
 
 df = zeros(length(edges(g)), 2)
 i = 0
 
 for edge in edges(g)
     i += 1
-    df[i, 1] = indegree(g)[src(edge)] 
-    df[i, 2] = indegree(g)[dst(edge)]
+    df[i, 1] = degree(g)[src(edge)] 
+    df[i, 2] = degree(g)[dst(edge)]
 end
 
+cor(df)
 
-
+gplot(star_graph(5))
 
 
 
