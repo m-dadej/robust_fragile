@@ -122,3 +122,24 @@ function max_path(g::Matrix{Float64})
 
     return maximum(path)
 end  
+
+function assort_degree(mat::Matrix{Float64}, dir::String)
+    g = SimpleDiGraph(mat)
+    df = zeros(length(edges(g)), 2)
+    i = 0
+
+    for edge in edges(g)
+        i += 1
+
+        if dir == "in"
+            df[i, 1] = indegree(g)[src(edge)]
+            df[i, 2] = indegree(g)[dst(edge)]
+        elseif dir == "out"
+            df[i, 1] = outdegree(g)[src(edge)]
+            df[i, 2] = outdegree(g)[dst(edge)]
+        end
+
+    end
+
+    return cor(df[:,1], df[:,2])
+end

@@ -141,3 +141,22 @@ lw_stats_df = permutedims([graph_stats(mat_eu_lw, "eu", "recent");
 show(stdout, MIME("text/latex"), granger_stats_df)                            
 show(stdout, MIME("text/latex"), lw_stats_df)
 
+
+outdegree(SimpleDiGraph(mat_eu))
+
+g = SimpleDiGraph(mat_eu)
+
+df = zeros(length(edges(g)), 2)
+i = 0
+
+for edge in edges(g)
+    i += 1
+    df[i, 1] = indegree(g)[src(edge)] 
+    df[i, 2] = indegree(g)[dst(edge)]
+end
+
+
+
+
+
+
