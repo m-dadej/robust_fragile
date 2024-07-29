@@ -21,10 +21,15 @@ Anand, K., Craig, B., and Von~Peter, G. (2015).
 \newblock {\em Quantitative Finance}, 15(4):625--636.
 
 \bibitem[Anand et~al., 2018]{anand18}
-Anand, K., {van Lelyveld}, I., Ádám Banai, Friedrich, S., Garratt, R., Hałaj, G., Fique, J., Hansen, I., Jaramillo, S.~M., Lee, H., Molina-Borboa, J.~L., Nobili, S., Rajan, S., Salakhova, D., Silva, T.~C., Silvestri, L., and {de Souza}, S. R.~S. (2018).
-\newblock The missing links: A global study on uncovering financial network structures from partial data.
+Anand, K., {van Lelyveld}, I., Ádám Banai, Friedrich, S., Garratt, R.,
+  Hałaj, G., Fique, J., Hansen, I., Jaramillo, S.~M., Lee, H., Molina-Borboa,
+  J.~L., Nobili, S., Rajan, S., Salakhova, D., Silva, T.~C., Silvestri, L., and
+  {de Souza}, S. R.~S. (2018).
+\newblock The missing links: A global study on uncovering financial network
+  structures from partial data.
 \newblock {\em Journal of Financial Stability}, 35:107--119.
-\newblock Network models, stress testing and other tools for financial stability monitoring and macroprudential policy design and implementation.
+\newblock Network models, stress testing and other tools for financial
+  stability monitoring and macroprudential policy design and implementation.
 
 \bibitem[Antras and Costinot, 2011]{antras11}
 Antras, P. and Costinot, A. (2011).
@@ -33,8 +38,11 @@ Antras, P. and Costinot, A. (2011).
 
 \bibitem[Baral and Fique, 2012]{baral12}
 Baral, P. and Fique, J. (2012).
-\newblock Estimation of bilateral connections in a network: Copula vs. maximum entropy.
-\newblock In {\em CIRANO https://cirano. qc. ca/conferences/public/pdf/networks2012/02-BARAL-FIQUE-Estimation of Bilateral Exposures-A Copula Approach. pdf}.
+\newblock Estimation of bilateral connections in a network: Copula vs. maximum
+  entropy.
+\newblock In {\em CIRANO https://cirano. qc.
+  ca/conferences/public/pdf/networks2012/02-BARAL-FIQUE-Estimation of Bilateral
+  Exposures-A Copula Approach. pdf}.
 
 \bibitem[Barigozzi and Brownlees, 2019]{barigozzi19}
 Barigozzi, M. and Brownlees, C. (2019).
@@ -42,8 +50,10 @@ Barigozzi, M. and Brownlees, C. (2019).
 \newblock {\em Journal of Applied Econometrics}, 34(3):347--364.
 
 \bibitem[Battiston et~al., 2012]{battison12}
-Battiston, S., {Delli Gatti}, D., Gallegati, M., Greenwald, B., and Stiglitz, J.~E. (2012).
-\newblock Liaisons dangereuses: Increasing connectivity, risk sharing, and systemic risk.
+Battiston, S., {Delli Gatti}, D., Gallegati, M., Greenwald, B., and Stiglitz,
+  J.~E. (2012).
+\newblock Liaisons dangereuses: Increasing connectivity, risk sharing, and
+  systemic risk.
 \newblock {\em Journal of Economic Dynamics and Control}, 36(8):1121--1141.
 \newblock Quantifying and Understanding Dysfunctions in Financial Markets.
 
@@ -54,13 +64,15 @@ Bernanke, B.~S. (2009).
 
 \bibitem[Billio et~al., 2012]{billio12}
 Billio, M., Getmansky, M., Lo, A.~W., and Pelizzon, L. (2012).
-\newblock Econometric measures of connectedness and systemic risk in the finance and insurance sectors.
+\newblock Econometric measures of connectedness and systemic risk in the
+  finance and insurance sectors.
 \newblock {\em Journal of Financial Economics}, 104(3):535--559.
 \newblock Market Institutions, Financial Market Risks and Financial Crisis.
 
 \bibitem[Bouri et~al., 2021]{bouri21}
 Bouri, E., Cepni, O., Gabauer, D., and Gupta, R. (2021).
-\newblock Return connectedness across asset classes around the covid-19 outbreak.
+\newblock Return connectedness across asset classes around the covid-19
+  outbreak.
 \newblock {\em International Review of Financial Analysis}, 73:101646.
 
 \bibitem[Breiman, 1995]{breiman95}
@@ -70,7 +82,8 @@ Breiman, L. (1995).
 
 \bibitem[Bräuning and Fecht, 2016]{brauning16}
 Bräuning, F. and Fecht, F. (2016).
-\newblock {Relationship Lending in the Interbank Market and the Price of Liquidity*}.
+\newblock {Relationship Lending in the Interbank Market and the Price of
+  Liquidity*}.
 \newblock {\em Review of Finance}, 21(1):33--75.
 
 \bibitem[Caballero and Simsek, 2013]{caballero13}
@@ -86,7 +99,8 @@ Callaway, D.~S., Newman, M. E.~J., Strogatz, S.~H., and Watts, D.~J. (2000).
 \bibitem[Carlson and Doyle, 2002]{carlson02}
 Carlson, J.~M. and Doyle, J. (2002).
 \newblock Complexity and robustness.
-\newblock {\em Proceedings of the national academy of sciences}, 99(suppl\_1):2538--2545.
+\newblock {\em Proceedings of the national academy of sciences},
+  99(suppl\_1):2538--2545.
 
 \bibitem[Cerchiello and Giudici, 2016]{cerchiello16}
 Cerchiello, P. and Giudici, P. (2016).
@@ -100,7 +114,8 @@ Cifuentes, R., Ferrucci, G., and Shin, H.~S. (2005).
 
 \bibitem[Cimini et~al., 2015]{cimini15}
 Cimini, G., Squartini, T., Garlaschelli, D., and Gabrielli, A. (2015).
-\newblock Systemic risk analysis on reconstructed economic and financial networks.
+\newblock Systemic risk analysis on reconstructed economic and financial
+  networks.
 \newblock {\em Scientific reports}, 5(1):15758.
 
 \bibitem[Cocco et~al., 2009]{cocco09}
@@ -125,20 +140,25 @@ Diebold, F.~X., Liu, L., and Yilmaz, K. (2017).
 
 \bibitem[Diebold and Yilmaz, 2023]{deibold23}
 Diebold, F.~X. and Yilmaz, K. (2023).
-\newblock On the past, present, and future of the diebold–yilmaz approach to dynamic network connectedness.
+\newblock On the past, present, and future of the diebold–yilmaz approach to
+  dynamic network connectedness.
 \newblock {\em Journal of Econometrics}, 234:115--120.
 \newblock Jubilee Issue - Celebrating our Fiftieth Anniversary: 1973--2023.
 
 \bibitem[Diebold and Yılmaz, 2014]{deibold14}
 Diebold, F.~X. and Yılmaz, K. (2014).
-\newblock On the network topology of variance decompositions: Measuring the connectedness of financial firms.
+\newblock On the network topology of variance decompositions: Measuring the
+  connectedness of financial firms.
 \newblock {\em Journal of Econometrics}, 182(1):119--134.
-\newblock Causality, Prediction, and Specification Analysis: Recent Advances and Future Directions.
+\newblock Causality, Prediction, and Specification Analysis: Recent Advances
+  and Future Directions.
 
 \bibitem[Doyle et~al., 2005]{doyle05}
-Doyle, J.~C., Alderson, D.~L., Li, L., Low, S., Roughan, M., Shalunov, S., Tanaka, R., and Willinger, W. (2005).
+Doyle, J.~C., Alderson, D.~L., Li, L., Low, S., Roughan, M., Shalunov, S.,
+  Tanaka, R., and Willinger, W. (2005).
 \newblock The “robust yet fragile” nature of the internet.
-\newblock {\em Proceedings of the National Academy of Sciences}, 102(41):14497--14502.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  102(41):14497--14502.
 
 \bibitem[Drehmann and Tarashev, 2013]{drehmann13}
 Drehmann, M. and Tarashev, N. (2013).
@@ -148,7 +168,9 @@ Drehmann, M. and Tarashev, N. (2013).
 \bibitem[Dungey et~al., 2012]{dungey12}
 Dungey, M., Luciani, M., and Veredas, D. (2012).
 \newblock {Ranking Systemically Important Financial Institutions}.
-\newblock CAMA Working Papers 2012-47, Centre for Applied Macroeconomic Analysis, Crawford School of Public Policy, The Australian National University.
+\newblock CAMA Working Papers 2012-47, Centre for Applied Macroeconomic
+  Analysis, Crawford School of Public Policy, The Australian National
+  University.
 
 \bibitem[Eisenberg and Noe, 2001]{eisenberg01}
 Eisenberg, L. and Noe, T.~H. (2001).
@@ -172,13 +194,21 @@ Elliott, M., Golub, B., and Jackson, M.~O. (2014).
 
 \bibitem[Freixas et~al., 2000]{freixas00}
 Freixas, X., Parigi, B.~M., and Rochet, J.-C. (2000).
-\newblock Systemic risk, interbank relations, and liquidity provision by the central bank.
+\newblock Systemic risk, interbank relations, and liquidity provision by the
+  central bank.
 \newblock {\em Journal of Money, Credit and Banking}, 32(3):611--638.
 
-\bibitem[Fricke and Lux, 2015]{fricke2015}
-Fricke, D. and Lux, T. (2015).
-\newblock Core--periphery structure in the overnight money market: evidence from the e-mid trading platform.
+\bibitem[Fricke and Lux, 2015a]{fricke2015}
+Fricke, D. and Lux, T. (2015a).
+\newblock Core--periphery structure in the overnight money market: evidence
+  from the e-mid trading platform.
 \newblock {\em Computational Economics}, 45:359--395.
+
+\bibitem[Fricke and Lux, 2015b]{fricke15}
+Fricke, D. and Lux, T. (2015b).
+\newblock On the distribution of links in the interbank network: evidence from
+  the e-mid overnight money market.
+\newblock {\em Empirical Economics}, 49:1463--1495.
 
 \bibitem[Friedman, 2004]{friedman04}
 Friedman, N. (2004).
@@ -188,11 +218,13 @@ Friedman, N. (2004).
 \bibitem[Gai and Kapadia, 2010]{gai10}
 Gai, P. and Kapadia, S. (2010).
 \newblock Contagion in financial networks.
-\newblock {\em Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences}, 466(2120):2401--2423.
+\newblock {\em Proceedings of the Royal Society A: Mathematical, Physical and
+  Engineering Sciences}, 466(2120):2401--2423.
 
 \bibitem[Gallegati et~al., 2008]{gallegati08}
 Gallegati, M., Greenwald, B., Richiardi, M.~G., and Stiglitz, J.~E. (2008).
-\newblock The asymmetric effect of diffusion processes: Risk sharing and contagion.
+\newblock The asymmetric effect of diffusion processes: Risk sharing and
+  contagion.
 \newblock {\em Global Economy Journal}, 8(3).
 
 \bibitem[Giudici and Spelta, 2016]{giudici16}
@@ -207,12 +239,14 @@ Glasserman, P. and Young, H.~P. (2016).
 
 \bibitem[Gong and Xu, 2022]{gong22}
 Gong, X. and Xu, J. (2022).
-\newblock Geopolitical risk and dynamic connectedness between commodity markets.
+\newblock Geopolitical risk and dynamic connectedness between commodity
+  markets.
 \newblock {\em Energy Economics}, 110:106028.
 
 \bibitem[Granger, 1969]{granger69}
 Granger, C. W.~J. (1969).
-\newblock Investigating causal relations by econometric models and cross-spectral methods.
+\newblock Investigating causal relations by econometric models and
+  cross-spectral methods.
 \newblock {\em Econometrica}, 37(3):424--438.
 
 \bibitem[Ha{\l}aj and Kok, 2013]{halaj13}
@@ -232,12 +266,14 @@ Hautsch, N., Schaumburg, J., and Schienle, M. (2014).
 
 \bibitem[Haw et~al., 1990]{hawk90}
 Haw, I.-M., Pastena, V.~S., and Lilien, S.~B. (1990).
-\newblock Market manifestation of nonpublic information prior to mergers: The effect of ownership structure.
+\newblock Market manifestation of nonpublic information prior to mergers: The
+  effect of ownership structure.
 \newblock {\em Accounting Review}, pages 432--451.
 
 \bibitem[Huddart et~al., 2007]{huddart07}
 Huddart, S., Ke, B., and Shi, C. (2007).
-\newblock Jeopardy, non-public information, and insider trading around sec 10-k and 10-q filings.
+\newblock Jeopardy, non-public information, and insider trading around sec 10-k
+  and 10-q filings.
 \newblock {\em Journal of Accounting and Economics}, 43(1):3--36.
 
 \bibitem[Ji et~al., 2019]{ji19}
@@ -247,14 +283,19 @@ Ji, Q., Bouri, E., Lau, C. K.~M., and Roubaud, D. (2019).
 
 \bibitem[Klein et~al., 2020]{klein20}
 Klein, A., Li, T., and Zhang, B. (2020).
-\newblock {Seeking Out Non-Public Information: Sell-Side Analysts and the Freedom of Information Act}.
+\newblock {Seeking Out Non-Public Information: Sell-Side Analysts and the
+  Freedom of Information Act}.
 \newblock {\em The Accounting Review}, 95(1):233--257.
 
 \bibitem[Langfield et~al., 2014]{langfield14}
 Langfield, S., Liu, Z., and Ota, T. (2014).
 \newblock Mapping the uk interbank system.
 \newblock {\em Journal of Banking \& Finance}, 45:288--303.
-\newblock Liquidity Risk, Reform of Bank Regulation, and Risk Management, Liquidity Risk Management, New York, USA, 14 June 2014 Liquidity Risk, Reform of Bank Regulation, and Risk Management, Risk Management and Reform of Bank Regulation, Beijing, China, 22–23 April 2013 Liquidity shocks, governance, systemic risk and financial stability.
+\newblock Liquidity Risk, Reform of Bank Regulation, and Risk Management,
+  Liquidity Risk Management, New York, USA, 14 June 2014 Liquidity Risk, Reform
+  of Bank Regulation, and Risk Management, Risk Management and Reform of Bank
+  Regulation, Beijing, China, 22–23 April 2013 Liquidity shocks, governance,
+  systemic risk and financial stability.
 
 \bibitem[Ledoit and Wolf, 2003]{ledoit03}
 Ledoit, O. and Wolf, M. (2003).
@@ -263,7 +304,8 @@ Ledoit, O. and Wolf, M. (2003).
 
 \bibitem[Ledoit and Wolf, 2004]{ledoit04}
 Ledoit, O. and Wolf, M. (2004).
-\newblock A well-conditioned estimator for large-dimensional covariance matrices.
+\newblock A well-conditioned estimator for large-dimensional covariance
+  matrices.
 \newblock {\em Journal of Multivariate Analysis}, 88(2):365--411.
 
 \bibitem[May and Arinaminpathy, 2010]{may10}
@@ -288,7 +330,8 @@ Newhard, J.~M. (2014).
 
 \bibitem[Newman et~al., 2001]{newman001}
 Newman, M. E.~J., Strogatz, S.~H., and Watts, D.~J. (2001).
-\newblock Random graphs with arbitrary degree distributions and their applications.
+\newblock Random graphs with arbitrary degree distributions and their
+  applications.
 \newblock {\em Phys. Rev. E}, 64:026118.
 
 \bibitem[Rajan, 2009]{rajan09}
@@ -313,12 +356,20 @@ Sims, C.~A. (1980).
 
 \bibitem[Song and Zhang, 2021]{song21}
 Song, L. and Zhang, Y. (2021).
-\newblock Banking network structure and transnational systemic risk contagion—the case of the european union.
+\newblock Banking network structure and transnational systemic risk
+  contagion—the case of the european union.
 \newblock {\em Finance Research Letters}, 39:101660.
 
 \bibitem[Upper, 2011]{upper11}
 Upper, C. (2011).
-\newblock Simulation methods to assess the danger of contagion in interbank markets.
+\newblock Simulation methods to assess the danger of contagion in interbank
+  markets.
 \newblock {\em Journal of financial stability}, 7(3):111--125.
+
+\bibitem[Upper and Worms, 2004]{upper04}
+Upper, C. and Worms, A. (2004).
+\newblock Estimating bilateral exposures in the german interbank market: Is
+  there a danger of contagion?
+\newblock {\em European Economic Review}, 48(4):827--849.
 
 \end{thebibliography}

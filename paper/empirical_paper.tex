@@ -282,7 +282,9 @@ The connectedness measure is then calculated in a similar manner as for the Ledo
 
 \subsection{Static analysis}\label{subsection:static}
 
-Although, the ground truth of the true financial network is unknown, it is still informative to investigate the properties of the estimated networks. This way we can evaluate if the estimation results are economically sensible. Figure \ref{fig:actual_network} shows two representations of the same graph, estimated with the Granger-based method. The data used for the estimation is from 2023, as the actual links among the financial institutions is concentrated within this horizon\footnote{The data on maturity structure on interbank market is scarce as well. A bit outdated but complete sample from the German interbank market from 2000 reports that around 40\% of the interbank debt has a maturity of less than a year. The inclusion of derivatives would most likely increase this share.}. 
+Although, the ground truth of the true financial network is unknown, it is still informative to investigate the properties of the estimated networks. This way we can evaluate if the estimation results are economically sensible. Figure \ref{fig:actual_network} shows two representations of the same graph, estimated with the Granger-based method. The data used for the estimation is from 2023, as the actual links among the financial institutions is concentrated within this horizon\footnote{The data on maturity structure on interbank market is scarce as well. A bit outdated but complete sample from the German interbank market from 2000 reports that around 40\% of the interbank debt has a maturity of less than a year (\cite{upper04}). The inclusion of derivatives would most likely increase this share.}. It is clear from the visual presentation of the network, how dense the connection is\footnote{The definition of \textit{density} as well as other network statistics used in this section and henceforth is described in the appendix \ref{appendix:network_metrics}}. As reported in the table \ref{table:network_metrics}, the visualized graph is more dense than for the USA market and different time periods. The European financial sector is less densely connected than the USA, in both of the period subsample. This is to be expected (also from the descriptive statistics in the subsection \ref{subsection:data_descrptive}), considering that the banking sector is more fragmented due to separate jurisdictions. In absolute terms, every estimated network is somewhat more dense \footnote{This is, however, arbitrary to some degree. The level of density might be as well manipulated by choosing different confidence level when checking the $\beta$ coefficient significance in Granger test. Increasing its level from 95\% to e.g. 99\% would decrease the density. The level of significance is decided by convention.} than the evidence from empirical literature based on transaction level data.  One of the lowest estimates of the density comes from the work of \cite{anand15}. Based on the German interbank market they report the density to be around 0.59\%. On the other hand, one of the highest reported values of density is 15\% from the Italian e-MID interbank market (\cite{fricke15}). The estimates clearly vary substantially, most likely depending on the types of instruments considered a connection among the institutions, as well as the sample of banks. Other than the purely arbitrary level of confidence in the Granger test, the reason of increased density of estimated network is the subsample of only systematically important institutions. This, by definition, makes them more connected to with the rest of the system, rather than the, e.g. regional banks. Still, the density is within estimates from the empirical literature, ensuring that the estimated network is economically sensible (or the chosen confidence level).
+
+The assortativity, describing the correlation of node in/out-degree, is negative in every subsample. The negative value indicates, that the nodes with more out-degree (edges with direction coming from the node) are, on average, more connected to the nodes with more in-degree. The negative values are expected. This is because the economic role of the interbank market is mostly to facilitate the flow of funds from banks with excess liquidity to those of funding needs. Thus, the banks are more likely connected with each other if their connections have, in overall, different directions of edges.
 
 \begin{figure}%
 	\centering
@@ -294,7 +296,7 @@ Although, the ground truth of the true financial network is unknown, it is still
 %	\quad	
 %	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_us_circl.png} }}
 		
-	\caption{Financial network visualization based on the data from 2023. Each point (node) represents a financial institution and the connections (edges) are links estimated with the Granger causality method.}	\label{fig:actual_network}
+	\caption{Financial network visualization based on the European market data from 2023. Each point (node) represents a financial institution and the connections (edges) are links estimated with the Granger causality method. The arrows indicate the direction of particular link. Each node is labeled with the ticker of given financial institution.}	\label{fig:actual_network}
 \end{figure}
 
 
@@ -302,23 +304,24 @@ Although, the ground truth of the true financial network is unknown, it is still
 	\center
 	\begin{tabular}{lcc c cc}
 		\hline
-		 & \multicolumn{2}{c}{USA} && \multicolumn{2}{c}{EU}\\
+		 & \multicolumn{2}{c}{2023} && \multicolumn{2}{c}{2006}\\
 		\cline{2-3} \cline{5-6} 
-		\multicolumn{1}{l}{Network measures} & \multicolumn{1}{c}{2006} & \multicolumn{1}{c}{2023} && \multicolumn{1}{c}{2006} & \multicolumn{1}{c}{2023}\\
+		\multicolumn{1}{l}{Network measures} & \multicolumn{1}{c}{Europe} & \multicolumn{1}{c}{US} && \multicolumn{1}{c}{US} & \multicolumn{1}{c}{Europe}\\
 		\hline
-		Density & 0.0756 & 0.108 && 0.0953 & 0.2031 \\
-		Average degree & 6.04 & 6.2 && 4.7 & 14.2 \\
-		Median degree & 4 & 5 && 4 & 12 \\
-		Assortativity & -0.373 & -0.324 && -0.371 & -0.229 \\
-		Cluster coefficient & 0.0339 & 0.0459 && 0.0369 & 0.072 \\
-		Share of intermediators & 0.682 & 0.866 && 0.846 & 0.972 \\
-		max path & 6 & 11 && 6 & 5 \\
-		Mean eigenvector centrality & 0.127 & 0.0843 && 0.0921 & 0.114817 \\ 
+		density & 0.0756 & 0.108 && 0.186 & 0.130 \\
+		degree & 6.048 & 6.26 && 9.3 & 9.11 \\
+		Median degree & 4 & 5 && 8 & 9 \\
+		Assortativity & -0.373 & -0.324 && -0.32 & -0.245 \\
+		Cluster coefficient & 0.033 & 0.0459 && 0.078 & 0.053 \\
+		intermediator share & 0.68 & 0.866 && 0.769 & 0.88 \\   
+		max path & 6 & 11 && 5 & 7 \\
+		Eigenvector centrality & 0.127 & 0.084 && 0.123 & 0.100 \\
+		Relative core size & 0.195 & 0.195 && 0.243 & 0.243 \\
+		Absolute core size & 8 & 8 && 10 & 10 \\
 		\hline
-	\end{tabular}
-	
+	\end{tabular}\
+	\caption{Descriptive statistics of estimated networks. The definitions of each are described in appendix \ref{appendix:network_metrics}.}
 	\label{table:network_metrics}
-	\caption{Network metrics}
 \end{table}
 
 \bibliography{bibliography}
@@ -480,6 +483,9 @@ Although, the ground truth of the true financial network is unknown, it is still
 
 \section{Network metrics}\label{appendix:network_metrics}
 
+\subsection{Definitions of the metrics}
+
+\subsection{Graphs and tables}
 \begin{figure}[h]
 	\centering
 	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_us_circl.png} }}

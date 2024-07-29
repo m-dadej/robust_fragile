@@ -6,45 +6,45 @@ Database file #1: bibliography.bib
 Warning--I'm ignoring gallegati08's extra "title" field
 --line 131 of file bibliography.bib
 Warning--there's a number but no volume in ledoit03
-You've used 63 entries,
+You've used 65 entries,
             1935 wiz_defined-function locations,
-            869 strings with 14281 characters,
-and the built_in function-call counts, 25151 in all, are:
-= -- 2471
-> -- 995
-< -- 42
-+ -- 338
-- -- 328
-* -- 2240
-:= -- 4401
-add.period$ -- 195
-call.type$ -- 63
-change.case$ -- 479
-chr.to.int$ -- 63
-cite$ -- 64
-duplicate$ -- 875
-empty$ -- 1779
-format.name$ -- 441
-if$ -- 4887
-int.to.chr$ -- 1
+            879 strings with 14586 characters,
+and the built_in function-call counts, 25962 in all, are:
+= -- 2554
+> -- 1021
+< -- 44
++ -- 347
+- -- 336
+* -- 2312
+:= -- 4538
+add.period$ -- 201
+call.type$ -- 65
+change.case$ -- 493
+chr.to.int$ -- 64
+cite$ -- 66
+duplicate$ -- 903
+empty$ -- 1840
+format.name$ -- 455
+if$ -- 5048
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 59
-newline$ -- 324
-num.names$ -- 189
-pop$ -- 332
+missing$ -- 61
+newline$ -- 334
+num.names$ -- 195
+pop$ -- 340
 preamble$ -- 1
-purify$ -- 479
+purify$ -- 493
 quote$ -- 0
-skip$ -- 666
+skip$ -- 687
 stack$ -- 0
-substring$ -- 1966
-swap$ -- 68
+substring$ -- 2042
+swap$ -- 70
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 374
+type$ -- 386
 warning$ -- 1
-while$ -- 199
+while$ -- 206
 width$ -- 0
-write$ -- 828
+write$ -- 854
 (There were 2 warnings)

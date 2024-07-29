@@ -3,7 +3,7 @@ using MarSwitching
 using Base.Threads
 using Graphs
 
-replace(x, to) = ismissing(x) ? to : x
+replace_missing(x, to) = ismissing(x) ? to : x
 
 function na_share(df::Matrix{Float64})
     return sum(isinf.(df), dims=1) ./ size(df, 1)

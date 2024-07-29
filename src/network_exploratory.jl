@@ -97,21 +97,16 @@ function graph_stats(mat::Matrix{Float64}, region::String, period::String = "dai
     return df
 end
 
-size(mat_eu)
-
-granger_degree(unweight(Matrix(mat_eu_lw), lw_tol))
-maximum(mat_eu_lw)
-granger_degree(mat_eu_lw)
 
 #data_raw = CSV.read("src/data/df_rets_granger.csv", DataFrame)
 data_raw_eu = CSV.read("src/data/archive/df_rets_granger_eu.csv", DataFrame)
-data_eu = Matrix(replace.(data_raw_eu[:, 2:end], Inf))
+data_eu = Matrix(replace_missing.(data_raw_eu[:, 2:end], Inf))
 
 mat_eu = granger_connect(data_eu[end-256:end,1:(end-n_covariates)], data_eu[end-256:end, (end-n_covariates+1):end])
 mat_eu_lw = get_lw_network(data_eu[end-256:end,1:(end-n_covariates)], lw_tol)
 
 data_raw_us = CSV.read("src/data/archive/df_rets_granger_us.csv", DataFrame)
-data_us = Matrix(replace.(data_raw_us[:, 2:end], Inf))
+data_us = Matrix(replace_missing.(data_raw_us[:, 2:end], Inf))
 
 mat_us = granger_connect(data_us[end-256:end,1:(end-n_covariates)], data_us[end-256:end, (end-n_covariates+1):end])
 mat_us_lw = get_lw_network(data_us[end-256:end,1:(end-n_covariates)], lw_tol)
@@ -122,15 +117,16 @@ make_graph_image!(mat_eu, names(data_raw_eu), "eu")
 make_graph_image!(mat_us, names(data_raw_us), "us")
 
 
-us_id06 = findall(x -> (x .> Date("2006-01-01")) .& (x .< Date("2007-01-01")), data_raw_us[:, 1])
-eu_id06 = findall(x -> (x .> Date("2006-01-01")) .& (x .< Date("2007-01-01")), data_raw_eu[:, 1])
+us_id06 = findall(x -> (x .> Date("2005-01-01")) .& (x .< Date("2006-01-01")), data_raw_us[:, 1])
+eu_id06 = findall(x -> (x .> Date("2005-01-01")) .& (x .< Date("2006-01-01")), data_raw_eu[:, 1])
 
 data_us06 = clean_infs(data_us, us_id06)
 data_eu06 = clean_infs(data_eu, eu_id06)
 
 mat_us06 = granger_connect(data_us06[:,1:(end-n_covariates)], data_us06[:, (end-n_covariates+1):end])
 mat_eu06 = granger_connect(data_eu06[:,1:(end-n_covariates)], data_eu06[:, (end-n_covariates+1):end])
-
+mat_eu_lw06 = get_lw_network(data_eu06[:,1:(end-n_covariates)], lw_tol)
+mat_us_lw06 = get_lw_network(data_us06[:,1:(end-n_covariates)], lw_tol)
 
 granger_stats_df = permutedims([graph_stats(mat_eu, "eu", "recent");
                                 graph_stats(mat_us, "us", "recent");
@@ -139,8 +135,9 @@ granger_stats_df = permutedims([graph_stats(mat_eu, "eu", "recent");
                                 1, makeunique=true)
 
 lw_stats_df = permutedims([graph_stats(mat_eu_lw, "eu", "recent");
-                            graph_stats(mat_us_lw, "us", "recent")],
+                            graph_stats(mat_us_lw, "us", "recent")], 
                             1, makeunique=true)
 
 show(stdout, MIME("text/latex"), granger_stats_df)                            
 show(stdout, MIME("text/latex"), lw_stats_df)
+

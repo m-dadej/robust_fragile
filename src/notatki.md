@@ -8,11 +8,9 @@
 
 - opisz wady i zalety billio vs diebold?
 - niekorzystny efekt connectedness jest zgodny z acemoglu 2015 (banki nie internalizuja efektow zewnetrznych) jest jeszcze jakis paper co tez jest git - elliot? golub?
-- eu connectedness seems on average smaller, which makes sense considering its a group of ocuntries, unlike USA.
+
 s
 # further research 
-
-- VAR kontrolujacy o firm specific i macro do szacowania network
 
 # do artykulu 
 
