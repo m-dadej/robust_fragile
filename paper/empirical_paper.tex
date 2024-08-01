@@ -53,13 +53,13 @@ A considerably more relevant strain of literature to herein research considers t
 
 Since the work is mostly empirical in nature, it is also imperative to position it among the literature of network econometrics. Although scarce in data, there has been several works statistically describing the actual transaction level data\footnote{The data is often proprietary to the public entities regulating the financial markets.} and thus, the network among the banks.  Using Bundesbank data on bilateral interbank exposures among 2000 banks from 1999 to 2012, \cite{craig14} provide evidence for tiering on the interbank market. The banks are forming a very hierarchical network, where a lower-tiered banks are interacting between each other mostly through the intermediating banks, mostly bigger in size\footnote{A similar behavior is also present in other economic networks e.g. international trade (\cite{antras11})}. The tiering behavior is modeled and commonly referred to in the literature as a \textit{core-periphery} structure. Based on the Italian interbank market data from January 1999 to December 2010, \cite{fricke2015} confirm previous contribution, at the same time showing, that the core of the financial network is highly persistent in time. That is, the banks forming the core don't change the position in the structure. \cite{langfield14} extend the previous research with the data across other class of assets held among the banks (such as derivatives, marketable securities, repo, unsecured lending and secured lending). They emphasize particular heterogeneity of the financial network, by distinguishing between interbank funding and interbank exposures. The structure is significantly different among these types, thus the dynamics of contagion varies depending on the source of risk (liquidity vs. credit risk). Clearly, the contribution of this part of the literature is mostly in describing the stylized facts present in the actual financial networks.
 
-As much as the network data is available (although to the very limited extent), the econometricians aimed at estimating the financial networks from broadly available sources, mostly from equity price time series. \cite{billio12} describe a pair of econometric methods, that are employed as part of this work. They use monthly stock prices of insurers, hedge funds and banks to estimate their interconnectedness. In the first approach they suggest a model based on principal component analysis (Herafter referred to as PCA, \cite{murihead09}). When used on the covariance matrix of stock returns, the PCA will provide a set of factors eigenvalues best describing the variation of the system. A higher share of the variance, explained by top eigenvalues, indicates elevated connectedness in the system. A second model provides more detailed information by estimating a whole directed network of the financial institutions. The method is based on the "Granger causality" (\cite{granger69}) among the pair of allegedly connected entities. The financial network is constructed by performing the granger test on each of pairs of the stock returns with adjacency matrix entries being one or zero depending on the outcome of the test. The resulting approach allows higher flexibility in analyzing the topology of the network and deciding the measures of connectedness (the authors use a range of different network measures). These methods are employed in the research design and more closely described later on. 
+As much as the network data is available (although to the very limited extent), the econometricians aimed at estimating the financial networks from broadly available sources, mostly from equity price time series. \cite{billio12} describe a pair of econometric methods, that are employed as part of this work. They use monthly stock prices of insurers, hedge funds and banks to estimate their interconnectedness. In the first approach they suggest a model based on principal component analysis (Hereafter referred to as PCA, \cite{murihead09}). When used on the covariance matrix of stock returns, the PCA will provide a set of factors eigenvalues best describing the variation of the system. A higher share of the variance, explained by top eigenvalues, indicates elevated connectedness in the system. A second model provides more detailed information by estimating a whole directed network of the financial institutions. The method is based on the "Granger causality" (\cite{granger69}) among the pair of allegedly connected entities. The financial network is constructed by performing the granger test on each of pairs of the stock returns with adjacency matrix entries being one or zero depending on the outcome of the test. The resulting approach allows higher flexibility in analyzing the topology of the network and deciding the measures of connectedness (the authors use a range of different network measures). These methods are employed in the research design and more closely described later on. 
 
 Alternative methodology to estimate financial networks from the stock prices data was developed by \cite{deibold14}. In their work, the financial network\footnote{Or in the paper's terminology - a connectedness table.} is estimated as a matrix of parameters from the Vector Autoregression model (\cite{sims80}). Precisely, the adjacency matrix of the network is the $\Theta$ from the VAR matrix notation: $\boldsymbol{y}_t = \theta_o + \boldsymbol{\Theta} \boldsymbol{y}_{t-1} + \epsilon_t$. In a similar vein to \cite{billio12}, the authors use their method to estimate the network and appropriate connectedness measures among the financial institutions from USA\footnote{The same approach was applied also to other data. For example, international trade (\cite{deibold23}) commodities (\cite{diebold17} and \cite{gong22}), cryptocurrencies (\cite{ji19}), particular pair of countries (\cite{dadej23})  and among the whole asset classes (\cite{bouri21}).}. As these methods may seems to be substitutable at first, the authors themselves point out the differences between their approach and that of \cite{billio12}. Considering the VAR methodology, it is evident that the resulting network of connections is weighted, unlike the Granger-based approach. This provide another dimension to analyze the strength of the links among the institutions. Moreover, at least in the standard formulation, the Granger-based approach is only pairwise. That is, it does not control for the spurious relationship, stemming from the confounding third (or more, in that matter) entity. However, the Granger-based method is flexible enough to extend the main regression used to test the Granger causality by more control variables. There are, of course, some disadvantages to rely on the VAR approach. It requires identifying assumptions, related to the variance decomposition. Also, what is more relevant to the herein research is higher computational burden coming from the VAR approach. Given, that the research design does not require information on link weights and is computationally expensive, the approach of \cite{billio12} was considered to be more appropriate.
 
 There is a number of alternative methods used for estimating networks in general, but more often used in other fields of study. A common approach from systems biology are Gaussian graphical models (e.g. applied in \cite{friedman04}). They allow for maximum likelihood estimation with penalization, producing a robust network estimation. Some of the applications in finance were estimating international finance flows (\cite{giudici16}) or systemic risk on the banking sector (\cite{cerchiello16}). \cite{barigozzi19} employs common approach to estimate network with VAR, but they extend the methodology with LASSO estimation (\cite{breiman95}), allowing for sparsity of the network and improved forecasting.
 
-Another strain of literature, suggesting the methods to estimate financial networks, comes from a different data source. Banks do not provide counterparty information in their financial statements but they do show their aggregated values for both lending and borrowing on the interbank market. This is a source of hard data that provides the marginal values for the adjacency matrix of the network, i.e. the columns and rows sums. Several authors provided methods of filling the adjacency matrix at the same time satisfying some stylized facts regarding financial networks. The stylized facts are provided by the research based on the actual data (surveyed before in herein section) or commonly accepted economic rationale, in case of no self-lending restriction. One of the most common approach is to estimate the network as evenly as possible. This method, know as \textit{maximum entropy} (\cite{upper11}), assumes that banks are trying to diversify their holdings as much as possible. The supposition that banks are diversifying as much as posible, may seems appealing at first. However, due to the monitoring costs and informal relationships (\cite{brauning16}) among banks (\cite{cocco09}), it is not realistic. Most likely overestimating density of the actual financial network. Having that in mind, \cite{anand15} suggest a \textit{minimum density} method which minimizes the total number of linkages necessary for allocating interbank positions. An appealing characteristic of the method is that it is overestimating the degree of contagion (according to the author's comparison). This is contrary to the benchmark methods, which more often underestimate it. A method suggested by \cite{baral12}, draws a link weights based on the copula distribution fitted to the aggregated interbank data. \cite{cimini15} uses fitness model based on likelihood  of directed connections with additional knowledge of the node's parameters. \citet{drehmann13} takes into account a commonly recognized stylized fact regarding the interbank market, that the network exhibits a \textit{core-periphery} structure. Their method provides a reconstructed matrix with \textit{core-periphery} characteristic. \cite{halaj13} suggest an iterative method were the network links are drawn randomly until the network is reconstructed. Above methods are compared together in a horse race described in \cite{anand18}.
+Another strain of literature, suggesting the methods to estimate financial networks, comes from a different data source. Banks do not provide counterparty information in their financial statements but they do show their aggregated values for both lending and borrowing on the interbank market. This is a source of hard data that provides the marginal values for the adjacency matrix of the network, i.e. the columns and rows sums. Several authors provided methods of filling the adjacency matrix at the same time satisfying some stylized facts regarding financial networks. The stylized facts are provided by the research based on the actual data (surveyed before in herein section) or commonly accepted economic rationale, in case of no self-lending restriction. One of the most common approach is to estimate the network as evenly as possible. This method, know as \textit{maximum entropy} (\cite{upper11}), assumes that banks are trying to diversify their holdings as much as possible. The supposition that banks are diversifying as much as possible, may seems appealing at first. However, due to the monitoring costs and informal relationships (\cite{brauning16}) among banks (\cite{cocco09}), it is not realistic. Most likely overestimating density of the actual financial network. Having that in mind, \cite{anand15} suggest a \textit{minimum density} method which minimizes the total number of linkages necessary for allocating interbank positions. An appealing characteristic of the method is that it is overestimating the degree of contagion (according to the author's comparison). This is contrary to the benchmark methods, which more often underestimate it. A method suggested by \cite{baral12}, draws a link weights based on the copula distribution fitted to the aggregated interbank data. \cite{cimini15} uses fitness model based on likelihood  of directed connections with additional knowledge of the node's parameters. \citet{drehmann13} takes into account a commonly recognized stylized fact regarding the interbank market, that the network exhibits a \textit{core-periphery} structure. Their method provides a reconstructed matrix with \textit{core-periphery} characteristic. \cite{halaj13} suggest an iterative method were the network links are drawn randomly until the network is reconstructed. Above methods are compared together in a horse race described in \cite{anand18}.
 
 A literature considering connections between financial institutions in the context of systemic risk and contagion is vast. Considering the increased importance of connectedness for assessing the systemic risk, \cite{hautsch14} improve on the works of \cite{adrian16} to propose the realized systemic risk beta. The measure specify the contribution of particular financial institution to the systemic risk, given its position in the network. A similar metric is suggested by \cite{dungey12}. They rank financial institutions in order of their systemic importance, considering their correlation-based connectedness. \cite{savona14} estimate dynamic conditional correlation model, in order to study the contagion among the hedge funds. The author shows, that correlations are key factor for predicting depressed hedge fund returns. A broader perspective is shown in the work of \cite{minoiu15}. According to their research, an elevated country connectedness, and at the same time, decrease in those of its neighbors, is able to predict the banking crisis.
 
@@ -100,7 +100,7 @@ The American market is on average more correlated than the European one. The rea
 
 Because of lack of public data from the interbank market, or as a matter of fact, any bilateral contractual obligations between the banks, the academic literature developed a set of tools to estimate the financial networks from available sources. As shown in the literature, these methods are well established and commonly applied in order to estimate the financial connections. This is despite some of their limitations. One may wonder, how can the stock prices reflect an information that is not public? There is however, evidence, that the stock prices discount also some unknown information to the public, e.g. due to insider trading or inferred from other data. A classic example is \cite{newhard14}, describing the, allegedly, the first ever event study performed on the stock prices. Based on the outperformance of lithium producers he inferred the fuel material used in the manufacturing of the newly-developed hydrogen bomb. An information which was non-public, to the extent, that his paper was confiscated. The literature on insider trading and non-public information on the stock market is vast and extends beyond the scope of herein paper (see e.g. \cite{hawk90}, \cite{huddart07} or \cite{klein20}). As well as assessment of the methods to estimate the financial network.
 
-A schematic representation describing the problem faced by both \cite{billio12} and \cite{diebold17} of financial network estimation is shown in the Figure \ref{fig:connectedness_scheme}. Based on the multivariate time-series data matrix $X$, consisting of stock price returns, the authors suggest a method of infering an adjacency matrix, describing the connections among the financial institutions. As shown, the adjacency matrix has a number of columns and rows equal to the number of entities. Each of the elements in the adjacency matrix $\boldsymbol{A}$, describe the connections between the entities. That is, $a_{i,j} > 0 \Rightarrow i \rightarrow j \; \forall \;  i \neq j$. In the economic applications, the diagonal values are usually zero, as there is no intuition behind a self connection of a financial institution. Each $a_{i,j}$ can take binary values in case of unweighted graph or any other real-valued number in case of weighted graph. A very useful property, linking linear algebra and graph theory is that every graph has its own adjacency matrix (and vice versa). Thus, a variety of graph theory measures may be applied to the estimated network of connections. One of the most common measure describing the financial connectedness is the average degree, which is average number of edges each of the graph nodes has. The measure may provide a single value number describing the connectedness of entirety of financial system (at least so far as goes the number of included financial institutions). 
+A schematic representation describing the problem faced by both \cite{billio12} and \cite{diebold17} of financial network estimation is shown in the Figure \ref{fig:connectedness_scheme}. Based on the multivariate time-series data matrix $X$, consisting of stock price returns, the authors suggest a method of inferring an adjacency matrix, describing the connections among the financial institutions. As shown, the adjacency matrix has a number of columns and rows equal to the number of entities. Each of the elements in the adjacency matrix $\boldsymbol{A}$, describe the connections between the entities. That is, $a_{i,j} > 0 \Rightarrow i \rightarrow j \; \forall \;  i \neq j$. In the economic applications, the diagonal values are usually zero, as there is no intuition behind a self connection of a financial institution. Each $a_{i,j}$ can take binary values in case of unweighted graph or any other real-valued number in case of weighted graph. A very useful property, linking linear algebra and graph theory is that every graph has its own adjacency matrix (and vice versa). Thus, a variety of graph theory measures may be applied to the estimated network of connections. One of the most common measure describing the financial connectedness is the average degree, which is average number of edges each of the graph nodes has. The measure may provide a single value number describing the connectedness of entirety of financial system (at least so far as goes the number of included financial institutions). 
 
 \begin{figure}
 	\begin{tikzpicture}	
@@ -215,7 +215,7 @@ Once the shrinked covariance matrix is estimated, it is assumed to reflect the u
 
 Where $\tilde{\sigma}_{i,j}$ are, as before, elements of the matrix $\tilde{\Sigma}$.
 
-The procedure tends to pull the most extreme paraemters into more central values, thus systematically reducing estimation error. The estimation error is especially substantial when the dimension of the analyzed data is high, with respect to the amount of observations available. another work by the original authors \cite{ledoit04} performs a Monte Carlo simulation study benchmarking alternative ways to estimate the covariance matrix and shows the superiority of their approach for large dimensional data. This is considerably relevant considering research design of this work. As mentioned before, the connectedness measure will be calculated in a rolling window basis. Often as small as a single quarter (63 observations vs. 42 variables). 
+The procedure tends to pull the most extreme parameters into more central values, thus systematically reducing estimation error. The estimation error is especially substantial when the dimension of the analyzed data is high, with respect to the amount of observations available. another work by the original authors \cite{ledoit04} performs a Monte Carlo simulation study benchmarking alternative ways to estimate the covariance matrix and shows the superiority of their approach for large dimensional data. This is considerably relevant considering research design of this work. As mentioned before, the connectedness measure will be calculated in a rolling window basis. Often as small as a single quarter (63 observations vs. 42 variables). 
 
 \subsection{Principal component analysis}\label{subsection:pca}
 
@@ -251,7 +251,7 @@ The approach, that yields not only a network of the connections but also its dir
 \end{equation}
 
 Where $\beta$ are the estimated coefficients and $\epsilon_t$ the uncorrelated error term. The variable $x_t$ is said to Granger-cause $y_t$ if the respective coefficient $\beta_1$ is significantly different from zero.
-In the context of financial markets, the above approach may appear to be implausible to a lot of financial economists. That is because of the relatively high degree of information efficiency, considering we analyze the most liquid markets in the world. This efficiency implies that any publicly accessible information should yield no predictive ability, thus rendering the equation \ref{equation:granger} pointless. That being said, the test indeed finds the underlying connections \footnote{Even with a frequency higher than the applied confidence interval.}. This is due to several factors. The primary one, is that the statistical significance is not equal to the economical one. Any execution of potential strategy following the equation \ref{equation:granger}, will stumble upon the transaction costs, including slippage and commisions, which will make the exercise unprofitable. Thus, the granger causality may just as well be seen as a return spillover between the institutions, as shown in \cite{battison12}.
+In the context of financial markets, the above approach may appear to be implausible to a lot of financial economists. That is because of the relatively high degree of information efficiency, considering we analyze the most liquid markets in the world. This efficiency implies that any publicly accessible information should yield no predictive ability, thus rendering the equation \ref{equation:granger} pointless. That being said, the test indeed finds the underlying connections \footnote{Even with a frequency higher than the applied confidence interval.}. This is due to several factors. The primary one, is that the statistical significance is not equal to the economical one. Any execution of potential strategy following the equation \ref{equation:granger}, will stumble upon the transaction costs, including slippage and commissions, which will make the exercise unprofitable. Thus, the granger causality may just as well be seen as a return spillover between the institutions, as shown in \cite{battison12}.
 
 The exact procedure employed in the research design is slightly modified\footnote{\cite{billio12} performs the Granger causality test by filtering the returns with GARCH(1,1) process and then using the time-varying variance to test the significance of the $\beta$ coefficient from the regression. This approach is, however, computationally more expensive. This technical dimension is more relevant to this study as the connectedness is measured in a rolling window basis. Unlike in the original study of \cite{billio12}.}. The procedures uses excess returns of the institutions stock prices over a relevant benchmark of market rates of return. Consequently, the returns of the institutions will have a purely idiosyncratic character. The regression has a following specification:
 
@@ -259,7 +259,7 @@ The exact procedure employed in the research design is slightly modified\footnot
 	r_{i,t+1} = \beta_0 + \beta_1 r_{j,t} + \beta_2 r_{i, t} + \underbrace{\sum_{i=1}^{k} \beta_{i+2} x_{t}}_{\text{Sectoral controls}} + \epsilon_t
 \end{equation}
 
-The financial institutions are assumed to be connected when the $\beta_1$ coefficient is statistically different from 0. The sectoral controls consists of rates of returns of consumer discretionary ETF, Real Estate ETF, crude oil WTI and treasure bills of 3-month and 10 year maturity. These variables control for common shocks among the institutions. Since the institutions may have a common exposures (e.g. to real estate through mortgages portfolio), a shock to the real estate market could hit both of the institutions equaly, showing potential Granger causality, despite no bilateral contractual obligations among them. By introducing some of the sectoral controls the research design is free from this sort of relationship. It is however important to note, that these channels are also of concern by the theoretical literature studying contagion on the financial networks. This channel is described e.g. by \cite{cifuentes05} and may play an actual role in the mechanism describing the \textit{robust-yet-fragile} phenomena. That being said, this is one of the three other methods estimating the financial connectedness in herein study and the only one where controlling for the common shock is possible. Thus, the other measures will be allowed to capture this channel. 
+The financial institutions are assumed to be connected when the $\beta_1$ coefficient is statistically different from 0. The sectoral controls consists of rates of returns of consumer discretionary ETF, Real Estate ETF, crude oil WTI and treasure bills of 3-month and 10 year maturity. These variables control for common shocks among the institutions. Since the institutions may have a common exposures (e.g. to real estate through mortgages portfolio), a shock to the real estate market could hit both of the institutions equally, showing potential Granger causality, despite no bilateral contractual obligations among them. By introducing some of the sectoral controls the research design is free from this sort of relationship. It is however important to note, that these channels are also of concern by the theoretical literature studying contagion on the financial networks. This channel is described e.g. by \cite{cifuentes05} and may play an actual role in the mechanism describing the \textit{robust-yet-fragile} phenomena. That being said, this is one of the three other methods estimating the financial connectedness in herein study and the only one where controlling for the common shock is possible. Thus, the other measures will be allowed to capture this channel. 
 
 The above Granger analysis is ran on every pair of the institutions. The adjacency matrix of the financial network $\boldsymbol{A}$ has following entries:
 
@@ -284,38 +284,41 @@ The connectedness measure is then calculated in a similar manner as for the Ledo
 
 Although, the ground truth of the true financial network is unknown, it is still informative to investigate the properties of the estimated networks. This way we can evaluate if the estimation results are economically sensible. Figure \ref{fig:actual_network} shows two representations of the same graph, estimated with the Granger-based method. The data used for the estimation is from 2023, as the actual links among the financial institutions is concentrated within this horizon\footnote{The data on maturity structure on interbank market is scarce as well. A bit outdated but complete sample from the German interbank market from 2000 reports that around 40\% of the interbank debt has a maturity of less than a year (\cite{upper04}). The inclusion of derivatives would most likely increase this share.}. It is clear from the visual presentation of the network, how dense the connection is\footnote{The definition of \textit{density} as well as other network statistics used in this section and henceforth is described in the appendix \ref{appendix:network_metrics}}. As reported in the table \ref{table:network_metrics}, the visualized graph is more dense than for the USA market and different time periods. The European financial sector is less densely connected than the USA, in both of the period subsample. This is to be expected (also from the descriptive statistics in the subsection \ref{subsection:data_descrptive}), considering that the banking sector is more fragmented due to separate jurisdictions. In absolute terms, every estimated network is somewhat more dense \footnote{This is, however, arbitrary to some degree. The level of density might be as well manipulated by choosing different confidence level when checking the $\beta$ coefficient significance in Granger test. Increasing its level from 95\% to e.g. 99\% would decrease the density. The level of significance is decided by convention.} than the evidence from empirical literature based on transaction level data.  One of the lowest estimates of the density comes from the work of \cite{anand15}. Based on the German interbank market they report the density to be around 0.59\%. On the other hand, one of the highest reported values of density is 15\% from the Italian e-MID interbank market (\cite{fricke15}). The estimates clearly vary substantially, most likely depending on the types of instruments considered a connection among the institutions, as well as the sample of banks. Other than the purely arbitrary level of confidence in the Granger test, the reason of increased density of estimated network is the subsample of only systematically important institutions. This, by definition, makes them more connected to with the rest of the system, rather than the, e.g. regional banks. Still, the density is within estimates from the empirical literature, ensuring that the estimated network is economically sensible (or the chosen confidence level).
 
-The assortativity, describing the correlation of node in/out-degree, is negative in every subsample. The negative value indicates, that the nodes with more out-degree (edges with direction coming from the node) are, on average, more connected to the nodes with more in-degree. The negative values are expected. This is because the economic role of the interbank market is mostly to facilitate the flow of funds from banks with excess liquidity to those of funding needs. Thus, the banks are more likely connected with each other if their connections have, in overall, different directions of edges.
-
 \begin{figure}%
 	\centering
 	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_eu_circl.png} }}
 	\quad
 	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_eu.png} }}\\
 	
-%	\subfloat[\centering Representation with random position]{{\includegraphics[width=7cm, height=7cm]{img/graph_us.png} }}
-%	\quad	
-%	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_us_circl.png} }}
-		
+	%	\subfloat[\centering Representation with random position]{{\includegraphics[width=7cm, height=7cm]{img/graph_us.png} }}
+	%	\quad	
+	%	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_us_circl.png} }}
+	
 	\caption{Financial network visualization based on the European market data from 2023. Each point (node) represents a financial institution and the connections (edges) are links estimated with the Granger causality method. The arrows indicate the direction of particular link. Each node is labeled with the ticker of given financial institution.}	\label{fig:actual_network}
 \end{figure}
 
+
+The literature investigating the topological nature of the interbank market often provide evidence of the \textit{dis-assortative} property of the network. In graph theory, the term assortativity refers to the tendency of nodes to be connected with the nodes of similar characteristic. In the context of financial networks, the term of \textit{dis-assortative} property is often used with respect to different bank features. For example, Based on the Brazilian interbank market, \cite{silva16} report its dis-assortative property with respect to the amount of connections of institutions\footnote{A similar reference is used e.g. in \cite{aldasoro17}} (node degree). The same property was observed on the Italian interbank market (\cite{bargigli15}). On the other hand, \cite{craig14} also provides evidence of dis-assortative behavior, however in this case, with respect to the bank size (i.e. smaller banks are more likely to be connected to the big ones).
 
 \begin{table}
 	\center
 	\begin{tabular}{lcc c cc}
 		\hline
-		 & \multicolumn{2}{c}{2023} && \multicolumn{2}{c}{2006}\\
+		& \multicolumn{2}{c}{2023} & \multicolumn{2}{c}{2006}\\
 		\cline{2-3} \cline{5-6} 
 		\multicolumn{1}{l}{Network measures} & \multicolumn{1}{c}{Europe} & \multicolumn{1}{c}{US} && \multicolumn{1}{c}{US} & \multicolumn{1}{c}{Europe}\\
 		\hline
 		density & 0.0756 & 0.108 && 0.186 & 0.130 \\
-		degree & 6.048 & 6.26 && 9.3 & 9.11 \\
+		Average degree & 6.048 & 6.26 && 9.3 & 9.11 \\
 		Median degree & 4 & 5 && 8 & 9 \\
-		Assortativity & -0.373 & -0.324 && -0.32 & -0.245 \\
+		Excess degree assortativity & -0.373 & -0.324 && -0.324 & -0.245 \\
+		Indegree assortativity & -0.188 & 0.137 && 0.1 & 0.162 \\
+		Outderee assortativity & -0.31 & -0.0037 && -0.072 & 0.134 \\    
+		Total degree assortativity & -0.2626 & -0.287 && -0.307 & -0.118 \\
 		Cluster coefficient & 0.033 & 0.0459 && 0.078 & 0.053 \\
 		intermediator share & 0.68 & 0.866 && 0.769 & 0.88 \\   
-		max path & 6 & 11 && 5 & 7 \\
-		Eigenvector centrality & 0.127 & 0.084 && 0.123 & 0.100 \\
+		Max path & 6 & 11 && 5 & 7 \\
+		Relative max eigenvector centrality & 0.064 &  0.354 &&     0.221 & 0.163 \\
 		Relative core size & 0.195 & 0.195 && 0.243 & 0.243 \\
 		Absolute core size & 8 & 8 && 10 & 10 \\
 		\hline
@@ -324,13 +327,25 @@ The assortativity, describing the correlation of node in/out-degree, is negative
 	\label{table:network_metrics}
 \end{table}
 
+The assortativity, describing the correlation of node in/out-degree, is negative in almost every subsample of estimated networks, that is, they present a dis-assortative properties with respect to its degree. The only type of assortativity that is mostly positive is the indegree assortativity (measuring the correlation between the indegree of the connected nodes). It's worth to note, that the same pattern is present in some of the theoretical models (i.e. \cite{aldasoro17}). The negative values are expected. This is because the economic role of the interbank market is mostly to facilitate the flow of funds from banks with excess liquidity to those of funding needs. Thus, the banks are more likely connected with each other if their connections have, in overall, different directions of edges. As mentioned before, the empirical literature also reports mostly negative assortativity values.
+
+The dis-assortative property of the financial network is a closely related  with the the \textit{core-periphery} structure of the network (\cite{craig14}). This structure is commonly observed in the transaction level data of the interbank market and is a widely acknowledged stylized fact. The structure is present when there is a core of the network with (usually bigger) banks, intermediating the flow of funds among the smaller ones. The banks tend to trade between the core and a periphery, but not within those groups. The identified core of the structure is rather stable between the financial markets but changes a bit throughout time. Nevertheless, the relative size is considerably higher than the estimates from the literature. For example, the seminal paper (\cite{craig14}) identifying the structure reports its relative size to be 3\% (depending on the specification). The reason for such a wide difference is most likely due to the sample used. This works mostly uses data of global systematically important institutions, which are most likely part of the core of the financial network. Another factor might be the different methodology applied to identify the core-periphery structure and the network itself. 
+
+
+
+\subsection{Dynamic connectedness}
+
+
+
 \bibliography{bibliography}
+
+\newpage
 
 \appendix
 
 \section{Data}\label{appendix:data}
 
-\begin{table}[h]
+\begin{table}[!htbp]
 	\begin{center}
 		\renewcommand{\arraystretch}{0.8}
 		\resizebox{\textwidth}{!}{\begin{tabular}{c|c||c |c|c}\multicolumn{2}{c||}{USA} & \multicolumn{2}{c}{EU} \\
@@ -428,7 +443,7 @@ The assortativity, describing the correlation of node in/out-degree, is negative
 
 % latex table generated in R 4.3.2 by xtable 1.8-4 package
 % Sat Jul 20 14:54:42 2024
-\begin{table}[h]
+\begin{table}[!htbp]
 	\centering
 	\renewcommand{\arraystretch}{0.7}
 	\begin{tabular}{l|l|l|l}\multicolumn{2}{c|}{USA} & \multicolumn{2}{c}{EU} \\
@@ -483,10 +498,68 @@ The assortativity, describing the correlation of node in/out-degree, is negative
 
 \section{Network metrics}\label{appendix:network_metrics}
 
-\subsection{Definitions of the metrics}
+We define a graph $G = (V, E)$ to be an abstract object with a set of $E$ edges (or links) and a set of $V$ vertices (or nodes). The nodes are connected with edges in a graph. The node set $V$ and a set of edges $E$ is denoted as $V(G)$ and $E(G)$. The cardinality of these sets are usually denoted as $m = |E|$ for edges and $n = |V|$ for nodes. The edges may be represented by the nodes they connect - $(u, v)$ (or with shorthand notation $uv$). In case of directed graph, the order of the notation matters, as it defines the direction of the edge ($uv \neq vu$). For the weighted graph, the values associated to the nodes may be represented as a function $\omega : E \rightarrow \mathcal{R}$, assigning each edge $e \in E$ a weight $\omega(e)$. In case of the financial networks, the values may describe e.g. the exposure of the bilateral contractual obligation between the financial intermediaries. The undirected graphs are equivalent to the weighted ones with a unit edge weights $\omega(e) = 1 \; \forall \; e \in E$.
+
+Degree, denoted as $d(v)$ is the number of edges of particular node $v$. For a directed graph, the \textit{out-degree} of $v \in V$ is denoted as $d^{+}(v)$, define the number of edges with the origin $v$. Analogically, the \textit{in-degree} is denoted as $d^{-}(v)$ is the number of the edges with destination at $v$.
+
+As mentioned in the subsection $\ref{section:fin_network}$, the graph theory has a very appealing relation to the linear algebra. Every graph may be represented by its adjacency matrix, often denoted $\mathbf{A}$. In case of unweighted, directed graph, the adjacency matrix has values $a_{i,j} \in \{0,1\}$, indicating a node connection. That is, $a_{i,j} = 1 \Rightarrow i \rightarrow j \; \forall \;  i \neq j$. The matrix elements may take other values in case of the weighted graph. 
+
+\subsection{Graph statistics definition}
+
+\textbf{Network density} measures the connectedness of the network. The statistic is defined as:
+
+\begin{equation}
+	\gamma(G) \coloneqq \frac{m}{{n \choose 2}}
+\end{equation}
+
+\textbf{Average degree} is simply the average number of edges for each of the node in the graph:
+
+\begin{equation}
+	\bar{d}(G) = \frac{1}{n} \sum_{v \in V} d(v)
+\end{equation}
+
+The \textbf{median degree} is defined in a corresponding fashion.
+
+The \textbf{assortativity} measures the correlation among the connected nodes with respect to their characteristics. It's calculation follows the Pearson correlation coefficient:
+
+\begin{equation}
+	r(G) = \frac{\sum_{uv \in E}^{m} (d(u) - \bar{d}(G)) (d(v) - \bar{d}(G))}{\sqrt{\sum_{uv \in E}^{m} (d(u) - \bar{d}(G))^2} \sqrt{\sum_{uv \in E}^{m} (d(v) - \bar{d}(G))^2}} \;, E \in G
+\end{equation}
+
+Naturally, as for the Pearson's correlation, it takes values between -1 and 1 and is interpreted in the same way as well. Depending on type of the assortativity, the correlation may be calculated based on other measure than degree of the node ($d(u)$). The excess degree assortativity is defined as in \cite{newman02} and uses outdegree value for source node $u$ and indegree for destination node $v$.
+
+The \textbf{clustering coefficient} measure the relative amount of clusters. It is calculated as a share of closed triplets in total number of possible triplets of the graph. The closed triplet, being a three connected nodes. The calculation is easily defined with a matrix notation:
+
+\begin{equation}
+	C(\mathbf{A}) = \frac{\sum_{i}^{n} \sum_{j}^{n} \sum_{k}^{n} a_{i,j} a_{j,k} a_{k,i}}{\frac{1}{2} \sum_{i}^{n} k_i (k_i - 1)}
+\end{equation}
+
+Where $k_i = \sum_{j}^{n} a_{i,j}$. 
+
+The \textbf{intermediator share} is simply a share of nodes with both indegree and outdegree:
+
+\begin{equation}
+	\frac{1}{n} \sum_{v \in V}^{n} \min\{1, \, d^{+}(v) d^{-}(v)\}
+\end{equation}
+
+The \textbf{maximum path} is the biggest set (in sense of cardinality) of distinct edges connecting nodes for every pair of the nodes. 
+
+The \textbf{relative max eigenvector centrality} is a share of the node with the highest eigenvector centrality in the total sum of the centrality measures in the whole graph. The eigenvector centrality $c$ satisfies the following equation:
+
+\begin{equation}
+	\lambda c_i = \sum_{j \neq i}^{n} a_{j,i} c_j
+\end{equation}
+
+Or alternatively in the matrix formulation:
+
+\begin{equation}
+	\lambda \mathbf{c} = \mathbf{A}' \mathbf{c}
+\end{equation}
+
+The euqation may be solved as described in the subsection \ref{subsection:pca}. The appealing property of the measure is that the centrality of the node $i$ is proportional to the centrality of its directly neighboring nodes\footnote{It is clear when the change of the index of $c$ at the R.H.S. is spotted}. Additionally, the node may be central in the system either through the number of neighbors or the value of their centrality.
 
 \subsection{Graphs and tables}
-\begin{figure}[h]
+\begin{figure}[!htbp]
 	\centering
 	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_us_circl.png} }}
 	\quad
@@ -499,7 +572,7 @@ The assortativity, describing the correlation of node in/out-degree, is negative
 	\caption{Financial network visualization based on the US market data from 2023. Each point (node) represents a financial institution and the connections (edges) are estimated links.}	\label{fig:actual_network}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 		\centering
 	\subfloat[\centering Circle representation of EU financial network]{{\includegraphics[width=7cm, height=7cm]{img/graph_eu_lw_circl.png} }}
 	\quad
@@ -512,7 +585,7 @@ The assortativity, describing the correlation of node in/out-degree, is negative
 	\caption{Graph visualization based on the data from 2023. Each point (node) represents a financial institution and the connections (edges) are estimated links. The network is estimated with the Ledoit-Wolf covariance estimator. The nodes are assumed to be connected if the estimated covariance exceeds 0.02\%}	\label{fig:actual_network_lw}
 \end{figure}
 
-\begin{table}
+\begin{table}[!htbp]
 	\center
 	\begin{tabular}{l |c|c}
 		Metric & EU & US \\

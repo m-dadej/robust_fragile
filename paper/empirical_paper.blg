@@ -5,46 +5,52 @@ The style file: apalike.bst
 Database file #1: bibliography.bib
 Warning--I'm ignoring gallegati08's extra "title" field
 --line 131 of file bibliography.bib
+Too many commas in name 1 of "L. Bargigli, G. di Iasio, L. Infante, F. Lillo and F. Pierobon" for entry bargigli15
+while executing---line 1023 of file apalike.bst
+Too many commas in name 1 of "L. Bargigli, G. di Iasio, L. Infante, F. Lillo and F. Pierobon" for entry bargigli15
+while executing---line 1023 of file apalike.bst
+Too many commas in name 1 of "L. Bargigli, G. di Iasio, L. Infante, F. Lillo and F. Pierobon" for entry bargigli15
+while executing---line 1098 of file apalike.bst
 Warning--there's a number but no volume in ledoit03
-You've used 65 entries,
+You've used 69 entries,
             1935 wiz_defined-function locations,
-            879 strings with 14586 characters,
-and the built_in function-call counts, 25962 in all, are:
-= -- 2554
-> -- 1021
-< -- 44
-+ -- 347
-- -- 336
-* -- 2312
-:= -- 4538
-add.period$ -- 201
-call.type$ -- 65
-change.case$ -- 493
-chr.to.int$ -- 64
-cite$ -- 66
-duplicate$ -- 903
-empty$ -- 1840
-format.name$ -- 455
-if$ -- 5048
+            904 strings with 15178 characters,
+and the built_in function-call counts, 27539 in all, are:
+= -- 2709
+> -- 1077
+< -- 46
++ -- 367
+- -- 354
+* -- 2452
+:= -- 4812
+add.period$ -- 213
+call.type$ -- 69
+change.case$ -- 522
+chr.to.int$ -- 68
+cite$ -- 70
+duplicate$ -- 959
+empty$ -- 1957
+format.name$ -- 479
+if$ -- 5356
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 61
-newline$ -- 334
-num.names$ -- 195
-pop$ -- 340
+missing$ -- 65
+newline$ -- 354
+num.names$ -- 207
+pop$ -- 359
 preamble$ -- 1
-purify$ -- 493
+purify$ -- 522
 quote$ -- 0
-skip$ -- 687
+skip$ -- 729
 stack$ -- 0
-substring$ -- 2042
-swap$ -- 70
+substring$ -- 2177
+swap$ -- 74
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 386
+type$ -- 410
 warning$ -- 1
-while$ -- 206
+while$ -- 219
 width$ -- 0
-write$ -- 854
-(There were 2 warnings)
+write$ -- 906
+(There were 3 error messages)

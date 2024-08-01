@@ -94,7 +94,7 @@ function graph_stats(mat::Matrix{Float64}, region::String, period::String = "dai
           cluster_coef = global_clustering_coefficient(g),
           interm_share = sum(intermediaries(mat)) / size(mat)[1],
           max_path = max_path(mat),
-          eigenvector_centrality = mean(eigenvector_centrality(g)),
+          eigenvector_centrality = maximum(eigenvector_centrality(g))/sum(eigenvector_centrality(g)),
           core_size_rel = sum(core_periphery_deg(SimpleGraph(g)) .== 1) / size(mat_eu)[1],
           core_size_abs = sum(core_periphery_deg(SimpleGraph(g)) .== 1))
     return df
@@ -147,18 +147,23 @@ show(stdout, MIME("text/latex"), lw_stats_df)
 
 outdegree(SimpleDiGraph(mat_eu))
 
-g = star_graph(5)#SimpleDiGraph(mat_eu)
+g = SimpleDiGraph(mat_eu)
 
 df = zeros(length(edges(g)), 2)
 i = 0
 
 for edge in edges(g)
     i += 1
-    df[i, 1] = degree(g)[src(edge)] 
-    df[i, 2] = degree(g)[dst(edge)]
+    df[i, 1] = outdegree(g)[src(edge)] 
+    df[i, 2] = indegree(g)[dst(edge)]
 end
 
+sum(eigenvector_centrality(g))
+
+sum(mat_eu)
+
 cor(df)
+assortativity(g)
 
 gplot(star_graph(5))
 

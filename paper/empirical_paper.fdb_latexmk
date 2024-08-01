@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex empirical_paper"] 1721662573.46435 "empirical_paper.aux" "empirical_paper.bbl" "empirical_paper" 1721664035.53936 0
-  "./bibliography.bib" 1721662448 53050 476fd2d91de55bd263cdecaad632c006 ""
+["bibtex empirical_paper"] 1722340863.88278 "empirical_paper.aux" "empirical_paper.bbl" "empirical_paper" 1722340864.48677 2
+  "./bibliography.bib" 1722340855 58318 92a9513b8c4629bd32f3496bf8bace97 ""
   "c:/texlive/2024/texmf-dist/bibtex/bst/base/apalike.bst" 1716292577 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "empirical_paper.aux" 1721664034 7555 e2fffd2aaab0f398d83e10037a836e0f "pdflatex"
+  "empirical_paper.aux" 1722340864 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "empirical_paper.bbl"
   "empirical_paper.blg"
   (rewritten before read)
-["pdflatex"] 1721664032.38548 "c:/Users/Mateusz/Documents/py/finanse/robust_fragile/paper/empirical_paper.tex" "empirical_paper.pdf" "empirical_paper" 1721664035.53994 0
-  "c:/Users/Mateusz/Documents/py/finanse/robust_fragile/paper/empirical_paper.tex" 1721664031 43106 78fda054879393ee6a5691762130b942 ""
+["pdflatex"] 1722340858.18361 "c:/Users/Mateusz/Documents/py/finanse/robust_fragile/paper/empirical_paper.tex" "empirical_paper.pdf" "empirical_paper" 1722340862.99985 2
+  "c:/Users/Mateusz/Documents/py/finanse/robust_fragile/paper/empirical_paper.tex" 1722340855 55717 2662a2742541d0c599241c0a38c15ba6 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1716292884 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1716293714 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1716293362 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -181,9 +181,17 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1716303091 5529302 90924f286bd62ce7380ad2a7c245cc29 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1716303312 8225106 305ceae61516e53c6d2358aec3cff9e6 ""
   "c:/texlive/2024/texmf.cnf" 1716303066 713 e69b156964470283e0530f5060668171 ""
-  "empirical_paper.aux" 1721664034 7555 e2fffd2aaab0f398d83e10037a836e0f "pdflatex"
-  "empirical_paper.bbl" 1721662574 14763 15fcb7061fd91c4c2ca32d7a9865fb62 "bibtex empirical_paper"
-  "empirical_paper.tex" 1721664031 43106 78fda054879393ee6a5691762130b942 ""
+  "empirical_paper.aux" 1722340864 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "empirical_paper.bbl" 1722340864 0 d41d8cd98f00b204e9800998ecf8427e "bibtex empirical_paper"
+  "empirical_paper.tex" 1722340855 55717 2662a2742541d0c599241c0a38c15ba6 ""
+  "img/graph_eu.png" 1722336583 193404 6b9bb1c39b91bb9db8801d49a1ce1dd7 ""
+  "img/graph_eu_circl.png" 1722336583 370919 ef7350315a76e0681d4260d63e0aa41e ""
+  "img/graph_eu_lw.png" 1722336583 137103 df883076eb084c7b492fb977f66e0e3e ""
+  "img/graph_eu_lw_circl.png" 1722336583 285097 8e2114c35f5bb51512688421744a5ec4 ""
+  "img/graph_us.png" 1722336583 143318 46c967bc5670b58627b7d3dfe4dd6b58 ""
+  "img/graph_us_circl.png" 1722336583 307657 f17453dae6bcb3c4496bfb84afd3e710 ""
+  "img/graph_us_lw.png" 1722336583 76139 d58eb3661d8edcf621fa25184ea2a107 ""
+  "img/graph_us_lw_circl.png" 1722336583 213233 43488a7a46ad9f07bdc0d898f1a83cd6 ""
   (generated)
   "empirical_paper.aux"
   "empirical_paper.log"
