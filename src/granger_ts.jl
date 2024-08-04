@@ -36,4 +36,4 @@ granger_out = DataFrame(Date = data_raw.Date[cor_w:end], granger = granger_ts)
 
 #CSV.write("src/data/granger_ts.csv", granger_out)
 
-CSV.write("src/data/granger_ts.csv", granger_out)
+CSV.write("src/data/archive/granger_ts_63eu.csv", granger_out)
