@@ -32,10 +32,18 @@ end
 
 
 # Load data
-data = CSV.read("src/data/bank_cor.csv", DataFrame)
 
-#granger_df = CSV.read("data/granger_ts.csv", DataFrame)
-granger_df = CSV.read("src/data/granger_ts.csv", DataFrame)
+
+# get the new data...
+#granger_df = CSV.read("src/data/granger_ts.csv", DataFrame)
+#data = CSV.read("src/data/bank_cor.csv", DataFrame)
+
+# ...or the one archived
+cor_window = 63
+market = "eu"
+granger_df = CSV.read("src/data/archive/granger_ts_$cor_window$market.csv", DataFrame)
+data = CSV.read("src/data/archive/bank_cor_$cor_window$market.csv", DataFrame)
+
 data = sort(leftjoin(data, granger_df, on = :Date), :Date)
 
 df_model = Matrix(dropmissing(data[:, ["banks_index", "index", "granger"]]))

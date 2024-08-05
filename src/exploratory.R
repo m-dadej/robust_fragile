@@ -7,8 +7,8 @@ drawdown <- function(ret) {
   return((cum_ret / cummax(cum_ret)) - 1)
 }
 
-df_eu <- read.csv("C:/Users/Mateusz/Documents/py/finanse/robust_fragile/data/archive/df_rets_granger_eu.csv") 
-df_us <- read.csv("C:/Users/Mateusz/Documents/py/finanse/robust_fragile/data/archive/df_rets_granger_us.csv") 
+df_eu <- read.csv("C:/Users/Mateusz/Documents/py/finanse/robust_fragile/src/data/archive/df_rets_granger_eu.csv") 
+df_us <- read.csv("C:/Users/Mateusz/Documents/py/finanse/robust_fragile/src/data/archive/df_rets_granger_us.csv") 
 
 not_stocks <- c("X.IRX", "XLY", "IYR", "ZN.F", "CL.F", "Open")
 
