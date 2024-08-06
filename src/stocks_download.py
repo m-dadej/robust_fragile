@@ -62,6 +62,9 @@ if args.excess:
 banks_index.columns = ['banks_index']        
 index.columns = ['index']
 
+df_rets\
+    .fillna(0)\
+    .rolling(args.cor_window, min_periods = 256 - 1)
 
 cor_ts = df_rets\
     .fillna(0)\

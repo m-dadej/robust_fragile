@@ -96,6 +96,11 @@ Caballero, R.~J. and Simsek, A. (2013).
 \newblock Fire sales in a model of complexity.
 \newblock {\em The Journal of Finance}, 68(6):2549--2587.
 
+\bibitem[Cai, 1994]{cai94}
+Cai, J. (1994).
+\newblock A markov model of switching-regime arch.
+\newblock {\em Journal of Business & Economic Statistics}, 12(3):309--316.
+
 \bibitem[Callaway et~al., 2000]{callaway00}
 Callaway, D.~S., Newman, M. E.~J., Strogatz, S.~H., and Watts, D.~J. (2000).
 \newblock Network robustness and fragility: Percolation on random graphs.
@@ -263,6 +268,12 @@ Ha{\l}aj, G. and Kok, C. (2013).
 Haldane, A.~G. (2013).
 \newblock {\em Rethinking the financial network}.
 \newblock Springer.
+
+\bibitem[Hamilton, 1989]{hamilton89}
+Hamilton, J.~D. (1989).
+\newblock A new approach to the economic analysis of nonstationary time series
+  and the business cycle.
+\newblock {\em Econometrica}, 57(2):357--384.
 
 \bibitem[Hautsch et~al., 2014]{hautsch14}
 Hautsch, N., Schaumburg, J., and Schienle, M. (2014).

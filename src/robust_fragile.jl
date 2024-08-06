@@ -16,9 +16,13 @@ using Plots
 run(`py src/stocks_download.py
     --region eu
     --freq daily
-    --cor_window 63
+    --cor_window 256
     --eig_k 1
     --excess False`)
+
+data = CSV.read("src/data/bank_cor.csv", DataFrame)
+
+plot(data.eig)
 
 function remove_outlier(data, m = 3)
     

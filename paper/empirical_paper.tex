@@ -278,7 +278,7 @@ The connectedness measure is then calculated in a similar manner as for the Ledo
 \gamma_{g} = \frac{\sum_{i \neq j}^{N} \sum_{j \neq i}^N a_{i,j}}{N^2 - N}	
 \end{equation}
 
-\subsection{Network estimation results}\label{subsection:network_results}
+\section{Network estimation results}\label{section:network_results}
 
 \subsection{Static analysis}\label{subsection:static}
 
@@ -331,9 +331,23 @@ The assortativity, describing the correlation of node in/out-degree, is negative
 
 The dis-assortative property of the financial network is a closely related  with the the \textit{core-periphery} structure of the network (\cite{craig14}). This structure is commonly observed in the transaction level data of the interbank market and is a widely acknowledged stylized fact. The structure is present when there is a core of the network with (usually bigger) banks, intermediating the flow of funds among the smaller ones. The banks tend to trade between the core and a periphery, but not within those groups. The identified core of the structure is rather stable between the financial markets but changes a bit throughout time. Nevertheless, the relative size is considerably higher than the estimates from the literature. For example, the seminal paper (\cite{craig14}) identifying the structure reports its relative size to be 3\% (depending on the specification). The reason for such a wide difference is most likely due to the sample used. This works mostly uses data of global systematically important institutions, which are most likely part of the core of the financial network. Another factor might be the different methodology applied to identify the core-periphery structure and the network itself. 
 
-
-
 \subsection{Dynamic connectedness}
+
+As mentioned before, the connectedness measure described in the section 
+\ref{section:fin_network} are calculated in a rolling window bases. That is, at each time $t$ the connectedness is calculated for the past window of observations up to $t - w$, where $w$ is a window length. The calculations are done with two window lengths of a quarter and a year. The resulting time series from the calculation are presented in figure \ref{figure:connect_ts}. The variables were standardized ($\frac{x - \bar{x}}{\sigma_{x}}$), in order to be comparable among each other (also during the modeling stage).
+
+\begin{figure}
+	\centering
+	\includegraphics[scale = 0.76]{img/connect_ts.png}
+	\caption{Connectedness time series of the US market. Rolling window of a quarter.}
+	\label{figure:connect_ts}
+\end{figure}
+
+The Granger based method provides the most distinct and volatile time series. The method also captures a different type of connectedness. As noted already, it controls for the common exposures by introducing sectoral controls in the Granger regression. The other approaches are not controling for exogenous variables (other than subtracting the banking index returns) and are as well capturing linear relationship between the rates of return. The similarity is also confirmed by the Pearson's correlation equal to 77\% among the eigendecomposition and Ledoit-Wolf methods. On the other hand the Granger based connectedness time series has only 15\% and 3\% correlation with respect to the eigendecomposition and Ledoit-Wolf methods respectively\footnote{The full correlation matrix is shown on the figure \ref{figure:cor_matrix} in the appendix \ref{appendix:graphs_tables}.}.
+
+\section{Regime-dependent effect of connectedness}
+
+The previous section described in detail the methods of estimating the connectedness of the financial system. Subsequently, the resulting time series of the connectedness of the system are going to be utilized in the next process of time-series modeling. As the theoretical contribution posits, the connectedness should have a regime-dependent effect on the systemic stability of the financial sector. Thus, the econometric tool of choice is the Markov switching autoregressive conditional heteroskedasticity (ARCH) model. The class of models with Markov switching parameters were first proposed in the seminal work of \citet{hamilton89}, with the natural extension for ARCH effect in \citet{cai94}. Since then, these models were the go-to approach to model a time-variation and regime-change in the regression model parameters.
 
 
 
@@ -558,7 +572,8 @@ Or alternatively in the matrix formulation:
 
 The euqation may be solved as described in the subsection \ref{subsection:pca}. The appealing property of the measure is that the centrality of the node $i$ is proportional to the centrality of its directly neighboring nodes\footnote{It is clear when the change of the index of $c$ at the R.H.S. is spotted}. Additionally, the node may be central in the system either through the number of neighbors or the value of their centrality.
 
-\subsection{Graphs and tables}
+\subsection{Graphs and tables}\label{appendix:graphs_tables}
+
 \begin{figure}[!htbp]
 	\centering
 	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_us_circl.png} }}
@@ -603,6 +618,35 @@ The euqation may be solved as described in the subsection \ref{subsection:pca}. 
 	\end{tabular}
 	\label{table:lw_stats}
 	\caption{Network metrics of financial network estimated with Ledoit-Wolf shrinkage method. Data from 2023}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale = 0.8]{img/connect_ts_app.png}
+	\caption{Connectedness time series}
+	\label{figure:connect_ts_app}
+\end{figure}
+
+% latex table generated in R 4.3.2 by xtable 1.8-4 package
+% Tue Aug  6 13:36:59 2024
+% latex table generated in R 4.3.2 by xtable 1.8-4 package
+% Tue Aug  6 13:44:42 2024
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{rrrrrrr}
+		\hline
+		& cor\_lw\_us\_256 & cor\_lw\_us\_63 & eig\_us\_256 & eig\_us\_63 & granger\_us\_256 & granger\_us\_63 \\ 
+		\hline
+		cor\_lw\_us\_256 & 1.00 & 0.59 & 0.65 & 0.29 & 0.12 & -0.15 \\ 
+		cor\_lw\_us\_63 & 0.59 & 1.00 & 0.57 & 0.77 & 0.17 & 0.03 \\ 
+		eig\_us\_256 & 0.65 & 0.57 & 1.00 & 0.66 & 0.28 & 0.07 \\ 
+		eig\_us\_63 & 0.29 & 0.77 & 0.66 & 1.00 & 0.23 & 0.16 \\ 
+		granger\_us\_256 & 0.12 & 0.17 & 0.28 & 0.23 & 1.00 & 0.45 \\ 
+		granger\_us\_63 & -0.15 & 0.03 & 0.07 & 0.16 & 0.45 & 1.00 \\ 
+		\hline
+	\end{tabular}
+		\caption{Pearson correlation matrix among the different specifications of connectedness time series}
+		\label{figure:cor_matrix}
 \end{table}
 
 \end{document}
