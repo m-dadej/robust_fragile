@@ -349,11 +349,44 @@ The Granger based method provides the most distinct and volatile time series. Th
 
 The previous section described in detail the methods of estimating the connectedness of the financial system. Subsequently, the resulting time series of the connectedness of the system are going to be utilized in the next process of time-series modeling. As the theoretical contribution posits, the connectedness should have a regime-dependent effect on the systemic stability of the financial sector. Thus, the econometric tool of choice is the Markov switching autoregressive conditional heteroskedasticity (ARCH) model. The class of models with Markov switching parameters were first proposed in the seminal work of \citet{hamilton89}, with the natural extension for ARCH effect in \citet{cai94}. Since then, these models were the go-to approach to model a time-variation and regime-change in the regression model parameters. 
 
-As in usual process of ARCH modeling, the 
+As in usual process of ARCH modeling, the model requires to specify the mean equation:
 
 \begin{equation}
-	
+	r_{b,t} = \beta_0 + \beta_1 r_{b_t-1} + \beta_2 r_{m, t-1} + \epsilon_t	
 \end{equation}
+
+Where $r_{b,t}$ and $r_{m, t}$ are rates of returns for banking index and broad market at time $t$ respectively. Subsequently, the absolute values of the residual are modeled with a regime-switching model:
+
+\begin{equation}
+	\sqrt{\epsilon^{2}_t} = \alpha_{0,S_t} + \underbrace{\alpha_{1,S_t} \gamma_{t-1}}_{\text{connectedness}} + \underbrace{\sum_{i=1}^{p} \alpha_{i+1} \sqrt{\epsilon^2_{t-i}}}_{\text{lag controls}}
+\end{equation}
+
+Where $\gamma_t$ is, as before, the financial connectedness at time $t$\footnote{Of course, there are different connectedness variables, calculated with different methods, rolling window sizes and markets but the indices are omitted for the sake of brevity.}. The lag covariates control for the heteroskedasticity, common in financial time-series. An important assumption in the model is that the volatility (or the absolute rates of return) of the banking index is the appropriate proxy for the stability of the financial sector. There are some theoretical arguments that it may not always be the case (see e.g. the literature regarding the volatility paradox - \citet{brunnermeier14} or \citet{danielsson18}), nonetheless it is still a commonly utilized proxy in the literature (some of the examples are \citet{nelson07}, \citet{bratis20}, \citet{imf08} or \citet{billio16}).
+
+The $\gamma_{t-1}$ and the corresponding coefficient $\alpha_{1, S_t}$ are the relevant term of interest to the research design. Notably, the connectedness time series is lagged by a single period. This operation is subtle yet crucial, as the instantaneous relationship between the system stability and connectedness may not be fully exogenous. The connectedness measures, especially the one based on Ledoit-Wolf estimation, are still imperfect estimations and captures to some degree a simple correlation among the stock returns. It is commonly acknowledged that the correlations increases also as a consequence of sudden volatility spikes. For example, due to the margin calls (\citet{kahraman19}) or fly to safety effects (\citet{baele19}). Additionally, the banks themselves may make hedging decision in the face of market uncertainty, thus changing the connections among each other. In order to eliminate this source of endogeneity, the connectedness variables are lagged by a single period. With this specification, the model investigates how the financial stability evolves under different connectedness levels prior to the arrival of the shock. Because of this, the coefficient have a causal interpretation. 
+
+The parameters indexed by $S_t$ depends upon the latent (unobservable) state, that may take values from 1 to $K$. The parameters change their values depending on the state. The state $K$ is governed by the Markov process. The probability of transition from state $i$ to state $j$ is given by $K \times K$ left-stochastic transition matrix $\mathbf{P}$:
+
+\begin{equation}
+	\mathbf{P} = P(S_t = i | S_{t-1} = j) = 
+	\begin{bmatrix}
+		\pi_{1,1} & \pi_{1,2} & \cdots & \pi_{1,k} \\
+		\pi_{2,1} & \pi_{2,2} & \cdots & \pi_{2,k} \\
+		\vdots  & \vdots  & \ddots & \vdots  \\
+		\pi_{k,1} & \pi_{k,2} & \cdots & \pi_{k,k} 
+	\end{bmatrix}
+\end{equation}
+
+With standard constraints $\sum_{i}^{K} \pi_{i,j} = 1 \; \forall j \in \{1,\cdot, K\}$ and $0 \geq \pi_{i,j} \geq 1 \; \forall i,j \in \{1,\cdot, K\}$. For the state size $K=2$, which is the case for herein model, the constraint for the transition matrix may be easily imposed with following parametrization:
+
+\begin{equation}
+	P(S_t = i | S_{t-1} = j) = \begin{bmatrix}
+		\pi_1 & 1 - \pi_2\\
+		1 - \pi_1 & \pi_2
+	\end{bmatrix}
+\end{equation}
+
+
 
 \bibliography{bibliography}
 
