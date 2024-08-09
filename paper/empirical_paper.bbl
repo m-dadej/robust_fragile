@@ -72,6 +72,11 @@ Bernanke, B.~S. (2009).
 \newblock Financial reform to address systemic risk.
 \newblock Speech at the Council on Foreign Relations, Washington, D.C.
 
+\bibitem[Bezanson et~al., 2017]{bezanson17}
+Bezanson, J., Edelman, A., Karpinski, S., and Shah, V.~B. (2017).
+\newblock Julia: A fresh approach to numerical computing.
+\newblock {\em SIAM {R}eview}, 59(1):65--98.
+
 \bibitem[Billio et~al., 2012]{billio12}
 Billio, M., Getmansky, M., Lo, A.~W., and Pelizzon, L. (2012).
 \newblock Econometric measures of connectedness and systemic risk in the
@@ -84,6 +89,11 @@ Billio, M., Pelizzon, L., and Savona, R. (2016).
 \newblock {\em Systemic risk tomography: signals, measurement and transmission
   channels}.
 \newblock Elsevier.
+
+\bibitem[Bouchet-Valat and Kamiński, 2023]{kaminski23}
+Bouchet-Valat, M. and Kamiński, B. (2023).
+\newblock Dataframes.jl: Flexible and fast tabular data in julia.
+\newblock {\em Journal of Statistical Software}, 107(4):1--32.
 
 \bibitem[Bouri et~al., 2021]{bouri21}
 Bouri, E., Cepni, O., Gabauer, D., and Gupta, R. (2021).
@@ -165,10 +175,21 @@ Dadej, M. (2023).
 \newblock Business cycle transmission between france and united kingdom.
 \newblock {\em Journal of Economic Studies}, 50(8):1926--1938.
 
+\bibitem[Dadej, 2024]{dadej24}
+Dadej, M. (2024).
+\newblock Marswitching.jl: A julia package for markov switching dynamic models.
+\newblock {\em Journal of Open Source Software}, 9(98):6441.
+
 \bibitem[Danielsson et~al., 2018]{danielsson18}
 Danielsson, J., Valenzuela, M., and Zer, I. (2018).
 \newblock {Learning from History: Volatility and Financial Crises}.
 \newblock {\em The Review of Financial Studies}, 31(7):2774--2805.
+
+\bibitem[Dempster et~al., 1977]{dempster77}
+Dempster, A.~P., Laird, N.~M., and Rubin, D.~B. (1977).
+\newblock Maximum likelihood from incomplete data via the em algorithm.
+\newblock {\em Journal of the royal statistical society: series B
+  (methodological)}, 39(1):1--22.
 
 \bibitem[Diebold et~al., 2017]{diebold17}
 Diebold, F.~X., Liu, L., and Yilmaz, K. (2017).
@@ -223,6 +244,12 @@ Elliott, M., Golub, B., and Jackson, M.~O. (2014).
 {European Banking Authority} (2021).
 \newblock 2021 eu-wide stress test.
 \newblock Technical report, European Banking Authority.
+
+\bibitem[Fairbanks et~al., 2021]{fairbanks21}
+Fairbanks, J., Besan{\c{c}}on, M., Simon, S., Hoffiman, J., Eubank, N., and
+  Karpinski, S. (2021).
+\newblock Juliagraphs/graphs.jl: an optimized graphs package for the julia
+  programming language.
 
 \bibitem[{Federal Reserve system}, 2021]{fed21}
 {Federal Reserve system} (2021).
@@ -301,6 +328,16 @@ Hamilton, J.~D. (1989).
 \newblock A new approach to the economic analysis of nonstationary time series
   and the business cycle.
 \newblock {\em Econometrica}, 57(2):357--384.
+
+\bibitem[Harris et~al., 2020]{harris20}
+Harris, C.~R., Millman, K.~J., van~der Walt, S.~J., Gommers, R., Virtanen, P.,
+  Cournapeau, D., Wieser, E., Taylor, J., Berg, S., Smith, N.~J., Kern, R.,
+  Picus, M., Hoyer, S., van Kerkwijk, M.~H., Brett, M., Haldane, A., del
+  R{\'{i}}o, J.~F., Wiebe, M., Peterson, P., G{\'{e}}rard-Marchant, P.,
+  Sheppard, K., Reddy, T., Weckesser, W., Abbasi, H., Gohlke, C., and Oliphant,
+  T.~E. (2020).
+\newblock Array programming with {NumPy}.
+\newblock {\em Nature}, 585(7825):357--362.
 
 \bibitem[Hautsch et~al., 2014]{hautsch14}
 Hautsch, N., Schaumburg, J., and Schienle, M. (2014).
@@ -403,6 +440,15 @@ Newman, M. E.~J., Strogatz, S.~H., and Watts, D.~J. (2001).
   applications.
 \newblock {\em Phys. Rev. E}, 64:026118.
 
+\bibitem[pandas~development team, 2020]{reback20}
+pandas~development team, T. (2020).
+\newblock pandas-dev/pandas: Pandas.
+
+\bibitem[{R Core Team}, 2023]{rcore23}
+{R Core Team} (2023).
+\newblock {\em R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+
 \bibitem[Rajan, 2009]{rajan09}
 Rajan, R. (2009).
 \newblock Too systemic to fail: consequences, causes and potential remedies.
@@ -412,6 +458,12 @@ Rajan, R. (2009).
 Rogers, L.~C. and Veraart, L.~A. (2013).
 \newblock Failure and rescue in an interbank network.
 \newblock {\em Management Science}, 59(4):882--898.
+
+\bibitem[Rowan, 1990]{rowan90}
+Rowan, T.~H. (1990).
+\newblock {\em Functional stability analysis of numerical algorithms}.
+\newblock PhD thesis, Department of Computer Science, University of Texas at
+  Austin, Austin, TX.
 
 \bibitem[Savona, 2014]{savona14}
 Savona, R. (2014).

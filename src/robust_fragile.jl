@@ -1,30 +1,12 @@
 using MarSwitching
 using DataFrames
+using DataFramesMeta 
 using CSV
 using Statistics
 using Plots
+using ShiftedArrays: lag
 
-#using Pkg; Pkg.add.(["Distributions", "MarSwitching", "DataFrames", "CSV", "Statistics", "Plots", "GLM"])
-# to do:
-# - odjac kurs sp500 od indeksu 
-# - odjąć tez od kursu banków?
-
-# odejmij jakis AR proces of R
-
-# download data
-# args: region us/eu, freq weekly/daily
-run(`py src/stocks_download.py
-    --region eu
-    --freq daily
-    --cor_window 256
-    --eig_k 1
-    --excess False`)
-
-data = CSV.read("src/data/bank_cor.csv", DataFrame)
-
-plot(data.eig)
-
-function remove_outlier(data, m = 3)
+function remove_outlier(data::Matrix{Float64}; σ = 5)
     
     outliers = []
     for i in 1:size(data, 2)
@@ -34,9 +16,53 @@ function remove_outlier(data, m = 3)
     return data[(1:end) .∉ (outliers,),:]
 end
 
+function remove_outlier(data::DataFrame; σ = 5) 
+    
+    outliers = []
+    for col in names(data)
+        
+        df_col = data[!, col]
+        if eltype(df_col) <: Number
+            outliers = [outliers; findall(df_col .> (mean(df_col) + m * std(df_col)))]
+        end
+    end
 
-# Load data
+    return data[(1:end) .∉ (outliers,),:]
+end
 
+standard(x) = (x .- mean(x)) ./ std(x)
+ols(y::Vector{Float64}, X::Matrix{Float64}) = (X'X) \ X'y
+
+function get_residual(df::DataFrame, y_name::Symbol, covariate_names::Vector{Symbol})
+    
+    covariates = Matrix(df[!, covariate_names])
+    β = ols(df[!, y_name], covariates)
+    df.residual = df[!, y_name] .- covariates * β
+
+    return df
+end
+
+df_ols[!, :banks_index] .-= 2.0
+
+
+df_ols.residual = df_ols.banks_index .- df_ols.banks_index_lag1
+X = df_ols[!, [:intercept, :banks_index_lag1]]
+
+df_ols[!, :banks_index]
+
+Matrix(X)
+df_ols.banks_index
+typeof(:intercept)
+
+
+# download data
+# args: region us/eu, freq weekly/daily
+# run(`py src/stocks_download.py
+#     --region eu
+#     --freq daily
+#     --cor_window 256
+#     --eig_k 1
+#     --excess False`)
 
 # get the new data...
 #granger_df = CSV.read("src/data/granger_ts.csv", DataFrame)
@@ -50,12 +76,43 @@ data = CSV.read("src/data/archive/bank_cor_$cor_window$market.csv", DataFrame)
 
 data = sort(leftjoin(data, granger_df, on = :Date), :Date)
 
+benchmark_lags = 1
+banks_index_lags = 1
+vol_lags = 4
+
+connectedness = :eig # :granger, :eig or :cor_lw
+
+model_df = @chain data begin
+    select(_, [:banks_index, :index, connectedness])
+    remove_outlier(_, σ = 5)
+    transform(_, :banks_index => (x -> ones(length(x))) => :intercept)
+    transform(_, [:banks_index => (x -> lag(x, i)) => "banks_index_lag$i" for i in 1:banks_index_lags])
+    transform(_, [:index => (x -> lag(x, i)) => "index_lag$i" for i in 1:benchmark_lags])
+    dropmissing()
+    get_residual(_, :banks_index, [:banks_index_lag1, :index_lag1])
+    transform(_, [connectedness => lag => :connectedness_lag,
+                  :residual => (x -> abs.(x)) => :vol])
+    transform(_, [:vol => (x -> lag(x, i)) => "vol_lag$i" for i in 1:vol_lags])
+    dropmissing()
+end
+
+exog = Matrix(model_df[!, [["vol_lag$i" for i in 1:vol_lags]...]])
+
+model = MSModel(model_df.vol .* 100, 2, 
+                exog_vars = exog .* 100,
+                exog_switching_vars = standard(model_df.connectedness_lag),
+                # exog_tvtp = tvtp,
+                # random_search_em = 10,
+                random_search = 3
+                )
+
+summary_msm(model)
+
 df_model = Matrix(dropmissing(data[:, ["banks_index", "index", "granger"]]))
 
-df_model = remove_outlier(df_model, 5)
+df_model = remove_outlier(df_model, σ = 5)
 
-standard(x) = (x .- mean(x)) ./ std(x)
-ols(y, X) = (X'X) \ X'y
+
 
 X_mean = [ones(length(df_model[3:end,1])) add_lags(df_model[:,1], 2)[:,2:3] add_lags(df_model[:,2], 2)[:,2:3]]
 β_mean = ols(df_model[3:end,1] ,X_mean)

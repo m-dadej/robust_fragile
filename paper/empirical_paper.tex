@@ -7,6 +7,15 @@
 \usepackage{amssymb}
 \usepackage{multirow}
 \usepackage{subfig}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	backref,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.pathreplacing}
@@ -304,7 +313,7 @@ The literature investigating the topological nature of the interbank market ofte
 	\center
 	\begin{tabular}{lcc c cc}
 		\hline
-		& \multicolumn{2}{c}{2023} & \multicolumn{2}{c}{2006}\\
+		& \multicolumn{2}{c}{2023} & & \multicolumn{2}{c}{2006}\\
 		\cline{2-3} \cline{5-6} 
 		\multicolumn{1}{l}{Network measures} & \multicolumn{1}{c}{Europe} & \multicolumn{1}{c}{US} && \multicolumn{1}{c}{US} & \multicolumn{1}{c}{Europe}\\
 		\hline
@@ -361,7 +370,7 @@ Where $r_{b,t}$ and $r_{m, t}$ are rates of returns for banking index and broad 
 	\sqrt{\epsilon^{2}_t} = \alpha_{0,S_t} + \underbrace{\alpha_{1,S_t} \gamma_{t-1}}_{\text{connectedness}} + \underbrace{\sum_{i=1}^{p} \alpha_{i+1} \sqrt{\epsilon^2_{t-i}}}_{\text{lag controls}}
 \end{equation}
 
-Where $\gamma_t$ is, as before, the financial connectedness at time $t$\footnote{Of course, there are different connectedness variables, calculated with different methods, rolling window sizes and markets but the indices are omitted for the sake of brevity.}. The lag covariates control for the heteroskedasticity, common in financial time-series. An important assumption in the model is that the volatility (or the absolute rates of return) of the banking index is the appropriate proxy for the stability of the financial sector. There are some theoretical arguments that it may not always be the case (see e.g. the literature regarding the volatility paradox - \citet{brunnermeier14} or \citet{danielsson18}), nonetheless it is still a commonly utilized proxy in the literature (some of the examples are \citet{nelson07}, \citet{bratis20}, \citet{imf08} or \citet{billio16}).
+Where $\gamma_t$ is, as before, the financial connectedness at time $t$\footnote{Of course, there are different connectedness variables, calculated with different methods, rolling window sizes and markets but the indices are omitted for the sake of brevity.}. The lag covariates control for the heteroskedasticity, common in financial time-series. Unlike in a standard ARCH model, the parameters $\alpha$ are unconstrained. The reason is that the model purpose is not to predict the volatility but investigate the regime-dependent effect of connectedness on systemic risk. Thus, it is more valuable to see if the coefficients are negative (or not), rather than eliminating the possibility of producing negative volatility when forecasting \footnote{A similar trade-off which occurs when deciding for logistic regression or linear probability model - risk of nonsensical predictions vs. ease of interpretability.}. An important assumption in the model is that the volatility (or the absolute rates of return) of the banking index is the appropriate proxy for the stability of the financial sector. There are some theoretical arguments that it may not always be the case (see e.g. the literature regarding the volatility paradox - \citet{brunnermeier14} or \citet{danielsson18}), nonetheless it is still a commonly utilized proxy in the literature (some of the examples are \citet{nelson07}, \citet{bratis20}, \citet{imf08} or \citet{billio16}).
 
 The $\gamma_{t-1}$ and the corresponding coefficient $\alpha_{1, S_t}$ are the relevant term of interest to the research design. Notably, the connectedness time series is lagged by a single period. This operation is subtle yet crucial, as the instantaneous relationship between the system stability and connectedness may not be fully exogenous. The connectedness measures, especially the one based on Ledoit-Wolf estimation, are still imperfect estimations and captures to some degree a simple correlation among the stock returns. It is commonly acknowledged that the correlations increases also as a consequence of sudden volatility spikes. For example, due to the margin calls (\citet{kahraman19}) or fly to safety effects (\citet{baele19}). Additionally, the banks themselves may make hedging decision in the face of market uncertainty, thus changing the connections among each other. In order to eliminate this source of endogeneity, the connectedness variables are lagged by a single period. With this specification, the model investigates how the financial stability evolves under different connectedness levels prior to the arrival of the shock. Because of this, the coefficient have a causal interpretation. 
 
@@ -386,7 +395,13 @@ With standard constraints $\sum_{i}^{K} \pi_{i,j} = 1 \; \forall j \in \{1,\cdot
 	\end{bmatrix}
 \end{equation}
 
+Because of the latent nature of the regimes, the maximum likelihood estimation of the model is relatively complex. The objective function is not solvable analytically but is reasonably easy to optimize with gradient-based methods\footnote{The initial parameters without exact transition matrix are found with Expectations-Maximization algorithm (\citet{dempster77}) and the actual Markov switching likelihood is maximized with the gradient-based method (\citet{rowan90})}. Although, computationally manageable, increasing the amount of parameters (say, by adding regime-switching covariates or increasing number of states) pose a risk of reaching a local maxima. Hence, the model specification is maintained sufficiently concise.
 
+Appendix \ref{appendix:technical} elaborates on technical details of the implementation and provides a source to reproduce the research.
+
+\section{Main results}
+
+The model described in previous section was estimated based data from both markets and in a various specifications. 
 
 \bibliography{bibliography}
 
@@ -685,5 +700,9 @@ The euqation may be solved as described in the subsection \ref{subsection:pca}. 
 		\caption{Pearson correlation matrix among the different specifications of connectedness time series}
 		\label{figure:cor_matrix}
 \end{table}
+
+\section{Technical details}\label{appendix:technical}
+
+Importing data and some elements of its preprocessing was done with Python programming language version 3.12.2. With packages yfinance, NumPy (\citet{harris20}) and pandas (\citet{reback20}). The connectedness estimation was computationally expensive\footnote{For example, the granger based method required fitting, at each point in time (around 6,000 observations) a multivariate regression among every combination of 42 stocks.}, thus it was done with Julia programming language 1.10.1 version (\citet{bezanson17}). The packages used were: DataFrames.jl for data analysis (\citet{kaminski23}), Graphs.jl for graph handling (\citet{fairbanks21}) and MarSwitching.jl for estimation of Markov switching model (\citet{dadej24}). The data visualization and descriptive statistics were don in R programming language version 4.3.2 (\citet{rcore23}). The repository with the source code and instructions to reproduce the research is available \href{https://github.com/m-dadej/robust\_fragile}{\underline{here}}.
 
 \end{document}
