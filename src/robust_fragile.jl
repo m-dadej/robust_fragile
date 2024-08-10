@@ -23,14 +23,16 @@ function remove_outlier(data::DataFrame; σ = 5)
         
         df_col = data[!, col]
         if eltype(df_col) <: Number
-            outliers = [outliers; findall(df_col .> (mean(df_col) + m * std(df_col)))]
+            outliers = [outliers; findall(df_col .> (mean(df_col) + σ * std(df_col)))]
         end
     end
 
     return data[(1:end) .∉ (outliers,),:]
 end
 
-standard(x) = (x .- mean(x)) ./ std(x)
+standard(x::Vector{Float64}) = (x .- mean(x)) ./ std(x)
+standard(x::Matrix{Float64}) = (x .- mean(x, dims=1)) ./ std(x, dims=1)
+
 ols(y::Vector{Float64}, X::Matrix{Float64}) = (X'X) \ X'y
 
 function get_residual(df::DataFrame, y_name::Symbol, covariate_names::Vector{Symbol})
@@ -42,67 +44,61 @@ function get_residual(df::DataFrame, y_name::Symbol, covariate_names::Vector{Sym
     return df
 end
 
-df_ols[!, :banks_index] .-= 2.0
-
-
-df_ols.residual = df_ols.banks_index .- df_ols.banks_index_lag1
-X = df_ols[!, [:intercept, :banks_index_lag1]]
-
-df_ols[!, :banks_index]
-
-Matrix(X)
-df_ols.banks_index
-typeof(:intercept)
-
 
 # download data
 # args: region us/eu, freq weekly/daily
-# run(`py src/stocks_download.py
-#     --region eu
-#     --freq daily
-#     --cor_window 256
-#     --eig_k 1
-#     --excess False`)
+run(`py src/stocks_download.py
+    --region eu
+    --freq weekly
+    --cor_window 63
+    --eig_k 1
+    --excess False`)
 
 # get the new data...
 #granger_df = CSV.read("src/data/granger_ts.csv", DataFrame)
 #data = CSV.read("src/data/bank_cor.csv", DataFrame)
 
 # ...or the one archived
-cor_window = 63
+cor_window = 63 #63 or 256
 market = "eu"
-granger_df = CSV.read("src/data/archive/granger_ts_$cor_window$market.csv", DataFrame)
-data = CSV.read("src/data/archive/bank_cor_$cor_window$market.csv", DataFrame)
+weekly = "_weekly" # "" or "_weekly"
+granger_df = CSV.read("src/data/archive/granger_ts_$cor_window$market$weekly.csv", DataFrame)
+data = CSV.read("src/data/archive/bank_cor_$cor_window$market$weekly.csv", DataFrame)
 
 data = sort(leftjoin(data, granger_df, on = :Date), :Date)
 
-benchmark_lags = 1
-banks_index_lags = 1
-vol_lags = 4
+benchmark_lags = 3
+banks_index_lags = 3
+vol_lags = 3
+conn_lag = 1
 
-connectedness = :eig # :granger, :eig or :cor_lw
+connectedness = :cor_lw # :granger, :eig or :cor_lw
 
 model_df = @chain data begin
     select(_, [:banks_index, :index, connectedness])
-    remove_outlier(_, σ = 5)
     transform(_, :banks_index => (x -> ones(length(x))) => :intercept)
     transform(_, [:banks_index => (x -> lag(x, i)) => "banks_index_lag$i" for i in 1:banks_index_lags])
     transform(_, [:index => (x -> lag(x, i)) => "index_lag$i" for i in 1:benchmark_lags])
     dropmissing()
-    get_residual(_, :banks_index, [:banks_index_lag1, :index_lag1])
-    transform(_, [connectedness => lag => :connectedness_lag,
-                  :residual => (x -> abs.(x)) => :vol])
+    get_residual(_, :banks_index, Symbol.([["banks_index_lag$i" for i in 1:banks_index_lags]..., ["index_lag$i" for i in 1:benchmark_lags]...]))
+    transform(_, [connectedness => (x -> lag(x, i)) => "connectedness_lag$i" for i in 1:conn_lag])
+    transform(_, [:residual => (x -> abs.(x)) => :vol])
     transform(_, [:vol => (x -> lag(x, i)) => "vol_lag$i" for i in 1:vol_lags])
+    transform(_, :index => (x -> abs.(x)) => :index_vol)
+    remove_outlier(_, σ = 5)
     dropmissing()
 end
 
-exog = Matrix(model_df[!, [["vol_lag$i" for i in 1:vol_lags]...]])
+exog_switch = standard(Matrix(model_df[!, [["connectedness_lag$i" for i in 1:conn_lag]...]]))
+#exog_switch = [standard(model_df[!, connectedness]) exog_switch]
+
+exog = Matrix(model_df[!, [["vol_lag$i" for i in 1:vol_lags]..., "index_vol"]])
 
 model = MSModel(model_df.vol .* 100, 2, 
                 exog_vars = exog .* 100,
-                exog_switching_vars = standard(model_df.connectedness_lag),
+                exog_switching_vars = exog_switch,
                 # exog_tvtp = tvtp,
-                # random_search_em = 10,
+                random_search_em = 5,
                 random_search = 3
                 )
 

@@ -4,7 +4,7 @@
 @time using MarSwitching
 @time using Tables
 
-cor_w = 256
+cor_w = 63
 n_covariates = 5
 
 # run to get the up to date data
@@ -17,7 +17,7 @@ include("granger_functions.jl")
 # get the up to date data...
 #data_raw = CSV.read("src/data/df_rets_granger.csv", DataFrame)
 # ...or use the archived data
-data_raw = CSV.read("src/data/archive/df_rets_granger_eu.csv", DataFrame)
+data_raw = CSV.read("src/data/archive/df_rets_granger_eu_weekly.csv", DataFrame)
 
 data = Matrix(replace_missing.(data_raw[:, 2:end], Inf))
 
@@ -36,6 +36,6 @@ granger_out = DataFrame(Date = data_raw.Date[cor_w:end], granger = granger_ts)
 
 #CSV.write("src/data/granger_ts.csv", granger_out)
 
-CSV.write("src/data/archive/granger_ts_256eu.csv", granger_out)
+CSV.write("src/data/archive/granger_ts_63eu_weekly.csv", granger_out)
 
 plot(granger_ts)
