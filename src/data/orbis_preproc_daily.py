@@ -45,8 +45,8 @@ df.replace({'value':'n.a.'}, pd.NA, inplace=True)
 df.value = pd.to_numeric(df.value, errors='coerce')
 df.variable = df.variable.str.replace(r'(\d*\.\d+|\d+)', '', regex=True)
 df.variable = df.variable.str.replace('_', '', regex=True)
-df.quarter = pd.to_numeric(df.quarter) * 4 * 30
-df['date'] = pd.to_datetime('01/03/2024', dayfirst = True, format = "%d/%m/%Y") - pd.to_timedelta(df.quarter, unit='D')
+df.quarter = pd.to_numeric(df.quarter) * 3 * 30
+df['date'] = pd.to_datetime('31/03/2024', dayfirst = True, format = "%d/%m/%Y") - pd.to_timedelta(df.quarter, unit='D')
 
 df.groupby(['variable']).value.apply(lambda x: x.isna().sum() / len(x) * 100).sort_values(ascending=False)
 

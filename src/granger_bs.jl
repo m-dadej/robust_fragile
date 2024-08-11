@@ -86,8 +86,7 @@ function granger_mat(df::DataFrame, w::DataFrame)
 end
 
 
-unique(df.variable)
-run(`py granger_ts.py
+run(`py src/granger_ts.py
     --region eu
     --freq weekly`) # daily or weekly
 
