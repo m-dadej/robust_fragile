@@ -1,15 +1,15 @@
 
-
+# to do:
+- moze degree/density metric policzyc tylko na wartościach bez Inf - jak narazie density jest liczone N^2 - N
+- Granger_bs musi takze miec dane z ETF - jak narazie nie ma
 
 # notatki
 
 - jeszcze raz sprawdz czy to nie problem ze connectedness jest autoskorelowane.
 - warto byc moze przepisac kod
 
-- opisz wady i zalety billio vs diebold?
 - niekorzystny efekt connectedness jest zgodny z acemoglu 2015 (banki nie internalizuja efektow zewnetrznych) jest jeszcze jakis paper co tez jest git - elliot? golub?
 
-s
 # further research 
 
 # do artykulu 
@@ -27,7 +27,7 @@ nie dziala :
 
 Dziala dla:
 
-- cor_w = 40; x.numobs_function > 150; [:return, :return_1, :lt_fund_share, :ib_share, :roa, :prof_ch] - 0.065 p calue
+- cor_w = 40; x.numobs_function > 150; [:return, :return_1, -:lt_fund_share, :ib_share, :roa, :prof_ch] - 0.065 p calue
 
 - cor_w = 36; x.numobs_function > 150; [:return, :return_1, :lt_fund_share, :ib_share, :roa]
 

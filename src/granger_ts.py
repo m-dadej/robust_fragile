@@ -19,48 +19,49 @@ args = parser.parse_args()
 def na_share(df):
     return np.sum(df.isna().sum()) / (df.shape[0])
 
-def std_err(X, y, beta):
-    y = np.asarray(y)
-    X = np.asarray(X)
-    mse = np.mean((y - np.matmul(X, beta))**2)
-    sigma_params = mse * np.linalg.inv(np.matmul(X.T, X))
-    return np.sqrt(np.diag(sigma_params))
+# below code was used to calculate granger connectedness but it was too slow
+# def std_err(X, y, beta):
+#     y = np.asarray(y)
+#     X = np.asarray(X)
+#     mse = np.mean((y - np.matmul(X, beta))**2)
+#     sigma_params = mse * np.linalg.inv(np.matmul(X.T, X))
+#     return np.sqrt(np.diag(sigma_params))
 
-def granger_cause(df):
-    pair = pd.concat([df.iloc[:, 0], df.iloc[:, 0:2].shift()], axis=1)\
-        .dropna()
+# def granger_cause(df):
+#     pair = pd.concat([df.iloc[:, 0], df.iloc[:, 0:2].shift()], axis=1)\
+#         .dropna()
 
-    # old and slow method:
-    #model = sm.OLS(pair.iloc[:, 0], sm.add_constant(pair.iloc[:, 1:3]))
-    #results = model.fit()
+#     # old and slow method:
+#     #model = sm.OLS(pair.iloc[:, 0], sm.add_constant(pair.iloc[:, 1:3]))
+#     #results = model.fit()
     
-    pair['const'] = 1
-    beta, _, _, _ = sp_lstsq(pair.iloc[:,[1,2,3]], pair.iloc[:,0], lapack_driver='gelsy', check_finite=False)
-    sigma = std_err(pair.iloc[:,[1,2,3]], pair.iloc[:,0], beta)
+#     pair['const'] = 1
+#     beta, _, _, _ = sp_lstsq(pair.iloc[:,[1,2,3]], pair.iloc[:,0], lapack_driver='gelsy', check_finite=False)
+#     sigma = std_err(pair.iloc[:,[1,2,3]], pair.iloc[:,0], beta)
     
-    # return results.params[2], results.pvalues[2] < 0.05
-    return beta[1], np.abs(beta[1] / sigma[1]) > 1.96 
+#     # return results.params[2], results.pvalues[2] < 0.05
+#     return beta[1], np.abs(beta[1] / sigma[1]) > 1.96 
     
-def granger_mat(df):
+# def granger_mat(df):
     
-    granger_mat = np.zeros((df.shape[1], df.shape[1]))
+#     granger_mat = np.zeros((df.shape[1], df.shape[1]))
     
-    for i in range(1, len(df.columns)):
-        for j in range(1, len(df.columns)):
+#     for i in range(1, len(df.columns)):
+#         for j in range(1, len(df.columns)):
             
-            if  i == j:
-                granger_mat[i,j] = 0
-                continue
+#             if  i == j:
+#                 granger_mat[i,j] = 0
+#                 continue
             
-            if (na_share(df.iloc[:,i]) > 0.95) or (na_share(df.iloc[:,j]) > 0.95):
-                granger_mat[i,j] = np.nan
-                continue
+#             if (na_share(df.iloc[:,i]) > 0.95) or (na_share(df.iloc[:,j]) > 0.95):
+#                 granger_mat[i,j] = np.nan
+#                 continue
             
-            _, signif = granger_cause(df.iloc[:, [i,j]])
+#             _, signif = granger_cause(df.iloc[:, [i,j]])
             
-            granger_mat[i,j] = 1 if signif else 0
-            #print(df.columns[i], df.columns[j])
-    return granger_mat  
+#             granger_mat[i,j] = 1 if signif else 0
+#             #print(df.columns[i], df.columns[j])
+#     return granger_mat  
 
 fred = Fred(api_key='18c2830f79155831d5c485d84472811f')
 

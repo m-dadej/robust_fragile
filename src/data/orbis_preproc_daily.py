@@ -51,6 +51,7 @@ df['date'] = pd.to_datetime('31/03/2024', dayfirst = True, format = "%d/%m/%Y") 
 df.groupby(['variable']).value.apply(lambda x: x.isna().sum() / len(x) * 100).sort_values(ascending=False)
 
 df = df.dropna(subset = 'value').drop('quarter', axis=1)
+df_quarter = df.copy()
 df = df[~df.variable.isin(['nti', 'div', 'cds', 'derivsassets', 'derivsliabs'])] # not enough data for these variables
 
 # For each company, for each balance sheet variable add monday dates in between each quarter
@@ -143,3 +144,15 @@ df_long.assign(prof_ch = df_long.groupby('comp').opincome.pct_change())\
     .melt(id_vars=['comp', 'date', 'month', 'Country', 'ticker'],
           var_name='variable', value_name='value')\
     .to_csv('src/data/orbis_preproc.csv', index=False)
+
+pd.unique(df.comp)
+
+bank = 'COMMERZBANK AG'
+plot_df_q = df_quarter[(df_quarter.comp == bank) & (df_quarter.variable == "assets")].sort_values('date')
+
+fig, ax = plt.subplots()
+plot_df = df[(df.comp == bank) & (df.variable == "assets")]
+ax.plot(plot_df.date, plot_df.value, markeredgewidth=2)
+ax.plot(plot_df_q.date, plot_df_q.value, marker='o', linestyle='None')
+plt.savefig('paper/img/interpolation.png')
+

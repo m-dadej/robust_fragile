@@ -54,7 +54,6 @@ function granger_connect(df::Matrix{Float64}, covariates::Matrix{Float64})
     @threads for (i, j) in collect(Iterators.product(1:N, 1:N))      
             
         if i == j
-            granger_mat[i, j] = 0
             continue
         end
 

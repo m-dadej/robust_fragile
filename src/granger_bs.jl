@@ -7,6 +7,7 @@
 @time using BenchmarkTools
 @time using Tables
 @time using Plots
+using Base.Threads
 using ShiftedArrays
 using Dates
 using DataFramesMeta
@@ -20,7 +21,7 @@ end
 replace_inf(x) = isinf(x) ? 0.0 : x
 
 function granger_degree(x)
-    return sum(replace_inf.(x)) / ((size(x)[2])^2 - size(x)[2] - sum(isinf.(x)))
+    return sum(replace_inf.(x) .== 1) / (size(x)[2]^2 - size(x)[2])
 end    
 
 function unstack_ticker(df::DataFrame, ticker::String)
@@ -46,53 +47,64 @@ function granger_cause(df::DataFrame)
     return β[lag_var_index], abs(β[lag_var_index] / Σ[lag_var_index]) > 1.96
 end
 
+df = window_df
+
 function granger_mat(df::DataFrame, w::DataFrame)
+    
     tickers = unique(df.ticker)
+    N = size(tickers, 1)
+    network = zeros(N, N)
 
-    network = zeros(size(tickers, 1), size(tickers, 1))
+    @threads for (i, j) in collect(Iterators.product(1:N, 1:N))  
 
-    for i in 1:size(tickers, 1)
-        for j in 1:size(tickers, 1)
-
-            if i == j
-                continue
-            end
-
-            df_a = unstack_ticker(df, tickers[i])
-            df_b = unstack_ticker(df, tickers[j])
-
-            if "assets" ∉ names(df_a) || "assets" ∉ names(df_b)
-                continue
-            end
-            
-            link_weight = w[w.ticker .== tickers[i], "value_mean_function"][1]
-            
-            granger_df = @chain begin
-                                    innerjoin(df_a, df_b, on = :Date, makeunique=true)
-                                    select(_, [:return, :return_1, :lt_fund_share, :ib_share, :roa, :prof_ch])
-                                    transform(_, :return_1 => (x -> lag(x, 1)) => :return_1,
-                                                 #:return_1 => (x -> lag(x, 2)) => :return_2
-                                                 )
-                                    dropmissing(_)
-                                end
-            
-            size(granger_df)[1] - size(granger_df)[2] > 10 ? nothing : continue              
-            
-            network[i,j] = granger_cause(granger_df)[2] ? link_weight : 0
+        if i == j
+            network[i, j] = 0.0
+            continue
         end
+
+        df_a = unstack_ticker(df, tickers[i])
+        df_b = unstack_ticker(df, tickers[j])
+
+        if "assets" ∉ names(df_a) || "assets" ∉ names(df_b)
+            network[i, j] = Inf
+            continue
+        end
+        
+        link_weight = 1#w[w.ticker .== tickers[i], "value_mean_function"][1]
+        
+        granger_df = @chain begin
+                        innerjoin(df_a, df_b, on = :Date, makeunique=true)
+                        select(_, [:return, :return_1,  :roa,  :assets, :ib_net_save]) # :prof_ch,:ib_share,:lt_fund_share,
+                        transform(_, :return_1 => (x -> lag(x, 1)) => :return_1,
+                                     :assets => (x -> log.(x)) => :assets,
+                                        #:return_1 => (x -> lag(x, 2)) => :return_2
+                                        )
+                        dropmissing(_)
+                    end
+        
+        if size(granger_df)[1] - size(granger_df)[2] < 10
+            network[i, j] = Inf
+            continue
+        end            
+        
+        network[i,j] = granger_cause(granger_df)[2] ? link_weight : 0.0
     end
 
     return network
 end
 
 
-run(`py src/granger_ts.py
-    --region eu
-    --freq weekly`) # daily or weekly
+# run to get the up to date data...
+# run(`py src/granger_ts.py
+#     --region eu
+#     --freq weekly`) # daily or weekly
 
-data_raw = CSV.read("src/data/df_rets_granger.csv", DataFrame)
-orbis_data = CSV.read("src/data/orbis_preproc.csv", DataFrame)
-#orbis_data = subset(orbis_data, :comp => x -> x .!= "AIB GROUP PUBLIC LIMITED COMPANY")
+# data_raw = CSV.read("src/data/df_rets_granger.csv", DataFrame)
+# orbis_data = CSV.read("src/data/orbis_preproc.csv", DataFrame)
+# #orbis_data = subset(orbis_data, :comp => x -> x .!= "AIB GROUP PUBLIC LIMITED COMPANY")
+
+# ...or use the archived data
+data_raw = CSV.read("src/data/archive/df_rets_granger_eu_weekly.csv", DataFrame)
 
 # number of observations per group
 @chain orbis_data begin
@@ -145,8 +157,7 @@ end
 
 plot(granger_ts)
 
-
-CSV.write("src/data/bs_granger40_w_log.csv", 
+CSV.write("src/data/bs_granger80_.csv", 
           DataFrame(Date = df_dates[cor_w:end],
                     bs_granger = granger_ts))
 

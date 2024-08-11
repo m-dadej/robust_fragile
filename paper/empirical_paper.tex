@@ -264,7 +264,7 @@ In the context of financial markets, the above approach may appear to be implaus
 
 The exact procedure employed in the research design is slightly modified\footnote{\cite{billio12} performs the Granger causality test by filtering the returns with GARCH(1,1) process and then using the time-varying variance to test the significance of the $\beta$ coefficient from the regression. This approach is, however, computationally more expensive. This technical dimension is more relevant to this study as the connectedness is measured in a rolling window basis. Unlike in the original study of \cite{billio12}.}. The procedures uses excess returns of the institutions stock prices over a relevant benchmark of market rates of return. Consequently, the returns of the institutions will have a purely idiosyncratic character. The regression has a following specification:
 
-\begin{equation}
+\begin{equation}\label{equation:granger}
 	r_{i,t+1} = \beta_0 + \beta_1 r_{j,t} + \beta_2 r_{i, t} + \underbrace{\sum_{i=1}^{k} \beta_{i+2} x_{t}}_{\text{Sectoral controls}} + \epsilon_t
 \end{equation}
 
@@ -472,9 +472,58 @@ On the other hand, the behavior under the stable markets regime is less aligned 
 
 In order to investigate the role of firm-specific variables in driving the main results, the model was extended for balance sheet and PnL data of the financial institutions. Naturally, incorporating this kind of data is not costless for the research design. The universe of institutions had to be shrank, as well as the size of the time series. Thus, the following exercise is left as a robustness check.
 
-The data was sourced from Orbis dataset spanning sevend and a half years starting from third quarter of 2016 up to fiscal year of 2023 \footnote{the oldest possible data to download from the Orbis}.
-
 \subsection{Data}
+
+The data was sourced from the Orbis dataset spanning sevend and a half years starting from third quarter of 2016 up to fiscal year of 2023 \footnote{the oldest possible data to download from the Orbis website}. Due to the incomplete dataset, the number of financial intermediaries analyzed is reduced to 31 for European market. The institutions left are listed in the table \ref{table:ipo} from appendix \ref{appendix:data}. The financial variables are denominated in EUR based on the exchange rate at the end of the corresponding fiscal period. Table \ref{table:orbis_descriptive} presents some descriptive statistics of the financial data. The last two firm characteristics from the table and a natural logarithm of assets were used in the modeling part as exogenous variables.
+
+\begin{table}
+	\centering
+	\begin{tabular}{lrrrrr}
+		\hline
+		Variable & Mean & Median & Std Dev & Minimum & Maximum \\
+		\hline
+		Assets & 403,288,031 & 265,337,983 & 431,680,746 & 23,076,398 & 1,748,295,895 \\
+		IB Assets & 19,134,891 & 8,878,950 & 25,601,625 & 967,511 & 92,904,796 \\
+		IB Liabilities & 43,925,992 & 22,018,866 & 55,708,873 & 998,750 & 209,368,622 \\
+		Operating Income & 5,471,043 & 2,885,447 & 6,565,259 & 409,057 & 31,875,663 \\
+		ROA & 0.0155 & 0.0136 & 0.0069 & 0.0064 & 0.0327 \\
+		IB Assets/Liabilites & 1.0646 & 0.4691 & 2.2903 & 0.0928 & 11.7987 \\
+		\hline
+	\end{tabular}
+	\caption{Descriptive statistics of Orbis data for European financial intermediaries.  Nominal values in EUR. "IB" refers to interbank market. FY2023.}
+	\label{table:orbis_descriptive}
+\end{table}
+
+\subsection{Modeling adjustment}
+
+Other than the data limitation, the introduction of fiscal data requires a matching time series to the daily stock returns. In order to increase the frequency of the data, the quarterly financial variables were interpolated into a weekly frequency. The stock returns, on the other hand, were compounded into weekly returns. The resulting modeling frequency is a compromise between reasonable size of the resulting dataset and an information content of the variables. The size thereof used to estimate the model is equal to 312 observations. Although, the initial period of window size is omitted due to lack of the corresponding connectedness time-series. The window is changed as well (to 40 and 80 weeks), since the previous size of a quarter would be too small for meaningful inference. The financial data was interpolated with piecewise cubic polynomial. The figure \ref{figure:interpolation} in appendix \ref{appendix:robustness} presents an example of interpolated data and an actual one. 
+
+The only connectedness method flexible enough for introducing the exogenous, firm-specific variables is the one based on Granger causality. Specifically, the 
+equation \ref{equation:granger} was extended by the additional covariates:
+
+\begin{equation}
+	r_{i,t+1} = \beta_0 + \beta_1 r_{j,t} + \beta_2 r_{i, t} + \underbrace{\beta_3 \log{A}_t + \beta_4 \text{ROA}_t + \beta_5 \frac{\text{IB Assets}}{\text{IB liab.}}}_{\text{New balance sheet data}} + \underbrace{\sum_{i=1}^{k} \beta_{i+5} x_{t}}_{\text{Sectoral controls}} +\epsilon_t
+\end{equation}
+
+The rest of the procedure is as before. The regression now controls for firm-specific financial data when identifying the link between the pair of financial institutions $i$ and $j$.
+
+\begin{table}\small
+	\begin{tabular}{cccccc | cccccc}
+		& \multicolumn{5}{c}{Window size: 40 weeks} & \multicolumn{4}{c}{Window size: 80 week} \\
+		Measure &  & \multicolumn{2}{c}{\bfseries Regime 1} & \multicolumn{2}{c}{\bfseries Regime 2} & \multicolumn{2}{c}{\bfseries Regime 1} & \multicolumn{2}{c}{\bfseries Regime 2} \\
+		%\cmidrule(lr){1-6}
+		\hline
+		& & Estimate & S.E. & Estimate & S.E. & Estimate & S.E. & Estimate & S.E. \\
+		\hline
+		\multirow{3}{*}[\normalbaselineskip]{Granger} & $\alpha_0$ & 0.37 & 0.013 & 1.342 & 0.037 & 0.458 & 0.018 & 1.874 & 0.053\\
+		& $\alpha_1$ & 0.014* & 0.006 & 0.226* & 0.026 & 0.034 & 0.009 & 0.194 & 0.038\\
+		& $\eta$ & 0.319 & 0.007 & 0.888 & 0.009 & 0.409 & 0.008 & 1.246 & 0.011\\
+		& $\pi_{i,i}$ &  \multicolumn{2}{c}{80.64\%} & \multicolumn{2}{c|}{57.8\%} & \multicolumn{2}{c}{76.07\%} & \multicolumn{2}{c}{50.8\%}\\
+		\hline
+	\end{tabular}
+	\caption{Model estimates for model with Granger-based connectedness and with incorporated financial data. Data for European financial market.* coefficient with 5\% statistical significance.}
+	\label{table:model256}
+\end{table}
 
 \bibliography{bibliography}
 
@@ -779,5 +828,12 @@ The euqation may be solved as described in the subsection \ref{subsection:pca}. 
 Importing data and some elements of its preprocessing was done with Python programming language version 3.12.2. With packages yfinance, NumPy (\citet{harris20}) and pandas (\citet{reback20}). The connectedness estimation was computationally expensive\footnote{For example, the granger based method required fitting, at each point in time (around 6,000 observations) a multivariate regression among every combination of 42 stocks.}, thus it was done with Julia programming language 1.10.1 version (\citet{bezanson17}). The packages used were: DataFrames.jl for data analysis (\citet{kaminski23}), Graphs.jl for graph handling (\citet{fairbanks21}) and MarSwitching.jl for estimation of Markov switching model (\citet{dadej24}). The data visualization and descriptive statistics were don in R programming language version 4.3.2 (\citet{rcore23}). The repository with the source code and instructions to reproduce the research is available \href{https://github.com/m-dadej/robust\_fragile}{\underline{here}}.
 
 \section{Full model estimation results}\label{appendix:model_params}
+\section{Robustness check details}\label{appendix:robustness}
 
+\begin{figure}
+	\centering
+	\includegraphics[scale = 0.8]{img/interpolation.png}
+	\caption{Asset data interpolation of Commerzbank AG. The orange points are actual data from the balance sheet. The blue line is the interpolated data. The slight discrepency between the maximum or minimum and the data point is due to the moving data to the nearest week end for stock data matching.}
+	\label{figure:interpolation}
+\end{figure}
 \end{document}
