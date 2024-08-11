@@ -18,13 +18,14 @@ parser.add_argument('--freq', type=str, required=True)
 parser.add_argument('--cor_window', type=int, required=True)
 parser.add_argument('--eig_k', type=int, required=True)
 parser.add_argument('--excess', type=bool, required=True)
+parser.add_argument('--api_key', type=str, required=True)
 
 
 # Parse the arguments
 args = parser.parse_args()
 
 # HERE PASTE THE API KEY FROM FREDAPI
-fred = Fred(api_key='18c2830f79155831d5c485d84472811f')
+fred = Fred(api_key = args.api)
 
 if args.region == 'eu':
     print('region: EU')

@@ -11,6 +11,7 @@ parser = argparse.ArgumentParser(description="Download stocks data from granger 
 
 parser.add_argument('--region', type=str, required=True)
 parser.add_argument('--freq', type=str, required=True)
+parser.add_argument('--api_key', type=str, required=True)
 
 # Parse the arguments
 args = parser.parse_args()
@@ -63,7 +64,7 @@ def na_share(df):
 #             #print(df.columns[i], df.columns[j])
 #     return granger_mat  
 
-fred = Fred(api_key='18c2830f79155831d5c485d84472811f')
+fred = Fred(api_key=args.api)
 
 if args.region == 'eu':
     print('region: EU')
