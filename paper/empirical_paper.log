@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.21)  8 AUG 2024 21:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.21)  11 AUG 2024 12:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -802,90 +802,99 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 [10] [11] [12] [13] [14] [15] [16]
-<img/graph_eu_circl.png, id=477, 758.835pt x 758.835pt>
+<img/graph_eu_circl.png, id=489, 758.835pt x 758.835pt>
 File: img/graph_eu_circl.png Graphic file (type png)
 <use img/graph_eu_circl.png>
 Package pdftex.def Info: img/graph_eu_circl.png  used on input line 298.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/graph_eu.png, id=479, 758.835pt x 758.835pt>
+<img/graph_eu.png, id=491, 758.835pt x 758.835pt>
 File: img/graph_eu.png Graphic file (type png)
 <use img/graph_eu.png>
 Package pdftex.def Info: img/graph_eu.png  used on input line 300.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
  [17 <./img/graph_eu_circl.png> <./img/graph_eu.png>] [18]
-<img/connect_ts.png, id=518, 578.16pt x 361.35pt>
+<img/connect_ts.png, id=530, 578.16pt x 361.35pt>
 File: img/connect_ts.png Graphic file (type png)
 <use img/connect_ts.png>
 Package pdftex.def Info: img/connect_ts.png  used on input line 350.
 (pdftex.def)             Requested size: 439.39734pt x 274.62334pt.
- [19] [20 <./img/connect_ts.png>] [21] (./empirical_paper.bbl
-[22]
-Underfull \hbox (badness 2582) in paragraph at lines 50--56
+ [19] [20 <./img/connect_ts.png>] [21] [22] [23]
+Overfull \hbox (19.08751pt too wide) in paragraph at lines 412--435
+[][] 
+ []
+
+[24]
+Overfull \hbox (24.56252pt too wide) in paragraph at lines 444--467
+[][] 
+ []
+
+[25] (./empirical_paper.bbl
+Underfull \hbox (badness 2582) in paragraph at lines 57--63
 []\OT1/cmr/m/n/12 Baral, P. and Fique, J. (2012).  Es-ti-ma-tion of bi-lat-eral
  con-nec-tions in a
  []
 
 
-Underfull \hbox (badness 2469) in paragraph at lines 50--56
+Underfull \hbox (badness 2469) in paragraph at lines 57--63
 \OT1/cmr/m/n/12 net-work: Cop-ula vs. max-i-mum en-tropy.  In \OT1/cmr/m/it/12 
 CIRANO https://cirano. qc.
  []
 
-[23] [24] [25] [26] [27] [28]) [29] [30] [31]
+[26] [27] [28] [29] [30] [31]) [32] [33] [34]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 578.
+(amsmath)                 on input line 651.
 
-[32] [33]
-<img/graph_us_circl.png, id=661, 758.835pt x 758.835pt>
+[35] [36]
+<img/graph_us_circl.png, id=716, 758.835pt x 758.835pt>
 File: img/graph_us_circl.png Graphic file (type png)
 <use img/graph_us_circl.png>
-Package pdftex.def Info: img/graph_us_circl.png  used on input line 631.
+Package pdftex.def Info: img/graph_us_circl.png  used on input line 704.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/graph_us.png, id=662, 758.835pt x 758.835pt>
+<img/graph_us.png, id=717, 758.835pt x 758.835pt>
 File: img/graph_us.png Graphic file (type png)
 <use img/graph_us.png>
-Package pdftex.def Info: img/graph_us.png  used on input line 633.
+Package pdftex.def Info: img/graph_us.png  used on input line 706.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/graph_eu_lw_circl.png, id=663, 758.835pt x 758.835pt>
+<img/graph_eu_lw_circl.png, id=718, 758.835pt x 758.835pt>
 File: img/graph_eu_lw_circl.png Graphic file (type png)
 <use img/graph_eu_lw_circl.png>
-Package pdftex.def Info: img/graph_eu_lw_circl.png  used on input line 644.
+Package pdftex.def Info: img/graph_eu_lw_circl.png  used on input line 717.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/graph_eu_lw.png, id=664, 758.835pt x 758.835pt>
+<img/graph_eu_lw.png, id=719, 758.835pt x 758.835pt>
 File: img/graph_eu_lw.png Graphic file (type png)
 <use img/graph_eu_lw.png>
-Package pdftex.def Info: img/graph_eu_lw.png  used on input line 646.
+Package pdftex.def Info: img/graph_eu_lw.png  used on input line 719.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/graph_us_lw.png, id=665, 758.835pt x 758.835pt>
+<img/graph_us_lw.png, id=720, 758.835pt x 758.835pt>
 File: img/graph_us_lw.png Graphic file (type png)
 <use img/graph_us_lw.png>
-Package pdftex.def Info: img/graph_us_lw.png  used on input line 648.
+Package pdftex.def Info: img/graph_us_lw.png  used on input line 721.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/graph_us_lw_circl.png, id=666, 758.835pt x 758.835pt>
+<img/graph_us_lw_circl.png, id=721, 758.835pt x 758.835pt>
 File: img/graph_us_lw_circl.png Graphic file (type png)
 <use img/graph_us_lw_circl.png>
-Package pdftex.def Info: img/graph_us_lw_circl.png  used on input line 650.
+Package pdftex.def Info: img/graph_us_lw_circl.png  used on input line 723.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/connect_ts_app.png, id=667, 578.16pt x 361.35pt>
+<img/connect_ts_app.png, id=722, 578.16pt x 361.35pt>
 File: img/connect_ts_app.png Graphic file (type png)
 <use img/connect_ts_app.png>
-Package pdftex.def Info: img/connect_ts_app.png  used on input line 677.
+Package pdftex.def Info: img/connect_ts_app.png  used on input line 750.
 (pdftex.def)             Requested size: 462.52863pt x 289.0804pt.
 
-Overfull \hbox (18.95015pt too wide) in paragraph at lines 677--678
+Overfull \hbox (18.95015pt too wide) in paragraph at lines 750--751
  [][] 
  []
 
 
-Overfull \hbox (91.08157pt too wide) in paragraph at lines 688--700
+Overfull \hbox (91.08157pt too wide) in paragraph at lines 761--773
  [][] 
  []
 
-[34 <./img/graph_us_circl.png> <./img/graph_us.png>] [35 <./img/graph_eu_lw_cir
+[37 <./img/graph_us_circl.png> <./img/graph_us.png>] [38 <./img/graph_eu_lw_cir
 cl.png> <./img/graph_eu_lw.png> <./img/graph_us_lw.png> <./img/graph_us_lw_circ
-l.png>] [36 <./img/connect_ts_app.png>] [37] (./empirical_paper.aux)
+l.png>] [39 <./img/connect_ts_app.png>] [40] (./empirical_paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-04-11>
@@ -895,14 +904,14 @@ L3 programming layer <2024-04-11>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `empirical_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 949F5DD993FC5D224C854498B9DBA04C;2711.
+(rerunfilecheck)             Checksum: 4F307CD21E319E97126F0BF7EF73D7F4;3143.
  ) 
 Here is how much of TeX's memory you used:
- 25124 strings out of 474050
- 470576 string characters out of 5746298
+ 25159 strings out of 474050
+ 471112 string characters out of 5746298
  1965754 words of memory out of 5000000
- 46941 multiletter control sequences out of 15000+600000
- 574334 words of font info for 95 fonts, out of 8000000 for 9000
+ 46961 multiletter control sequences out of 15000+600000
+ 575582 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,17n,93p,2986b,1033s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
@@ -925,10 +934,10 @@ exlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/202
 ist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2024/texmf-dist/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/typ
 e1/public/cm-super/sfrm1200.pfb>
-Output written on empirical_paper.pdf (37 pages, 2060521 bytes).
+Output written on empirical_paper.pdf (40 pages, 2073345 bytes).
 PDF statistics:
- 860 PDF objects out of 1000 (max. 8388607)
- 750 compressed objects within 8 object streams
- 211 named destinations out of 1000 (max. 500000)
- 207 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 920 PDF objects out of 1000 (max. 8388607)
+ 804 compressed objects within 9 object streams
+ 226 named destinations out of 1000 (max. 500000)
+ 231 words of extra memory for PDF output out of 10000 (max. 10000000)
 

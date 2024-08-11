@@ -10,6 +10,13 @@ Adrian, T. and Brunnermeier, M.~K. (2016).
 \newblock Covar.
 \newblock {\em American Economic Review}, 106(7):1705–41.
 
+\bibitem[Akaike, 1998]{akaike98}
+Akaike, H. (1998).
+\newblock Information theory and an extension of the maximum likelihood
+  principle.
+\newblock In {\em Selected papers of hirotugu akaike}, pages 199--213.
+  Springer.
+
 \bibitem[Aldasoro et~al., 2017]{aldasoro17}
 Aldasoro, I., {Delli Gatti}, D., and Faia, E. (2017).
 \newblock Bank networks: Contagion, systemic risk and prudential policy.
@@ -485,6 +492,11 @@ Song, L. and Zhang, Y. (2021).
 \newblock Banking network structure and transnational systemic risk
   contagion—the case of the european union.
 \newblock {\em Finance Research Letters}, 39:101660.
+
+\bibitem[Timmermann, 2000]{timmermann00}
+Timmermann, A. (2000).
+\newblock Moments of markov switching models.
+\newblock {\em Journal of Econometrics}, 96(1):75--111.
 
 \bibitem[Upper, 2011]{upper11}
 Upper, C. (2011).

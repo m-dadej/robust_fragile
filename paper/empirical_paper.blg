@@ -14,45 +14,45 @@ while executing---line 1023 of file apalike.bst
 Too many commas in name 1 of "L. Bargigli, G. di Iasio, L. Infante, F. Lillo and F. Pierobon" for entry bargigli15
 while executing---line 1098 of file apalike.bst
 Warning--there's a number but no volume in ledoit03
-You've used 88 entries,
+You've used 90 entries,
             1935 wiz_defined-function locations,
-            1006 strings with 18354 characters,
-and the built_in function-call counts, 35219 in all, are:
-= -- 3443
-> -- 1462
-< -- 57
-+ -- 507
-- -- 488
-* -- 3150
-:= -- 6194
-add.period$ -- 268
-call.type$ -- 88
-change.case$ -- 682
-chr.to.int$ -- 87
-cite$ -- 89
-duplicate$ -- 1211
-empty$ -- 2443
-format.name$ -- 640
-if$ -- 6802
+            1017 strings with 18565 characters,
+and the built_in function-call counts, 36059 in all, are:
+= -- 3532
+> -- 1476
+< -- 60
++ -- 511
+- -- 492
+* -- 3209
+:= -- 6326
+add.period$ -- 275
+call.type$ -- 90
+change.case$ -- 694
+chr.to.int$ -- 89
+cite$ -- 91
+duplicate$ -- 1252
+empty$ -- 2516
+format.name$ -- 646
+if$ -- 6985
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 80
-newline$ -- 447
-num.names$ -- 264
-pop$ -- 482
+missing$ -- 82
+newline$ -- 457
+num.names$ -- 270
+pop$ -- 493
 preamble$ -- 1
-purify$ -- 684
+purify$ -- 696
 quote$ -- 0
-skip$ -- 920
+skip$ -- 953
 stack$ -- 0
-substring$ -- 2686
-swap$ -- 91
-text.length$ -- 3
+substring$ -- 2760
+swap$ -- 102
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 522
+type$ -- 534
 warning$ -- 1
-while$ -- 278
+while$ -- 286
 width$ -- 0
-write$ -- 1147
+write$ -- 1174
 (There were 3 error messages)

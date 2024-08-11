@@ -361,16 +361,19 @@ The previous section described in detail the methods of estimating the connected
 As in usual process of ARCH modeling, the model requires to specify the mean equation:
 
 \begin{equation}
-	r_{b,t} = \beta_0 + \beta_1 r_{b_t-1} + \beta_2 r_{m, t-1} + \epsilon_t	
+	r_{b,t} = \beta_0 + \sum_{i=1}^{k}\beta_i r_{b, t-i} + \sum_{j=0}^{p}\beta_{k+j} r_{m, t-j} + \epsilon_t	
 \end{equation}
 
-Where $r_{b,t}$ and $r_{m, t}$ are rates of returns for banking index and broad market at time $t$ respectively. Subsequently, the absolute values of the residual are modeled with a regime-switching model:
+Where $r_{b,t}$ and $r_{m, t}$ are rates of returns for banking index and broad market at time $t$ respectively. Note, the broad market index is included as a covariate also at time $t$. The lags were chosen with the Akaike information criterion (\citet{akaike98}) to be 3 for both of the covariates. Subsequently, the absolute values of the residual are modeled with a regime-switching model:
 
-\begin{equation}
-	\sqrt{\epsilon^{2}_t} = \alpha_{0,S_t} + \underbrace{\alpha_{1,S_t} \gamma_{t-1}}_{\text{connectedness}} + \underbrace{\sum_{i=1}^{p} \alpha_{i+1} \sqrt{\epsilon^2_{t-i}}}_{\text{lag controls}}
-\end{equation}
 
-Where $\gamma_t$ is, as before, the financial connectedness at time $t$\footnote{Of course, there are different connectedness variables, calculated with different methods, rolling window sizes and markets but the indices are omitted for the sake of brevity.}. The lag covariates control for the heteroskedasticity, common in financial time-series. Unlike in a standard ARCH model, the parameters $\alpha$ are unconstrained. The reason is that the model purpose is not to predict the volatility but investigate the regime-dependent effect of connectedness on systemic risk. Thus, it is more valuable to see if the coefficients are negative (or not), rather than eliminating the possibility of producing negative volatility when forecasting \footnote{A similar trade-off which occurs when deciding for logistic regression or linear probability model - risk of nonsensical predictions vs. ease of interpretability.}. An important assumption in the model is that the volatility (or the absolute rates of return) of the banking index is the appropriate proxy for the stability of the financial sector. There are some theoretical arguments that it may not always be the case (see e.g. the literature regarding the volatility paradox - \citet{brunnermeier14} or \citet{danielsson18}), nonetheless it is still a commonly utilized proxy in the literature (some of the examples are \citet{nelson07}, \citet{bratis20}, \citet{imf08} or \citet{billio16}).
+\begin{align}
+	\label{equation:vol_model}
+\sqrt{\epsilon^{2}_t} &= \alpha_{0,S_t} + \underbrace{\alpha_{1,S_t} \gamma_{t-1}}_{\text{connectedness}} + \underbrace{\sum_{i=1}^{p} \alpha_{i+1} \sqrt{\epsilon^2_{t-i}}}_{\text{lag controls}} + \vartheta_t \\
+\vartheta \sim & \, \mathcal{N}(0, \eta)
+\end{align}
+
+Where $\gamma_t$ is, as before, the financial connectedness at time $t$\footnote{Of course, there are different connectedness variables, calculated with different methods, rolling window sizes and markets but the indices are omitted for the sake of brevity.}. The lag covariates control for the heteroskedasticity, common in financial time-series. The error term of the volatility equation is normally distributed with zero mean and $\eta$ variance. It is worth to note, that despite commonly observed fat-tailed behavior of the financial data it is sufficient to use normal distribution as the mixture of two distributions with different variance (for each market regime) will produce in the end a fat-tail like distribution (\citet{timmermann00}). Unlike in a standard ARCH model, the parameters $\alpha$ are unconstrained. The reason is that the model purpose is not to predict the volatility but investigate the regime-dependent effect of connectedness on systemic risk. Thus, it is more valuable to see if the coefficients are negative (or not), rather than eliminating the possibility of producing negative volatility when forecasting \footnote{A similar trade-off which occurs when deciding for logistic regression or linear probability model - risk of nonsensical predictions vs. ease of interpretability.}. An important assumption in the model is that the volatility (or the absolute rates of return) of the banking index is the appropriate proxy for the stability of the financial sector. There are some theoretical arguments that it may not always be the case (see e.g. the literature regarding the volatility paradox - \citet{brunnermeier14} or \citet{danielsson18}), nonetheless it is still a commonly utilized proxy in the literature (some of the examples are \citet{nelson07}, \citet{bratis20}, \citet{imf08} or \citet{billio16}).
 
 The $\gamma_{t-1}$ and the corresponding coefficient $\alpha_{1, S_t}$ are the relevant term of interest to the research design. Notably, the connectedness time series is lagged by a single period. This operation is subtle yet crucial, as the instantaneous relationship between the system stability and connectedness may not be fully exogenous. The connectedness measures, especially the one based on Ledoit-Wolf estimation, are still imperfect estimations and captures to some degree a simple correlation among the stock returns. It is commonly acknowledged that the correlations increases also as a consequence of sudden volatility spikes. For example, due to the margin calls (\citet{kahraman19}) or fly to safety effects (\citet{baele19}). Additionally, the banks themselves may make hedging decision in the face of market uncertainty, thus changing the connections among each other. In order to eliminate this source of endogeneity, the connectedness variables are lagged by a single period. With this specification, the model investigates how the financial stability evolves under different connectedness levels prior to the arrival of the shock. Because of this, the coefficient have a causal interpretation. 
 
@@ -401,7 +404,77 @@ Appendix \ref{appendix:technical} elaborates on technical details of the impleme
 
 \section{Main results}
 
-The model described in previous section was estimated based data from both markets and in a various specifications. 
+The model described in previous section was estimated based on data from both markets and in a various specifications. Tables \ref{table:model63} and \ref{table:model256} presents the selected parameters from the various model specifications for window size of quarter and a year respectively. Due to the amount of the models and their parameters, the other information regarding them (e.g. estimated coefficients for lag covariates) are shown in the appendix \ref{appendix:model_params}. The tables present 4 parameters from equation \ref{equation:vol_model} for each of the regimes. The corresponding standard errors are computed based on the inverse of Hessian matrix produced from the likelihood optimization. 
+
+The model is able to clearly distinguish two regimes of stable and unstable markets (or alternatively, low and high shock). The Regime 1 has a lower intercept, hence it describes the financial system under the low volatility.   For example, the model for US data using the Ledoit-Wolf connectedness estimated a model with an intercept of 0.37 and 1.342 for two regimes\footnote{Considering that time series are multiplied by 100, the values correspond to the 0.37\% and 1.342\% of volatility under zero values for other covariates.}. All of the other models has a substantial difference between the intercepts at different regimes. As may be concluded from the diagonal values of transition matrix $\pi_{i,i}$, the stable markets are always more persistent. For example, the model for US data with Eigenvalue-based connectedness has a transition probability from stable markets regime equal to 82.3\%. This is the chance of staying in the same regime over in the next period. The persistance of the regimes is aligned with a commonly observed behavior of financial markets, which are more often than not calm\footnote{Although, one may argue that the unstable market is less common by definition.}. Since none of the transition probabilities are substantially high (e.g. above 90\%) the identified regimes are in general switching relatively often. In fact, a regime in one of the models have transition probability below 50\% suggesting that it is less probable to stay in the same state in the upcoming period. The stable markets have also smaller variance of error term $\eta$ (a volatility of volatility) further confirming the distinction between the stable and unstable regimes.
+
+\begin{table}\small
+	\begin{tabular}{cccccc | cccccc}
+		& \multicolumn{5}{c}{US} & \multicolumn{4}{c}{EU} \\
+		Measure &  & \multicolumn{2}{c}{\bfseries Regime 1} & \multicolumn{2}{c}{\bfseries Regime 2} & \multicolumn{2}{c}{\bfseries Regime 1} & \multicolumn{2}{c}{\bfseries Regime 2} \\
+		%\cmidrule(lr){1-6}
+		\hline
+		& & Estimate & S.E. & Estimate & S.E. & Estimate & S.E. & Estimate & S.E. \\
+		\hline
+		\multirow{3}{*}[\normalbaselineskip]{Ledoit-Wolf} & $\alpha_0$ & 0.374 & 0.013 & 1.385 & 0.038 & 0.441 & 0.019 & 1.82 & 0.05\\
+		& $\alpha_1$ & 0.015* & 0.006 & 0.155* & 0.029 & 0.019 & 0.01 & 0.302* & 0.036\\
+		& $\eta$ & 0.326 & 0.007 & 0.935 & 0.01 & 0.401 & 0.009 & 1.209 & 0.011\\
+		& $\pi_{i,i}$ &  \multicolumn{2}{c}{82.4\%} & \multicolumn{2}{c|}{61.1\%} & \multicolumn{2}{c}{73.52\%} & \multicolumn{2}{c}{48.16\%}\\
+		\hline
+		\multirow{3}{*}[\normalbaselineskip]{Eigenvalue} & $\alpha_0$ & 0.377 & 0.014 & 1.382 & 0.039 & 0.434* & 0.017 & 1.829* & 0.048\\
+		& $\alpha_1$ & 0.02* & 0.007 & 0.136* & 0.029 & -0.013 & 0.008 & 0.303* & 0.043\\
+		& $\eta$ & 0.327 & 0.007 & 0.939 & 0.01 & 0.49 & 0.008 & 1.22 & 0.11\\
+		& $\pi_{i,i}$ &  \multicolumn{2}{c}{82.3\%} & \multicolumn{2}{c|}{67.2\%} & \multicolumn{2}{c}{74.8\%} & \multicolumn{2}{c}{60.8\%}\\
+		\hline
+		\multirow{3}{*}[\normalbaselineskip]{Granger} & $\alpha_0$ & 0.373* & 0.013 & 1.392* & 0.039 & 0.445* & 0.018 & 1.824* & 0.05  \\
+		& $\alpha_1$ & 0.018* & 0.006 & 0.08 & 0.027 & 0.018 & 0.01 & 0.276* & 0.033 \\
+		& $\eta$ & 0.328 & 0.007 & 0.949 & 0.01 & 0.401 & 0.009 & 1.215 & 0.011\\
+		& $\pi_{i,i}$ &  \multicolumn{2}{c}{83.39\%} & \multicolumn{2}{c|}{62.91\%}& \multicolumn{2}{c}{74.56\%} & \multicolumn{2}{c}{50.76\%}\\
+		\hline
+	\end{tabular}
+	\caption{Model estimation results for rolling window size of quarter (63 trading days). Full model parameters in the appendix \ref{appendix:model_params}. * coefficient with 5\% statistical significance.}
+	\label{table:model63}
+\end{table}
+
+The results confirm the conjecture of the \citet{acemoglu13} and \citet{haldane13}, at least to some extent. The coefficient $\alpha_1$ corresponds to the main variable of interest, i.e. the connectedness of the system. The values of the parameter are almost always significantly positive \footnote{except the model for US market with Granger connectedness.}. For example, on the European market and a window size of a quarter, a one standard deviation increase in connectedness results in volatility higher by around 0.3 percentage point during the unstable market (or high shock) regime. It is evident, that the connectedness has a regime-dependent effect on the financial stability. Just as described in the work of \citet{acemoglu13}, during the unstable market regime (or in the original work terms - a high shock regime), the connectedness amplifies the shock and increases the volatility of the system. 
+
+On the other hand, the behavior under the stable markets regime is less aligned with the theory. The connectedness, although in some cases significant, is never economically sizeable in terms of the effect. Most corresponding coefficients are around 0.02, suggesting a connectedness higher by one standard deviation should result in volatility higher of around 0.02 percentage points. A value virtually negligible. This is in contrast to the robust-yet-fragile theory, that posits an improvement in terms of financial stability due to higher connectedness of the market participants.
+
+\begin{table}\small
+	\begin{tabular}{cccccc | cccccc}
+		& \multicolumn{5}{c}{US} & \multicolumn{4}{c}{EU} \\
+		Measure &  & \multicolumn{2}{c}{\bfseries Regime 1} & \multicolumn{2}{c}{\bfseries Regime 2} & \multicolumn{2}{c}{\bfseries Regime 1} & \multicolumn{2}{c}{\bfseries Regime 2} \\
+		%\cmidrule(lr){1-6}
+		\hline
+		& & Estimate & S.E. & Estimate & S.E. & Estimate & S.E. & Estimate & S.E. \\
+		\hline
+		\multirow{3}{*}[\normalbaselineskip]{Ledoit-Wolf} & $\alpha_0$ & 0.37 & 0.013 & 1.342 & 0.037 & 0.458 & 0.018 & 1.874 & 0.053\\
+		& $\alpha_1$ & 0.014* & 0.006 & 0.226* & 0.026 & 0.034 & 0.009 & 0.194 & 0.038\\
+		& $\eta$ & 0.319 & 0.007 & 0.888 & 0.009 & 0.409 & 0.008 & 1.246 & 0.011\\
+		& $\pi_{i,i}$ &  \multicolumn{2}{c}{80.64\%} & \multicolumn{2}{c|}{57.8\%} & \multicolumn{2}{c}{76.07\%} & \multicolumn{2}{c}{50.8\%}\\
+		\hline
+		\multirow{3}{*}[\normalbaselineskip]{Eigenvalue} & $\alpha_0$ & 0.378 & 0.014 & 1.337 & 0.0378 & 0.441 & 0.018 & 1.871 & 0.053\\
+		& $\alpha_1$ & 0.025* & 0.007 & 0.222* & 0.028 & -0.009 & 0.008 & 0.035 & 0.045\\
+		& $\eta$ & 0.319 & 0.007 & 0.89 & 0.01 & 0.41 & 0.008 & 1.261 & 0.011\\
+		& $\pi_{i,i}$ &  \multicolumn{2}{c}{80.33\%} & \multicolumn{2}{c|}{57\%} & \multicolumn{2}{c}{77.13\%} & \multicolumn{2}{c}{53.2\%}\\
+		\hline
+		\multirow{3}{*}[\normalbaselineskip]{Granger} & $\alpha_0$ & 0.375 & 0.013 & 1.352 & 0.036 & 0.463 & 0.018 & 1.861 & 0.05\\
+		& $\alpha_1$ & 0.019 & 0.007 & 0.197 & 0.024 & 0.044 & 0.01 & 0.294 & 0.037\\
+		& $\eta$ & 0.316 & 0.007 & 0.889 & 0.009 & 0.404 & 0.008 & 1.22 & 0.011\\
+		& $\pi_{i,i}$ &  \multicolumn{2}{c}{80.72\%} & \multicolumn{2}{c|}{58.84\%}& \multicolumn{2}{c}{75.16\%} & \multicolumn{2}{c}{50.28\%}\\
+		\hline
+	\end{tabular}
+	\caption{Model estimation results for rolling window size of quarter (256 trading days). Full model parameters in the appendix \ref{appendix:model_params}. * coefficient with 5\% statistical significance.}
+	\label{table:model256}
+\end{table}
+
+\section{Robustness check}
+
+In order to investigate the role of firm-specific variables in driving the main results, the model was extended for balance sheet and PnL data of the financial institutions. Naturally, incorporating this kind of data is not costless for the research design. The universe of institutions had to be shrank, as well as the size of the time series. Thus, the following exercise is left as a robustness check.
+
+The data was sourced from Orbis dataset spanning sevend and a half years starting from third quarter of 2016 up to fiscal year of 2023 \footnote{the oldest possible data to download from the Orbis}.
+
+\subsection{Data}
 
 \bibliography{bibliography}
 
@@ -704,5 +777,7 @@ The euqation may be solved as described in the subsection \ref{subsection:pca}. 
 \section{Technical details}\label{appendix:technical}
 
 Importing data and some elements of its preprocessing was done with Python programming language version 3.12.2. With packages yfinance, NumPy (\citet{harris20}) and pandas (\citet{reback20}). The connectedness estimation was computationally expensive\footnote{For example, the granger based method required fitting, at each point in time (around 6,000 observations) a multivariate regression among every combination of 42 stocks.}, thus it was done with Julia programming language 1.10.1 version (\citet{bezanson17}). The packages used were: DataFrames.jl for data analysis (\citet{kaminski23}), Graphs.jl for graph handling (\citet{fairbanks21}) and MarSwitching.jl for estimation of Markov switching model (\citet{dadej24}). The data visualization and descriptive statistics were don in R programming language version 4.3.2 (\citet{rcore23}). The repository with the source code and instructions to reproduce the research is available \href{https://github.com/m-dadej/robust\_fragile}{\underline{here}}.
+
+\section{Full model estimation results}\label{appendix:model_params}
 
 \end{document}
