@@ -10,8 +10,45 @@ using Plots
 # - odjąć tez od kursu banków?
 
 # odejmij jakis AR proces of R
+function remove_outlier(data::Matrix{Float64}; σ = 5)
+    
+    outliers = []
+    for i in 1:size(data, 2)
+        outliers = [outliers; findall(data[:,i] .> (mean(data[:,i]) + m * std(data[:,i])))]
+    end
 
+    return data[(1:end) .∉ (outliers,),:]
+end
 
+function remove_outlier(data::DataFrame; σ = 5) 
+    
+    outliers = []
+    for col in names(data)
+        
+        df_col = data[!, col]
+        if eltype(df_col) <: Number
+            outliers = [outliers; findall(df_col .> (mean(df_col) + σ * std(df_col)))]
+        end
+    end
+
+    return data[(1:end) .∉ (outliers,),:]
+end
+
+standard(x::Vector{Float64}) = (x .- mean(x)) ./ std(x)
+standard(x::Matrix{Float64}) = (x .- mean(x, dims=1)) ./ std(x, dims=1)
+
+ols(y::Vector{Float64}, X::Matrix{Float64}) = (X'X) \ X'y
+
+function get_residual(df::DataFrame, y_name::Symbol, covariate_names::Vector{Symbol})
+    
+    covariates = Matrix(df[!, covariate_names])
+    β = ols(df[!, y_name], covariates)
+    df.residual = df[!, y_name] .- covariates * β
+
+    return df
+end
+
+include("granger_functions.jl")
 # download data
 # args: region us/eu, freq weekly/daily
 run(`py src/stocks_download.py
@@ -38,7 +75,7 @@ end
 data = CSV.read("src/data/bank_cor.csv", DataFrame)
 
 #granger_df = CSV.read("data/granger_ts.csv", DataFrame)
-granger_df = CSV.read("src/data/bs_granger80_.csv", DataFrame)
+granger_df = CSV.read("src/data/bs_granger56.csv", DataFrame)
 data = sort(innerjoin(data, granger_df, on = :Date), :Date)
 
 
@@ -63,7 +100,6 @@ model_df = @chain data begin
     remove_outlier(_, σ = 5)
     dropmissing()
 end
-
 
 exog_switch = standard(Matrix(model_df[!, [["connectedness_lag$i" for i in 1:conn_lag]...]]))
 #exog_switch = [standard(model_df[!, connectedness]) exog_switch]

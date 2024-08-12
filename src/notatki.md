@@ -23,17 +23,26 @@ in assessing how distinct networks differ from each other" -  z Bank of England 
 
 nie dziala :
 
-- cor_w = 36; x.numobs_function > 150; [:return, :return_1, :lt_fund_share, :ib_share, :roa, :prof_ch]
+- 40, non weigthed, [:return, :return_1,   :roa,  :assets, :ib_net_save]
+
+- 40, weighted, [:return, :return_1,:prof_ch, :lt_fund_share,  :roa,  :assets, :ib_net_save]
+
+- 40, weighted,  :return, :return_1, :prof_ch,  :roa,   :assets, :ib_net_save
+
+- 40, non weigthed,  [:return, :return_1, :prof_ch,   :assets, :ib_net_save]
+
+- 56 weight, [:return, :return_1, :prof_ch,  :lt_fund_share, :assets, :ib_net_save]
+
+- 56, weight, [:return, :return_1, :prof_ch,  :roa, :assets, :ib_net_save]
+
+- 84 no weight, [:return, :return_1, :prof_ch,  :lt_fund_share, :assets, :ib_net_save]
+ 
+- 84 no weight, [:return, :return_1, :prof_ch,  :assets, :ib_net_save]
 
 Dziala dla:
 
-- cor_w = 40; x.numobs_function > 150; [:return, :return_1, -:lt_fund_share, :ib_share, :roa, :prof_ch] - 0.065 p calue
+- 56 no weight, [:return, :return_1, :prof_ch,  :lt_fund_share, :assets, :ib_net_save]
 
-- cor_w = 36; x.numobs_function > 150; [:return, :return_1, :lt_fund_share, :ib_share, :roa]
+- 56 no weight, [:return, :return_1, :prof_ch,  :assets, :ib_net_save]
 
-- cor_w = 36; x.numobs_function > 150; [:return, :return_1, :lt_fund_share, :ib_share, :roa, :prof_ch]
-
-- cor_w = 36; x.numobs_function > 150 [:return, :return_1, :ib_share, :roa, :prof_ch] - 0.073 p value
-
-
-
+- 56 no weight,  [:return, :return_1, :roa, :depo_share, :assets, :ib_net_save]

@@ -20,10 +20,6 @@ end
 
 replace_inf(x) = isinf(x) ? 0.0 : x
 
-function granger_degree(x)
-    return sum(replace_inf.(x) .== 1) / (size(x)[2]^2 - size(x)[2])
-end    
-
 function unstack_ticker(df::DataFrame, ticker::String)
     ticker_df = @chain df begin
         filter(column -> column.ticker == (ticker), _)
@@ -47,8 +43,6 @@ function granger_cause(df::DataFrame)
     return β[lag_var_index], abs(β[lag_var_index] / Σ[lag_var_index]) > 1.96
 end
 
-df = window_df
-
 function granger_mat(df::DataFrame, w::DataFrame)
     
     tickers = unique(df.ticker)
@@ -70,11 +64,11 @@ function granger_mat(df::DataFrame, w::DataFrame)
             continue
         end
         
-        link_weight = 1#w[w.ticker .== tickers[i], "value_mean_function"][1]
+        link_weight = 1 #w[w.ticker .== tickers[i], "value_mean_function"][1]
         
         granger_df = @chain begin
                         innerjoin(df_a, df_b, on = :Date, makeunique=true)
-                        select(_, [:return, :return_1,  :roa,  :assets, :ib_net_save]) # :prof_ch,:ib_share,:lt_fund_share,
+                        select(_, [:return, :return_1, :roa, :depo_share, :assets, :ib_net_save]) # :lt_fund_share, 
                         transform(_, :return_1 => (x -> lag(x, 1)) => :return_1,
                                      :assets => (x -> log.(x)) => :assets,
                                         #:return_1 => (x -> lag(x, 2)) => :return_2
@@ -93,18 +87,25 @@ function granger_mat(df::DataFrame, w::DataFrame)
     return network
 end
 
-
 # run to get the up to date data...
 # run(`py src/granger_ts.py
 #     --region eu
-#     --freq weekly`) # daily or weekly
+#     --freq weekly 
+#      --api_key`) 
+
+# freq - daily or weekly
+# region - us or eu
+# api_key - your api key to FRED database
+
 
 # data_raw = CSV.read("src/data/df_rets_granger.csv", DataFrame)
-# orbis_data = CSV.read("src/data/orbis_preproc.csv", DataFrame)
-# #orbis_data = subset(orbis_data, :comp => x -> x .!= "AIB GROUP PUBLIC LIMITED COMPANY")
 
 # ...or use the archived data
 data_raw = CSV.read("src/data/archive/df_rets_granger_eu_weekly.csv", DataFrame)
+
+
+orbis_data = CSV.read("src/data/orbis_preproc.csv", DataFrame)
+orbis_data = subset(orbis_data, :comp => x -> x .!= "AIB GROUP PUBLIC LIMITED COMPANY")
 
 # number of observations per group
 @chain orbis_data begin
@@ -134,7 +135,7 @@ df = sort(df, [:Date, :comp])
 
 df_dates = unique(df.Date)
 
-cor_w = 40
+cor_w = 84
 
 # average asset size
 network_weight = @chain df begin
@@ -152,12 +153,12 @@ for t in cor_w:size(df_dates)[1]
     #println("$(round((t / size(cor_w:size(df_dates)[1])[1])*100, digits = 2)) %")
     window_df = filter(x -> (x.Date .>= df_dates[t-cor_w+1]) .& (x.Date .<= df_dates[t]), df)
     mat = granger_mat(window_df, network_weight)
-    granger_ts[t - cor_w + 1] = granger_degree(mat)
+    granger_ts[t - cor_w + 1] = mean(replace_inf.(mat))
 end
 
 plot(granger_ts)
 
-CSV.write("src/data/bs_granger80_.csv", 
+CSV.write("src/data/bs_granger84.csv", 
           DataFrame(Date = df_dates[cor_w:end],
                     bs_granger = granger_ts))
 

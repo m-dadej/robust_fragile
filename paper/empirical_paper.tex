@@ -496,7 +496,7 @@ The data was sourced from the Orbis dataset spanning sevend and a half years sta
 
 \subsection{Modeling adjustment}
 
-Other than the data limitation, the introduction of fiscal data requires a matching time series to the daily stock returns. In order to increase the frequency of the data, the quarterly financial variables were interpolated into a weekly frequency. The stock returns, on the other hand, were compounded into weekly returns. The resulting modeling frequency is a compromise between reasonable size of the resulting dataset and an information content of the variables. The size thereof used to estimate the model is equal to 312 observations. Although, the initial period of window size is omitted due to lack of the corresponding connectedness time-series. The window is changed as well (to 40 and 80 weeks), since the previous size of a quarter would be too small for meaningful inference. The financial data was interpolated with piecewise cubic polynomial. The figure \ref{figure:interpolation} in appendix \ref{appendix:robustness} presents an example of interpolated data and an actual one. 
+Other than the data limitation, the introduction of fiscal data requires a matching time series to the daily stock returns. In order to increase the frequency of the data, the quarterly financial variables were interpolated into a weekly frequency. The stock returns, on the other hand, were compounded into weekly returns. The resulting modeling frequency is a compromise between reasonable size of the resulting dataset and an information content of the variables. The size thereof used to estimate the model is equal to 312 observations. Although, the initial period of window size is omitted due to lack of the corresponding connectedness time-series. The window is changed as well (to 56 and 84 weeks), since the previous size of a quarter would be too small for meaningful inference. The financial data was interpolated with piecewise cubic polynomial. The figure \ref{figure:interpolation} in appendix \ref{appendix:robustness} presents an example of interpolated data and an actual one. 
 
 The only connectedness method flexible enough for introducing the exogenous, firm-specific variables is the one based on Granger causality. Specifically, the 
 equation \ref{equation:granger} was extended by the additional covariates:
@@ -505,24 +505,24 @@ equation \ref{equation:granger} was extended by the additional covariates:
 	r_{i,t+1} = \beta_0 + \beta_1 r_{j,t} + \beta_2 r_{i, t} + \underbrace{\beta_3 \log{A}_t + \beta_4 \text{ROA}_t + \beta_5 \frac{\text{IB Assets}}{\text{IB liab.}}}_{\text{New balance sheet data}} + \underbrace{\sum_{i=1}^{k} \beta_{i+5} x_{t}}_{\text{Sectoral controls}} +\epsilon_t
 \end{equation}
 
-The rest of the procedure is as before. The regression now controls for firm-specific financial data when identifying the link between the pair of financial institutions $i$ and $j$.
+The rest of the procedure is as before. The regression now controls for firm-specific financial data when identifying the link between the pair of financial institutions $i$ and $j$. The regime switching ARCH specification is otherwise as described in the equation \ref{equation:vol_model}. The results for window sizes of 56 (a year) and 84 (year and a half) weeks are presented in table \ref{table:model_robust}.
 
 \begin{table}\small
 	\begin{tabular}{cccccc | cccccc}
-		& \multicolumn{5}{c}{Window size: 40 weeks} & \multicolumn{4}{c}{Window size: 80 week} \\
+		& \multicolumn{5}{c}{Window size: 56 weeks} & \multicolumn{4}{c}{Window size: 84 week} \\
 		Measure &  & \multicolumn{2}{c}{\bfseries Regime 1} & \multicolumn{2}{c}{\bfseries Regime 2} & \multicolumn{2}{c}{\bfseries Regime 1} & \multicolumn{2}{c}{\bfseries Regime 2} \\
 		%\cmidrule(lr){1-6}
 		\hline
 		& & Estimate & S.E. & Estimate & S.E. & Estimate & S.E. & Estimate & S.E. \\
 		\hline
-		\multirow{3}{*}[\normalbaselineskip]{Granger} & $\alpha_0$ & 0.37 & 0.013 & 1.342 & 0.037 & 0.458 & 0.018 & 1.874 & 0.053\\
-		& $\alpha_1$ & 0.014* & 0.006 & 0.226* & 0.026 & 0.034 & 0.009 & 0.194 & 0.038\\
-		& $\eta$ & 0.319 & 0.007 & 0.888 & 0.009 & 0.409 & 0.008 & 1.246 & 0.011\\
-		& $\pi_{i,i}$ &  \multicolumn{2}{c}{80.64\%} & \multicolumn{2}{c|}{57.8\%} & \multicolumn{2}{c}{76.07\%} & \multicolumn{2}{c}{50.8\%}\\
+		\multirow{3}{*}[\normalbaselineskip]{Granger} & $\alpha_0$ & 1.524 & 0.19 & 5.031 & 0.53 & 1.511 & 0.206 & 5.078 & 0.564\\
+		& $\alpha_1$ & 0.129 & 0.093 & 1.175 & 0.534 & 0.187 & 0.104 & 0.925 & 0.489\\
+		& $\eta$ & 1.013 & 0.045 & 2.872 & 0.086 & 0.979 & 0.049 & 2.924 & 0.086\\
+		& $\pi_{i,i}$ &  \multicolumn{2}{c}{80.36\%} & \multicolumn{2}{c|}{51.85\%} & \multicolumn{2}{c}{76.53\%} & \multicolumn{2}{c}{49.76\%}\\
 		\hline
-	\end{tabular}
+	\end{tabular}s
 	\caption{Model estimates for model with Granger-based connectedness and with incorporated financial data. Data for European financial market.* coefficient with 5\% statistical significance.}
-	\label{table:model256}
+	\label{table:model_robust}
 \end{table}
 
 \bibliography{bibliography}
