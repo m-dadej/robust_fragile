@@ -3,6 +3,8 @@
 - moze degree/density metric policzyc tylko na wartościach bez Inf - jak narazie density jest liczone N^2 - N
 - Granger_bs musi takze miec dane z ETF - jak narazie nie ma
 
+- opisz financial network externality w wynikach ze moze przez to jest ta asymetria efektu.
+
 # notatki
 
 - jeszcze raz sprawdz czy to nie problem ze connectedness jest autoskorelowane.

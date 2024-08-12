@@ -42,13 +42,13 @@ This approach to the systemic risk, gave a rise to the concept of \textit{robust
 
 A relatively new strain of literature, that incorporates the way institutions are forming the financial networks, have emerged as a response to the increasing connections among the market participants. The literature provides several theoretical models describing the aforementioned property\footnote{In fact, the \textit{robust yet fragile} property of the financial system was described before it was called as such (see e.g \cite{gai10}, first published in 2008, or \cite{gallegati08}).}. One of the extension of the property is described in \cite{acemoglu13}. They provide a simple, yet profound model in which a more densely connected financial network improves the stability of the system when faced by a shock, relatively smaller in magnitude. On the other hand, similarly to the \textit{robust yet fragile} property, beyond some degree of the shock, more dense connections of the system are undermining the stability thereof. Thus, their conjecture highlights, that the network density may have a substantially different effect depending on which regime the markets currently are. 
 
-Considering the above theoretical literature, herein work aims at providing an empirical evidence to the regime-dependent effect of the network density on the stability of the financial system. We mostly follow the description of the \textit{robust yet fragile} property as in \cite{acemoglu13}, however, the evidence is easily applicable to the other models (see \cite{glasserman16} for an extensive literature review). To the best knowledge of the authors, there has not been a study that provides an empirical evidence of this phenomenon.
+Considering the above theoretical literature, herein work aims at providing an empirical evidence to the regime-dependent effect of the network density on the stability of the financial system. The paper mostly follow the description of the \textit{robust yet fragile} property as in \cite{acemoglu13}, however, the evidence is easily applicable to the other models (see \cite{glasserman16} for an extensive literature review). To the best of the knowledge, there has not been a study that provides an empirical evidence of this phenomenon.
 
-More precisely, our research design is a two-step process. First, we collect a time series of stock prices of the systematically important banks in both US and EU. Based on the data, we estimate the network between the banks and its density in a rolling window basis. In order to achieve robust results, the modeling approach is based on several methods, well established in the literature of network econometrics. This procedure results in a time series of financial connectedness for the particular financial market. In the second step, we estimate a Markov switching ARCH model, where the connectedness is the exogenous, regime-dependent variable. We assume, that a volatility of particular banking index reflects the stability thereof. Additionally, we provide a series of robustness checks, \textit{inter alia}, by including the financial statement data of the banks in the modeling framework.
+More precisely, the research design is a two-step process. First, to collect a time series of stock prices of the systematically important banks in both US and EU. Based on the data, the network between the banks and its density is estimated in a rolling window basis. In order to achieve robust results, the modeling approach is based on several methods, well established in the literature of network econometrics. This procedure results in a time series of financial connectedness for the particular financial market. In the second step, a Markov switching ARCH model is estimated, where the connectedness is the exogenous, regime-dependent variable. It is assumed, that a volatility of particular banking index reflects the stability thereof. Additionally, the research provide a series of robustness checks, \textit{inter alia}, by including the financial statement data of the banks in the modeling framework.
 
 The model endogenously finds two distinct regimes of the analyzed relationship. The results indeed provide an evidence confirming the set of theoretical models. The effect of the network density on the stability of the financial system varies depending on the regimes. However, the effect is much asymmetrical. During the stable market regime, the network density has almost no effect on the stability of the financial system. At the same time, more dense financial network, is undermining the stability of the system during the unstable market regime\footnote{\cite{acemoglu13} describe these regimes as "small shock" and "large shock" respectively.}. It is, thus, evident that the increased bank interconnectedness is in total a damaging property of the financial markets. 
 
-The remainder of the paper is structured as follows. Next section provides a brief literature review and its link to herein paper. Section.......
+The remainder of the paper is structured as follows. Next section provides a brief literature review and its link to herein paper. Section \ref{section:Data} describes the data and provides preliminary statistics. The methods employed to estimate the connectedness of the financial sectors are described in the section \ref{section:fin_network}. The estimated networks are analyzed in section \ref{section:network_results}. The modeling of regime-dependent effect of connectedness is described in the section \ref{section:arch_model} and its main results are presented in the section \ref{section:main_results}. The robustness check and its results are described in the sections \ref{section:robustness}. Section \ref{section:conclusion} concludes.
 
 \section{Literature}\label{section:literature}
 
@@ -354,7 +354,7 @@ As mentioned before, the connectedness measure described in the section
 
 The Granger based method provides the most distinct and volatile time series. The method also captures a different type of connectedness. As noted already, it controls for the common exposures by introducing sectoral controls in the Granger regression. The other approaches are not controling for exogenous variables (other than subtracting the banking index returns) and are as well capturing linear relationship between the rates of return. The similarity is also confirmed by the Pearson's correlation equal to 77\% among the eigendecomposition and Ledoit-Wolf methods. On the other hand the Granger based connectedness time series has only 15\% and 3\% correlation with respect to the eigendecomposition and Ledoit-Wolf methods respectively\footnote{The full correlation matrix is shown on the figure \ref{figure:cor_matrix} in the appendix \ref{appendix:graphs_tables}.}.
 
-\section{Regime-dependent effect of connectedness}
+\section{Regime-dependent effect of connectedness}\label{section:arch_model}
 
 The previous section described in detail the methods of estimating the connectedness of the financial system. Subsequently, the resulting time series of the connectedness of the system are going to be utilized in the next process of time-series modeling. As the theoretical contribution posits, the connectedness should have a regime-dependent effect on the systemic stability of the financial sector. Thus, the econometric tool of choice is the Markov switching autoregressive conditional heteroskedasticity (ARCH) model. The class of models with Markov switching parameters were first proposed in the seminal work of \citet{hamilton89}, with the natural extension for ARCH effect in \citet{cai94}. Since then, these models were the go-to approach to model a time-variation and regime-change in the regression model parameters. 
 
@@ -402,7 +402,7 @@ Because of the latent nature of the regimes, the maximum likelihood estimation o
 
 Appendix \ref{appendix:technical} elaborates on technical details of the implementation and provides a source to reproduce the research.
 
-\section{Main results}
+\section{Main results}\label{section:main_results}
 
 The model described in previous section was estimated based on data from both markets and in a various specifications. Tables \ref{table:model63} and \ref{table:model256} presents the selected parameters from the various model specifications for window size of quarter and a year respectively. Due to the amount of the models and their parameters, the other information regarding them (e.g. estimated coefficients for lag covariates) are shown in the appendix \ref{appendix:model_params}. The tables present 4 parameters from equation \ref{equation:vol_model} for each of the regimes. The corresponding standard errors are computed based on the inverse of Hessian matrix produced from the likelihood optimization. 
 
@@ -468,7 +468,7 @@ On the other hand, the behavior under the stable markets regime is less aligned 
 	\label{table:model256}
 \end{table}
 
-\section{Robustness check}
+\section{Robustness check}\label{section:robustness}
 
 In order to investigate the role of firm-specific variables in driving the main results, the model was extended for balance sheet and PnL data of the financial institutions. Naturally, incorporating this kind of data is not costless for the research design. The universe of institutions had to be shrank, as well as the size of the time series. Thus, the following exercise is left as a robustness check.
 
@@ -502,10 +502,21 @@ The only connectedness method flexible enough for introducing the exogenous, fir
 equation \ref{equation:granger} was extended by the additional covariates:
 
 \begin{equation}
-	r_{i,t+1} = \beta_0 + \beta_1 r_{j,t} + \beta_2 r_{i, t} + \underbrace{\beta_3 \log{A}_t + \beta_4 \text{ROA}_t + \beta_5 \frac{\text{IB Assets}}{\text{IB liab.}}}_{\text{New balance sheet data}} + \underbrace{\sum_{i=1}^{k} \beta_{i+5} x_{t}}_{\text{Sectoral controls}} +\epsilon_t
+	r_{i,t+1} = \beta_0 + \beta_1 r_{j,t} + \beta_2 r_{i, t} + \underbrace{\beta_3 \log{A}_t + \beta_4 \text{ROA}_t + \beta_5 \frac{\text{IB Assets}_t}{\text{IB liab.}_t} + \beta_6 \frac{\text{D}_t}{\text{A}_t}}_{\text{New balance sheet data of institution $i$}} + \underbrace{\sum_{i=1}^{k} \beta_{i+5} x_{t}}_{\text{Sectoral controls}} +\epsilon_t
 \end{equation}
 
-The rest of the procedure is as before. The regression now controls for firm-specific financial data when identifying the link between the pair of financial institutions $i$ and $j$. The regime switching ARCH specification is otherwise as described in the equation \ref{equation:vol_model}. The results for window sizes of 56 (a year) and 84 (year and a half) weeks are presented in table \ref{table:model_robust}.
+The regression now controls for firm-specific financial data when identifying the link between the pair of financial institutions $i$ and $j$. With $A_t$ being total assets, $\text{ROA}_t$ the return on assets, $\text{IB}$ stands for interbank and $\text{D}$ are deposits at time $t$ for the institution $i$. The resulting connectedness time series for both of the window sizes is presented in figure \ref{figure:connect_bs}. The main event driving the connectedness was clearly related to the COVID-19 health crisis. The rest of the procedure is as before, the regime switching ARCH specification is otherwise as described in the equation \ref{equation:vol_model}.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale = 0.9]{img/connect_bs.png}
+	\caption{Connectedness time series of the EU market with balance sheet and PnL information.}
+	\label{figure:connect_bs}
+\end{figure}
+
+\subsection{Results}
+
+The results of model estimates for window sizes of 56 (a year) and 84 (year and a half) weeks are presented in table \ref{table:model_robust}. The estimates confirms the main results. The model clearly distinguishes between two regimes with elevated volatility and a standard market conditions. The coefficients corresponding to the connectedness between these regimes vary. As before, the connectedness is an amplifying mechanism of instability for financial sector but only during the high shock regime. On the other hand, the direction of the effect during the stable regime is unexpected. With the coefficient being insignificant and slightly (what's more surprising) positive. The differences of these results with respect to the main ones are also due to the increase in frequency, which resulted in higher intercept and $\eta$ parameters.  
 
 \begin{table}\small
 	\begin{tabular}{cccccc | cccccc}
@@ -515,15 +526,23 @@ The rest of the procedure is as before. The regression now controls for firm-spe
 		\hline
 		& & Estimate & S.E. & Estimate & S.E. & Estimate & S.E. & Estimate & S.E. \\
 		\hline
-		\multirow{3}{*}[\normalbaselineskip]{Granger} & $\alpha_0$ & 1.524 & 0.19 & 5.031 & 0.53 & 1.511 & 0.206 & 5.078 & 0.564\\
-		& $\alpha_1$ & 0.129 & 0.093 & 1.175 & 0.534 & 0.187 & 0.104 & 0.925 & 0.489\\
-		& $\eta$ & 1.013 & 0.045 & 2.872 & 0.086 & 0.979 & 0.049 & 2.924 & 0.086\\
+		\multirow{3}{*}[\normalbaselineskip]{Granger} & $\alpha_0$ & 1.524* & 0.19 & 5.031* & 0.53 & 1.511* & 0.206 & 5.078* & 0.564 \\
+		& $\alpha_1$ & 0.129 & 0.093 & 1.175* & 0.534 & 0.187 & 0.104 & 0.925* & 0.489\\
+		& $\eta$ & 1.013* & 0.045 & 2.872* & 0.086 & 0.979* & 0.049 & 2.924* & 0.086\\
 		& $\pi_{i,i}$ &  \multicolumn{2}{c}{80.36\%} & \multicolumn{2}{c|}{51.85\%} & \multicolumn{2}{c}{76.53\%} & \multicolumn{2}{c}{49.76\%}\\
 		\hline
-	\end{tabular}s
+	\end{tabular}
 	\caption{Model estimates for model with Granger-based connectedness and with incorporated financial data. Data for European financial market.* coefficient with 5\% statistical significance.}
 	\label{table:model_robust}
 \end{table}
+
+\section{Concluding remarks}\label{section:conclusion}
+
+The economic theory thoroughly described and modeled the conjecture of \citet{haldane13} through the lens of financial network theory. The models suggested e.g. in \citet{acemoglu13} provided a theory in which the connectedness in the financial sector have a regime-dependent effect on the stability thereof. According to the work, more dense network may diversify and spread the shock of the relatively small magnitude. On the other hand, once the shock is above some threshold, the effect of connectedness changes substantially. The shock is transmitted further into the network with more financial intermediaries being affected.
+
+This work presented a first empirical evidence of this regime-dependent effect of connectedness on financial stability. The research design allowing to test this phenomena was a two step process. First, the connectedness of financial system was estimated based on various, well established methods from the literature. The rolling-window estimation produced a time series describing how interconnectedness changes through time. In the next step, the produced time-series was used as an exogenous variable in a Markov-switching ARCH model. The estimated coefficients of the model allowed to see how the effect of the connectedness changes, depending on the regime. The research design also includes a robustness check with a balance sheet and profit and loss information of the financial intermediaries. The robustness check further confirms the main results.
+
+The evidence of the research is mixed. The effect of connectedness on the financial stability is substantially asymmetric. During the higher shock regime, the more connected the system is, the more volatility it suffers once the shock arrives. The second part of the results, less aligned with the theory is that during calm market regime the connectedness does not play a significant role in the contagion dynamics. The asymmetry may be explained by the \textit{financial network externality} described in \citet{acemoglu15}. According to which, the overall connectedness have a damaging effect on the system because the market participants are not internalizing the consequences of credit risk on other parts of the network, not directly related to thereof.
 
 \bibliography{bibliography}
 
@@ -828,9 +847,10 @@ The euqation may be solved as described in the subsection \ref{subsection:pca}. 
 Importing data and some elements of its preprocessing was done with Python programming language version 3.12.2. With packages yfinance, NumPy (\citet{harris20}) and pandas (\citet{reback20}). The connectedness estimation was computationally expensive\footnote{For example, the granger based method required fitting, at each point in time (around 6,000 observations) a multivariate regression among every combination of 42 stocks.}, thus it was done with Julia programming language 1.10.1 version (\citet{bezanson17}). The packages used were: DataFrames.jl for data analysis (\citet{kaminski23}), Graphs.jl for graph handling (\citet{fairbanks21}) and MarSwitching.jl for estimation of Markov switching model (\citet{dadej24}). The data visualization and descriptive statistics were don in R programming language version 4.3.2 (\citet{rcore23}). The repository with the source code and instructions to reproduce the research is available \href{https://github.com/m-dadej/robust\_fragile}{\underline{here}}.
 
 \section{Full model estimation results}\label{appendix:model_params}
+
 \section{Robustness check details}\label{appendix:robustness}
 
-\begin{figure}
+\begin{figure}[!htbp]
 	\centering
 	\includegraphics[scale = 0.8]{img/interpolation.png}
 	\caption{Asset data interpolation of Commerzbank AG. The orange points are actual data from the balance sheet. The blue line is the interpolated data. The slight discrepency between the maximum or minimum and the data point is due to the moving data to the nearest week end for stock data matching.}

@@ -1,9 +1,14 @@
 \begin{thebibliography}{}
 
-\bibitem[Acemoglu et~al., 2015]{acemoglu13}
-Acemoglu, D., Ozdaglar, A., and Tahbaz-Salehi, A. (2015).
+\bibitem[Acemoglu et~al., 2015a]{acemoglu13}
+Acemoglu, D., Ozdaglar, A., and Tahbaz-Salehi, A. (2015a).
 \newblock Systemic risk and stability in financial networks.
 \newblock {\em American Economic Review}, 105(2):564–608.
+
+\bibitem[Acemoglu et~al., 2015b]{acemoglu15}
+Acemoglu, D., Ozdaglar, A.~E., and Tahbaz-Salehi, A. (2015b).
+\newblock Systemic risk in endogenous financial networks.
+\newblock {\em Columbia business school research paper}, (15-17).
 
 \bibitem[Adrian and Brunnermeier, 2016]{adrian16}
 Adrian, T. and Brunnermeier, M.~K. (2016).

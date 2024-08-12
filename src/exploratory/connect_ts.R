@@ -91,3 +91,20 @@ drop_na(df) %>%
   xtable()
   
   
+##### connectedness with balance sheet #####
+
+bs_df84 <- read.csv(paste0(path, "src/data/bs_granger84.csv"))
+bs_df56 <- read.csv(paste0(path, "src/data/bs_granger56.csv"))
+
+connect_bs_plot <- inner_join(bs_df84, bs_df56, by = "Date", suffix = c("84", "56")) %>%
+  pivot_longer(cols = -Date) %>%
+  mutate(Date = as.Date(Date),
+         name = ifelse(name == "bs_granger56", "Window size: 56", "Window size: 84")) %>%
+  ggplot(aes(x = Date)) +
+  facet_wrap(~name, nrow = 2) +
+  geom_line(aes(y = value)) +
+  theme_minimal() +
+  labs(x = "", y = "Connectedness")
+
+ggsave(paste0(path, "paper/img/connect_bs.png"), connect_bs_plot, width = 6, height = 3, dpi = 300, bg = "white")
+  

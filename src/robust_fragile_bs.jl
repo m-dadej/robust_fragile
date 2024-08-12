@@ -75,9 +75,10 @@ end
 data = CSV.read("src/data/bank_cor.csv", DataFrame)
 
 #granger_df = CSV.read("data/granger_ts.csv", DataFrame)
-granger_df = CSV.read("src/data/bs_granger56.csv", DataFrame)
+granger_df = CSV.read("src/data/bs_granger84.csv", DataFrame)
 data = sort(innerjoin(data, granger_df, on = :Date), :Date)
 
+plot(granger_df.Date, granger_df.bs_granger, label = "banks_index")
 
 benchmark_lags = 3
 banks_index_lags = 3
@@ -113,5 +114,7 @@ model = MSModel(model_df.vol .* 100, 2,
                 random_search = 1
                 )
 
+
+plot(smoothed_probs(model)[:,2])
 summary_msm(model)
 
