@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.21)  12 AUG 2024 23:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.21)  13 AUG 2024 23:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -354,11 +354,19 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip68
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 18.
+(c:/texlive/2024/texmf-dist/tex/latex/preprint/authblk.sty
+Package: authblk 2001/02/27 1.3 (PWD)
+\affilsep=\skip69
+\@affilsep=\skip70
+\c@Maxaffil=\count302
+\c@authors=\count303
+\c@affil=\count304
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 19.
 
 
 Package hyperref Warning: Option `backref' has already been used,
-(hyperref)                setting the option has no effect on input line 18.
+(hyperref)                setting the option has no effect on input line 19.
 
 (c:/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (c:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
@@ -402,14 +410,14 @@ de.tex
 \pgf@yd=\dimen189
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count302
-\c@pgf@countb=\count303
-\c@pgf@countc=\count304
-\c@pgf@countd=\count305
+\c@pgf@counta=\count305
+\c@pgf@countb=\count306
+\c@pgf@countc=\count307
+\c@pgf@countd=\count308
 \t@pgf@toka=\toks28
 \t@pgf@tokb=\toks29
 \t@pgf@tokc=\toks30
-\pgf@sys@id@count=\count306
+\pgf@sys@id@count=\count309
  (c:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -423,8 +431,8 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 )))
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count307
-\pgfsyssoftpath@bigbuffer@items=\count308
+\pgfsyssoftpath@smallbuffer@items=\count310
+\pgfsyssoftpath@bigbuffer@items=\count311
 )
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -454,7 +462,7 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen190
-\pgfmath@count=\count309
+\pgfmath@count=\count312
 \pgfmath@box=\box57
 \pgfmath@toks=\toks31
 \pgfmath@stack@operand=\toks32
@@ -479,7 +487,7 @@ x)
 etics.code.tex)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count310
+\c@pgfmathroundto@lastzeros=\count313
 ))
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
@@ -516,7 +524,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box58
 \pgf@hbox=\box59
 \pgf@layerbox@main=\box60
-\pgf@picture@serial@count=\count311
+\pgf@picture@serial@count=\count314
 )
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code
 .tex
@@ -547,8 +555,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen270
-\pgf@sys@shading@range@num=\count312
-\pgf@shadingcount=\count313
+\pgf@sys@shading@range@num=\count315
+\pgf@shadingcount=\count316
 )
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -602,7 +610,7 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.co
 de.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count314
+\pgf@plot@mark@count=\count317
 \pgfplotmarksize=\dimen275
 )
 \tikz@lastx=\dimen276
@@ -617,18 +625,18 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@figbox@bg=\box64
 \tikz@tempbox=\box65
 \tikz@tempbox@bg=\box66
-\tikztreelevel=\count315
-\tikznumberofchildren=\count316
-\tikznumberofcurrentchild=\count317
-\tikz@fig@count=\count318
+\tikztreelevel=\count318
+\tikznumberofchildren=\count319
+\tikznumberofcurrentchild=\count320
+\tikz@fig@count=\count321
 
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count319
-\pgfmatrixcurrentcolumn=\count320
-\pgf@matrix@numberofcolumns=\count321
+\pgfmatrixcurrentrow=\count322
+\pgfmatrixcurrentcolumn=\count323
+\pgf@matrix@numberofcolumns=\count324
 )
-\tikz@expandcount=\count322
+\tikz@expandcount=\count325
 
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarytopaths.code.tex
@@ -649,7 +657,7 @@ ex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen286
 \pgfdecoratedinputsegmentremainingdistance=\dimen287
 \pgf@decorate@distancetomove=\dimen288
-\pgf@decorate@repeatstate=\count323
+\pgf@decorate@repeatstate=\count326
 \pgfdecorationsegmentamplitude=\dimen289
 \pgfdecorationsegmentlength=\dimen290
 )
@@ -673,9 +681,9 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (c:/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count324
-\Gm@cntv=\count325
-\c@Gm@tempcnt=\count326
+\Gm@cnth=\count327
+\Gm@cntv=\count328
+\c@Gm@tempcnt=\count329
 \Gm@bindingoffset=\dimen291
 \Gm@wd@mp=\dimen292
 \Gm@odd@mp=\dimen293
@@ -688,49 +696,46 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
 (c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-04-11 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count327
+\l__color_backend_stack_int=\count330
 \l__pdf_internal_box=\box68
 )
 (./empirical_paper.aux
-
-LaTeX Warning: Label `equation:granger' multiply defined.
-
 
 LaTeX Warning: Label `fig:actual_network' multiply defined.
 
 )
 \openout1 = `empirical_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
  (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count328
+\scratchcounter=\count331
 \scratchdimen=\dimen299
 \scratchbox=\box69
-\nofMPsegments=\count329
-\nofMParguments=\count330
+\nofMPsegments=\count332
+\nofMParguments=\count333
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count331
+\MPscratchCnt=\count334
 \MPscratchDim=\dimen300
-\MPnumerator=\count332
-\makeMPintoPDFobject=\count333
+\MPnumerator=\count335
+\makeMPintoPDFobject=\count336
 \everyMPtoPDFconversion=\toks38
 ) (c:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -745,7 +750,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 33.
+Package hyperref Info: Link coloring ON on input line 37.
 
 (./empirical_paper.out) (./empirical_paper.out)
 \@outlinefile=\write4
@@ -786,74 +791,77 @@ Package hyperref Info: Link coloring ON on input line 33.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 39.
 
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
 
 
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
- [6] [7] [8]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[9{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-[10] [11] [12] [13] [14] [15] [16]
-<img/graph_eu_circl.png, id=509, 758.835pt x 758.835pt>
+{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/
+texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [2] [3] [4] [5] [6] [7] 
+[8] [9] [10] [11]
+[12] [13] [14] [15] [16]
+<img/graph_eu_circl.png, id=510, 758.835pt x 758.835pt>
 File: img/graph_eu_circl.png Graphic file (type png)
 <use img/graph_eu_circl.png>
-Package pdftex.def Info: img/graph_eu_circl.png  used on input line 298.
+Package pdftex.def Info: img/graph_eu_circl.png  used on input line 307.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/graph_eu.png, id=511, 758.835pt x 758.835pt>
+<img/graph_eu.png, id=512, 758.835pt x 758.835pt>
 File: img/graph_eu.png Graphic file (type png)
 <use img/graph_eu.png>
-Package pdftex.def Info: img/graph_eu.png  used on input line 300.
+Package pdftex.def Info: img/graph_eu.png  used on input line 309.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
- [17 <./img/graph_eu_circl.png> <./img/graph_eu.png>] [18]
-<img/connect_ts.png, id=550, 578.16pt x 361.35pt>
+ [17] [18 <./img/graph_eu_circl.png> <./img/graph_eu.png>] [19]
+<img/connect_ts.png, id=561, 578.16pt x 361.35pt>
 File: img/connect_ts.png Graphic file (type png)
 <use img/connect_ts.png>
-Package pdftex.def Info: img/connect_ts.png  used on input line 350.
+Package pdftex.def Info: img/connect_ts.png  used on input line 357.
 (pdftex.def)             Requested size: 439.39734pt x 274.62334pt.
- [19] [20 <./img/connect_ts.png>] [21] [22] [23]
-Overfull \hbox (19.08751pt too wide) in paragraph at lines 412--435
-[][] 
+ [20] [21 <./img/connect_ts.png>] [22]
+Underfull \hbox (badness 1112) in paragraph at lines 408--408
+[][][]\OT1/cmr/m/n/10 The ini-tial pa-ram-e-ters with-out an ex-act tran-si-tio
+n ma-trix are found with Expectations-
  []
 
-[24]
-Overfull \hbox (24.56252pt too wide) in paragraph at lines 444--467
+[23] [24]
+Overfull \hbox (19.08751pt too wide) in paragraph at lines 419--442
 [][] 
  []
 
 [25]
-Overfull \hbox (30.77718pt too wide) in paragraph at lines 481--493
- [][] 
+Overfull \hbox (24.56252pt too wide) in paragraph at lines 451--474
+[][] 
  []
 
 [26]
-Overfull \hbox (1.73184pt too wide) detected at line 506
+Overfull \hbox (30.77718pt too wide) in paragraph at lines 488--500
+ [][] 
+ []
+
+[27]
+Overfull \hbox (1.73184pt too wide) detected at line 513
 [][][]\OML/cmm/m/it/12 r[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^L[] \OT1/cmr/m/
 n/12 + \OML/cmm/m/it/12 ^^L[]r[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 ^^L[]r[] \O
 T1/cmr/m/n/12 + [] + [] +\OML/cmm/m/it/12 ^^O[]
  []
 
-<img/connect_bs.png, id=681, 433.62pt x 216.81pt>
+<img/connect_bs.png, id=691, 433.62pt x 216.81pt>
 File: img/connect_bs.png Graphic file (type png)
 <use img/connect_bs.png>
-Package pdftex.def Info: img/connect_bs.png  used on input line 512.
+Package pdftex.def Info: img/connect_bs.png  used on input line 519.
 (pdftex.def)             Requested size: 390.2544pt x 195.12718pt.
-[27 <./img/connect_bs.png>]
-Overfull \hbox (2.60167pt too wide) in paragraph at lines 522--535
+[28 <./img/connect_bs.png>]
+Overfull \hbox (2.60167pt too wide) in paragraph at lines 529--542
 [][] 
  []
 
-[28] (./empirical_paper.bbl [29]
+[29] (./empirical_paper.bbl [30]
 Underfull \hbox (badness 2582) in paragraph at lines 62--68
 []\OT1/cmr/m/n/12 Baral, P. and Fique, J. (2012).  Es-ti-ma-tion of bi-lat-eral
  con-nec-tions in a
@@ -865,67 +873,62 @@ Underfull \hbox (badness 2469) in paragraph at lines 62--68
 CIRANO https://cirano. qc.
  []
 
-[30] [31] [32] [33] [34] [35]) [36] [37] [38]
+[31] [32] [33] [34] [35] [36]) [37] [38] [39]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 719.
+(amsmath)                 on input line 726.
 
-[39] [40]
-<img/graph_us_circl.png, id=777, 758.835pt x 758.835pt>
+[40] [41]
+<img/graph_us_circl.png, id=785, 758.835pt x 758.835pt>
 File: img/graph_us_circl.png Graphic file (type png)
 <use img/graph_us_circl.png>
-Package pdftex.def Info: img/graph_us_circl.png  used on input line 772.
+Package pdftex.def Info: img/graph_us_circl.png  used on input line 779.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/graph_us.png, id=778, 758.835pt x 758.835pt>
+<img/graph_us.png, id=786, 758.835pt x 758.835pt>
 File: img/graph_us.png Graphic file (type png)
 <use img/graph_us.png>
-Package pdftex.def Info: img/graph_us.png  used on input line 774.
+Package pdftex.def Info: img/graph_us.png  used on input line 781.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/graph_eu_lw_circl.png, id=779, 758.835pt x 758.835pt>
+<img/graph_eu_lw_circl.png, id=787, 758.835pt x 758.835pt>
 File: img/graph_eu_lw_circl.png Graphic file (type png)
 <use img/graph_eu_lw_circl.png>
-Package pdftex.def Info: img/graph_eu_lw_circl.png  used on input line 785.
+Package pdftex.def Info: img/graph_eu_lw_circl.png  used on input line 792.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/graph_eu_lw.png, id=780, 758.835pt x 758.835pt>
+<img/graph_eu_lw.png, id=788, 758.835pt x 758.835pt>
 File: img/graph_eu_lw.png Graphic file (type png)
 <use img/graph_eu_lw.png>
-Package pdftex.def Info: img/graph_eu_lw.png  used on input line 787.
+Package pdftex.def Info: img/graph_eu_lw.png  used on input line 794.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/graph_us_lw.png, id=781, 758.835pt x 758.835pt>
+<img/graph_us_lw.png, id=789, 758.835pt x 758.835pt>
 File: img/graph_us_lw.png Graphic file (type png)
 <use img/graph_us_lw.png>
-Package pdftex.def Info: img/graph_us_lw.png  used on input line 789.
+Package pdftex.def Info: img/graph_us_lw.png  used on input line 796.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/graph_us_lw_circl.png, id=782, 758.835pt x 758.835pt>
+<img/graph_us_lw_circl.png, id=790, 758.835pt x 758.835pt>
 File: img/graph_us_lw_circl.png Graphic file (type png)
 <use img/graph_us_lw_circl.png>
-Package pdftex.def Info: img/graph_us_lw_circl.png  used on input line 791.
+Package pdftex.def Info: img/graph_us_lw_circl.png  used on input line 798.
 (pdftex.def)             Requested size: 199.16823pt x 199.16823pt.
-<img/connect_ts_app.png, id=783, 578.16pt x 361.35pt>
+<img/connect_ts_app.png, id=791, 578.16pt x 361.35pt>
 File: img/connect_ts_app.png Graphic file (type png)
 <use img/connect_ts_app.png>
-Package pdftex.def Info: img/connect_ts_app.png  used on input line 818.
+Package pdftex.def Info: img/connect_ts_app.png  used on input line 825.
 (pdftex.def)             Requested size: 462.52863pt x 289.0804pt.
 
-Overfull \hbox (18.95015pt too wide) in paragraph at lines 818--819
+Overfull \hbox (18.95015pt too wide) in paragraph at lines 825--826
  [][] 
  []
 
-
-Overfull \hbox (91.08157pt too wide) in paragraph at lines 829--841
- [][] 
- []
-
-[41 <./img/graph_us_circl.png> <./img/graph_us.png>] [42 <./img/graph_eu_lw_cir
+[42 <./img/graph_us_circl.png> <./img/graph_us.png>] [43 <./img/graph_eu_lw_cir
 cl.png> <./img/graph_eu_lw.png> <./img/graph_us_lw.png> <./img/graph_us_lw_circ
-l.png>] [43 <./img/connect_ts_app.png>]
-<img/interpolation.png, id=831, 462.528pt x 346.896pt>
+l.png>] [44 <./img/connect_ts_app.png>]
+<img/interpolation.png, id=839, 462.528pt x 346.896pt>
 File: img/interpolation.png Graphic file (type png)
 <use img/interpolation.png>
-Package pdftex.def Info: img/interpolation.png  used on input line 855.
+Package pdftex.def Info: img/interpolation.png  used on input line 860.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
- [44] [45 <./img/interpolation.png>]
+ [45] [46 <./img/interpolation.png>]
 (./empirical_paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -939,13 +942,13 @@ Package rerunfilecheck Info: File `empirical_paper.out' has not changed.
 (rerunfilecheck)             Checksum: 2BA2CAD6FBD68D98C388E91F9C9A58F9;3700.
  ) 
 Here is how much of TeX's memory you used:
- 25204 strings out of 474050
- 471955 string characters out of 5746298
+ 25302 strings out of 474050
+ 473320 string characters out of 5746298
  1965754 words of memory out of 5000000
- 46991 multiletter control sequences out of 15000+600000
- 575582 words of font info for 100 fonts, out of 8000000 for 9000
+ 47083 multiletter control sequences out of 15000+600000
+ 577509 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,17n,93p,2986b,1033s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,17n,93p,2994b,1033s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-di
@@ -965,11 +968,13 @@ exlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/202
 4/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2024/texmf-dist/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/typ
-e1/public/cm-super/sfrm1200.pfb>
-Output written on empirical_paper.pdf (45 pages, 2196272 bytes).
+e1/public/cm-super/sfrm0700.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/
+cm-super/sfrm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/s
+frm1440.pfb>
+Output written on empirical_paper.pdf (46 pages, 2215345 bytes).
 PDF statistics:
- 990 PDF objects out of 1000 (max. 8388607)
- 866 compressed objects within 9 object streams
+ 1006 PDF objects out of 1200 (max. 8388607)
+ 877 compressed objects within 9 object streams
  241 named destinations out of 1000 (max. 500000)
  273 words of extra memory for PDF output out of 10000 (max. 10000000)
 

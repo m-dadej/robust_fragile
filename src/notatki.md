@@ -5,6 +5,8 @@
 
 - opisz financial network externality w wynikach ze moze przez to jest ta asymetria efektu.
 
+-It is unclear if that is the most suitable approach, considering that the information is discounted in real time on the financial markets. - odnosnie Granger causality
+
 # notatki
 
 - jeszcze raz sprawdz czy to nie problem ze connectedness jest autoskorelowane.
