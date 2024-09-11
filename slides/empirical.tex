@@ -1,5 +1,9 @@
 \documentclass{beamer}
 \usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{matrix,shapes.geometric}
 \usepackage{booktabs}
 \usepackage[backend=biber,
 style=authoryear-comp]{biblatex}
@@ -12,9 +16,9 @@ style=authoryear-comp]{biblatex}
 \author{Mateusz Dadej}
 \institute{Phd. student at Universita degli Studi di Brescia, ITA \\
 Visiting researcher at Universität Mannheim, DE}
-\date{ICMA Centre, University of Reading, June 2024
+\date{Forecasting Financial Markets Conference 2024
 \\
-Doctoral Finance Symposium}
+Worcester College, University of Oxford}
 
 % Removes icon in bibliography
 \setbeamertemplate{bibliography item}{}
@@ -53,6 +57,79 @@ Doctoral Finance Symposium}
 \end{itemize}
 
 \end{frame}    
+
+\begin{frame}{(Financial) network estimation from time series}
+\scalebox{0.75}{\begin{minipage}{1.2\textwidth}
+		
+	\begin{figure}
+		\begin{tikzpicture}	
+			% Matrix
+			\begin{scope}[scale = 0.9, xshift=0.5]
+				\matrix (m) [matrix of math nodes,left delimiter=(,right delimiter=),ampersand replacement=\&] {
+					x_{11} \& x_{12} \& \dots \& x_{1n} \\
+					x_{21} \& x_{22} \& \dots \& x_{2n} \\
+					x_{31} \& x_{32} \& \dots \& x_{3n} \\
+					\vdots \& \vdots \& \ddots \& \vdots \\
+					x_{T1} \& x_{T2} \& \dots \& x_{Tn} \\
+				};
+				
+				\draw [decorate,decoration={brace,amplitude=10pt}]
+				(2.6,-1.8) -- (-2.6,-1.8) node [black,midway,xshift=0cm,yshift=-0.7cm] 
+				{\footnotesize Time series matrix $\boldsymbol{X}$ of size $T \times n$.};
+			\end{scope}
+			
+			\begin{scope}[scale= 0.6]
+				\draw[->, line width = 0.7] (5,0) -- (8,0) node[midway, above] {\footnotesize $f: \mathbb{R}^{T\times n}\to \mathbb{R}^{n \times n}$};
+			\end{scope}
+			
+			\begin{scope}[scale = 0.9, xshift = 8.5cm]
+				\matrix (m) [matrix of math nodes,left delimiter=(,right delimiter=),ampersand replacement=\&] {
+					a_{11} \& a_{12} \& \dots \& a_{1n} \\
+					a_{21} \& a_{22} \& \dots \& a_{2n} \\
+					\vdots \& \vdots \& \ddots \& \vdots \\
+					a_{n1} \& a_{n2} \& \dots \& a_{nn} \\
+				};
+				
+				\draw[decorate,decoration={brace,amplitude=10pt}]
+				(2.6,-1.6) -- (-2.6,-1.6) node [black,midway,yshift=-0.9cm] 
+				{\footnotesize Adjacency matrix $\boldsymbol{A} \times n$.};
+			\end{scope}
+			
+			\draw[line width=1pt] (7.5,-2.9) -- (7.5,-3.4);
+			\draw[line width=1pt] (7.35,-2.9) -- (7.35,-3.4);
+			
+			% Pentagram graph
+			\begin{scope}[xshift=7.5cm, yshift = -5.5cm, scale=0.8]
+				\node[draw, circle, inner sep=1pt] (a) at (90:1.8) {$x_p$};
+				\node[draw, circle, inner sep=1pt] (b) at (162:2) {$x_1$};
+				\node[draw, circle, inner sep=1pt] (c) at (234:2) {$x_2$};
+				\node[draw, circle, inner sep=1pt] (d) at (306:2) {$x_3$};
+				\node[draw, circle, inner sep=1pt] (e) at (18:2) {$x_4$};
+				
+				\draw[<->] (a) -- (c);
+				\draw[<->] (c) -- (e);
+				\draw[<->] (e) -- (b);
+				\draw[<->] (b) -- (d);
+				\draw[<->] (d) -- (a);
+				
+				\draw[<->] (a) -- (b);
+				\draw[<->] (b) -- (c);
+				\draw[<->] (c) -- (d);
+				\draw[<->] (d) -- (e);
+				\node[xshift=1.9, yshift=2.1, scale=1.1] at ($(e)!.5!(a)$) {$\ddots$};
+				%\draw[dotted, <->] (e) -- (a);
+				
+				\draw [decorate,decoration={brace,amplitude=10pt}]
+				(2,-2) -- (-2,-2) node [black,midway, yshift=-0.6cm] 
+				{\footnotesize Graph representation of matrix $\boldsymbol{A}$.};
+				
+			\end{scope}
+		\end{tikzpicture}
+	\end{figure}
+	
+		
+\end{minipage}}
+\end{frame}
 
 \begin{frame}{Connectedness measures - denoted $\kappa_t$}
 
@@ -214,10 +291,15 @@ With regime changes according to Markov process: \begin{equation*}
   \end{itemize}
   \item<6-> contact: m.dadej@unibs.it Thank you!
 \end{itemize}
-
-
-
 \end{frame}
+
+\begin{frame}
+	Thank you!
+	
+	The working paper is available at \url{m-dadej.github.io/files/connectedness.pdf}
+\end{frame}
+
+
 \begin{frame}[allowframebreaks]
 \frametitle{References}
   \printbibliography
