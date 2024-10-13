@@ -1,24 +1,23 @@
 \documentclass{beamer}
 \usepackage{multirow}
 \usepackage{tikz}
+\usepackage{subfig}
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.pathreplacing}
 \usetikzlibrary{matrix,shapes.geometric}
 \usepackage{booktabs}
-\usepackage[backend=biber,
-style=authoryear-comp]{biblatex}
-
+\usepackage[backend=bibtex, style=authoryear-comp]{biblatex}
+%\usepackage{biblatex}
 \setbeamercovered{transparent}
 \usetheme{Madrid}
 \bibliography{sample.bib}
 
 \title{Systemic Risk and Financial Connectedness: Empirical Evidence}
+
 \author{Mateusz Dadej}
 \institute{Phd. student at Universita degli Studi di Brescia, ITA \\
 Visiting researcher at Universität Mannheim, DE}
-\date{Forecasting Financial Markets Conference 2024
-\\
-Worcester College, University of Oxford}
+\date{The 29th Forecasting Financial Markets Conference (FFM29) \\ University of Oxford}
 
 % Removes icon in bibliography
 \setbeamertemplate{bibliography item}{}
@@ -59,7 +58,7 @@ Worcester College, University of Oxford}
 \end{frame}    
 
 \begin{frame}{(Financial) network estimation from time series}
-\scalebox{0.75}{\begin{minipage}{1.2\textwidth}
+\scalebox{0.7}{\begin{minipage}{1.2\textwidth}
 		
 	\begin{figure}
 		\begin{tikzpicture}	
@@ -131,7 +130,7 @@ Worcester College, University of Oxford}
 \end{minipage}}
 \end{frame}
 
-\begin{frame}{Connectedness measures - denoted $\kappa_t$}
+\begin{frame}{Connectedness measures - denoted $\gamma_t$}
 
 \begin{enumerate}
     \item<1-> Average correlation: $\frac{\sum_{i \neq i}^{N} \sum_{j \neq j}^{N} \rho_{i,j}(R)}{N^2-N}$,  with $\rho(\cdot)$ being the Ledoit-Wolf estimator of the covariance matrix (\cite{ledoit}).
@@ -144,16 +143,32 @@ Worcester College, University of Oxford}
             0 & \text{otherwise}
           \end{cases} \forall i \neq j$
         \item<6-> As with before we calculate average connectedness: $\frac{\sum_{i \neq j}^{N} \sum_{j \neq i}^{N} G_{i,j}}{ N \times (N-1)}$
+        \item<7->  Last two measures are as described in \cite{billio}
     \end{itemize}
 \end{enumerate}
-    (Last two measures are as described in \cite{billio})
+   
+\end{frame}
+
+\begin{frame}{Example of estimated network}
+	\begin{figure}%
+		\centering
+		\subfloat[\centering Circle representation of graph]{{\includegraphics[width=4.5cm, height=4.5cm]{graph_eu_circl.png} }}
+		\quad
+		\subfloat[\centering Representation of graph with random position]{{\includegraphics[width=4.5cm, height=4.5cm]{graph_eu.png} }}\\
+		
+		%	\subfloat[\centering Representation with random position]{{\includegraphics[width=7cm, height=7cm]{img/graph_us.png} }}
+		%	\quad	
+		%	\subfloat[\centering Circle representation of graph]{{\includegraphics[width=7cm, height=7cm]{img/graph_us_circl.png} }}
+		
+	\end{figure}
+	
 \end{frame}
 
 \begin{frame}{Connectedness measures results}
 
 \begin{figure}[H]
-    \caption{Standardized time series of connectedness measures for a rolling window of 63 trading days (quarter)}
-    \includegraphics[scale=0.3]{connectmeasures.png}
+    \caption{Standardized time series of connectedness measures for US market and a rolling window of 63 trading days (quarter)}
+    \includegraphics[scale=0.5]{connect_ts.png}
     \centering
 \end{figure}    
 
@@ -163,11 +178,17 @@ Worcester College, University of Oxford}
 
 Mean specification of the model: 
 
-$$r_{b,t} = \beta_0 + \underbrace{\beta_1 r_{b,t-1}}_{\text{Banking index}} + \underbrace{\beta_2 r_{m,t-1}}_{\text{Broad market index}} + \epsilon_t$$
+$$r_{b,t} = \beta_0 + \underbrace{\sum_{i=1}^{k}\beta_i r_{b, t-i}}_{\text{Banking index}} + \underbrace{\sum_{j=0}^{p}\beta_{k+j} r_{m, t-j}}_{\text{Broad market index}} + \epsilon_t	$$
 
 The Markov-switching ARCH specification is:
 
-$$\sqrt{\epsilon^2_t} = \alpha_{0,s} + \underbrace{\alpha_{1,s}\kappa_{t-1}}_{\text{connectedness}} + \underbrace{\sum_{i=1}^{p} \alpha_{i+1} \sqrt{\epsilon^2_{t-i}}}_{\text{Lag controls}}$$
+
+$$\sqrt{\epsilon^{2}_t} = \alpha_{0,S_t} + \underbrace{\alpha_{1,S_t} \gamma_{t-1}}_{\text{connectedness}} + \underbrace{\sum_{i=1}^{p} \alpha_{i+1} \sqrt{\epsilon^2_{t-i}}}_{\text{lag controls}} + \vartheta_t$$
+
+$$\vartheta \sim \mathcal{N}(0, \eta)$$
+
+
+%$$\sqrt{\epsilon^2_t} = \alpha_{0,s} + %\underbrace{\alpha_{1,s}\kappa_{t-1}}_{\text{Connectedness}} + %\underbrace{\sum_{i=1}^{p} \alpha_{i+1} %\sqrt{\epsilon^2_{t-i}}}_{\text{Lag controls}}$$
 
 
 With regime changes according to Markov process: \begin{equation*}
@@ -180,7 +201,7 @@ With regime changes according to Markov process: \begin{equation*}
 \end{frame}
 
 \begin{frame}{Estimation results}
-    EU banking sector and 252 trading days (year) rolling window 
+    US banking sector and 252 trading days (year) rolling window 
     \begin{table}\small
         \begin{tabular}{cccccc}
           \toprule
@@ -189,20 +210,20 @@ With regime changes according to Markov process: \begin{equation*}
            \hline
            & & Estimate & S.E. & Estimate & S.E. \\
            \hline
-           \multirow{3}{*}[\normalbaselineskip]{Correlation-based} & $\alpha_0$ & 0.466* & 0.019 & 1.988*  & 0.06 \\
-            & $\alpha_1$ & 0.017 & 0.009 & 0.22* & 0.043 \\
-            & $\eta$ & 0.435 & 0.009 & 1.4 & 0.012 \\
-            & $\pi_{i,i}$ &  \multicolumn{2}{c}{78.6\%} & \multicolumn{2}{c}{52\%}\\
+           \multirow{3}{*}[\normalbaselineskip]{Ledoit-Wolf} & $\alpha_0$ & 0.37* & 0.013 & 1.342*  & 0.037 \\
+            & $\alpha_1$ & 0.014 & 0.006 & 0.226* & 0.026 \\
+            & $\eta$ & 0.319 & 0.007 & 0.888 & 0.009 \\
+            & $\pi_{i,i}$ &  \multicolumn{2}{c}{80.64\%} & \multicolumn{2}{c}{57.8\%}\\
             \hline
-            \multirow{3}{*}[\normalbaselineskip]{Eigenvalue-based} & $\alpha_0$ & 0.458* & 0.018 & 1.975*  & 0.061 \\
-            & $\alpha_1$ & -0.002 & 0.008 & 0.052 & 0.048 \\
-            & $\eta$ & 0.435 & 0.009 & 1.42 & 0.012 \\
-            & $\pi_{i,i}$ &  \multicolumn{2}{c}{90\%} & \multicolumn{2}{c}{67.2\%}\\
+            \multirow{3}{*}[\normalbaselineskip]{Eigenvalue-based} & $\alpha_0$ & 0.378* & 0.014 & 1.337*  & 0.037 \\
+            & $\alpha_1$ & 0.025 & 0.007 & 0.222* & 0.028 \\
+            & $\eta$ & 0.319 & 0.007 & 0.89 & 0.01 \\
+            & $\pi_{i,i}$ &  \multicolumn{2}{c}{80.3\%} & \multicolumn{2}{c}{57\%}\\
             \hline
-            \multirow{3}{*}[\normalbaselineskip]{Granger-based} & $\alpha_0$ & 0.468* & 0.018 & 1.984*  & 0.059 \\
-            & $\alpha_1$ & 0.018* & 0.008 & 0.276* & 0.05 \\
-            & $\eta$ & 0.433 & 0.009 & 1.394 & 0.013 \\
-            & $\pi_{i,i}$ &  \multicolumn{2}{c}{78.5\%} & \multicolumn{2}{c}{52.5\%}\\
+            \multirow{3}{*}[\normalbaselineskip]{Granger-based} & $\alpha_0$ & 0.375* & 0.013 & 1.352*  & 0.036 \\
+            & $\alpha_1$ & 0.019 & 0.007 & 0.197* & 0.024 \\
+            & $\eta$ & 0.316 & 0.007 & 0.889 & 0.009 \\
+            & $\pi_{i,i}$ &  \multicolumn{2}{c}{80.7\%} & \multicolumn{2}{c}{58.84\%}\\
             \hline
           \multicolumn{6}{l}{\footnotesize * coefficient with 5\% statistical significance} \\
           \hline
@@ -212,7 +233,7 @@ With regime changes according to Markov process: \begin{equation*}
 \end{frame}    
 
 \begin{frame}
-    US banking sector and 63 trading days (year) rolling window
+    EU banking sector and 63 trading days (year) rolling window
     \begin{table}\small
         \begin{tabular}{cccccc}
           \toprule
@@ -221,20 +242,20 @@ With regime changes according to Markov process: \begin{equation*}
            \hline
            & & Estimate & S.E. & Estimate & S.E. \\
            \hline
-           \multirow{3}{*}[\normalbaselineskip]{Correlation-based} & $\alpha_0$ & 0.402* & 0.013 & 1.517*  & 0.054 \\
-            & $\alpha_1$ & 0.027* & 0.007 & 0.239* & 0.044 \\
-            & $\eta$ & 0.373 & 0.007 & 1.268 & 0.017 \\
-            & $\pi_{i,i}$ &  \multicolumn{2}{c}{89.4\%} & \multicolumn{2}{c}{67\%}\\
+           \multirow{3}{*}[\normalbaselineskip]{Ledoit-Wolf} & $\alpha_0$ & 0.441* & 0.019 & 1.82*  & 0.05 \\
+            & $\alpha_1$ & 0.019* & 0.01 & 0.302* & 0.036 \\
+            & $\eta$ & 0.401 & 0.009 & 1.209 & 0.011 \\
+            & $\pi_{i,i}$ &  \multicolumn{2}{c}{73.4\%} & \multicolumn{2}{c}{48.16\%}\\
             \hline
-            \multirow{3}{*}[\normalbaselineskip]{Eigenvalue-based} & $\alpha_0$ & 0.416* & 0.014 & 1.554*  & 0.057 \\
-            & $\alpha_1$ & 0.041* & 0.007 & 0.194* & 0.046 \\
-            & $\eta$ & 0.38 & 0.006 & 1.304 & 0.016 \\
-            & $\pi_{i,i}$ &  \multicolumn{2}{c}{90\%} & \multicolumn{2}{c}{67.2\%}\\
+            \multirow{3}{*}[\normalbaselineskip]{Eigenvalue-based} & $\alpha_0$ & 0.434* & 0.017 & 1.829*  & 0.048 \\
+            & $\alpha_1$ & -0.013* & 0.008 & 0.303* & 0.043 \\
+            & $\eta$ & 0.49 & 0.008 & 1.22 & 0.11 \\
+            & $\pi_{i,i}$ &  \multicolumn{2}{c}{74.8\%} & \multicolumn{2}{c}{60.8\%}\\
             \hline
-            \multirow{3}{*}[\normalbaselineskip]{Granger-based} & $\alpha_0$ & 0.379* & 0.013 & 1.472*  & 0.047 \\
-            & $\alpha_1$ & 0.009 & 0.007 & 0.205* & 0.032 \\
-            & $\eta$ & 0.356 & 0.006 & 1.161 & 0.013 \\
-            & $\pi_{i,i}$ &  \multicolumn{2}{c}{87.4\%} & \multicolumn{2}{c}{65\%}\\
+            \multirow{3}{*}[\normalbaselineskip]{Granger-based} & $\alpha_0$ & 0.445* & 0.018 & 1.824*  & 0.05 \\
+            & $\alpha_1$ & 0.018 & 0.001 & 0.276* & 0.033 \\
+            & $\eta$ & 0.401 & 0.009 & 1.215 & 0.011 \\
+            & $\pi_{i,i}$ &  \multicolumn{2}{c}{74.56\%} & \multicolumn{2}{c}{50.76\%}\\
             \hline
           \multicolumn{6}{l}{\footnotesize * coefficient with 5\% statistical significance} \\
           \hline
@@ -249,13 +270,14 @@ With regime changes according to Markov process: \begin{equation*}
       \item<1-> Are there confounders in the bank specific characteristics?
       \item<2-> To check this I use quarterly financial statement data:
       \begin{itemize}
-        \item<3-> I use financial statement data from Orbis database.
+        \item<3-> Data is sourced from Orbis database.
         \item<4-> Substantial reduction of used data due to lower frequency of reports and their availability.
         \item<5-> $N$ banks: $51 \rightarrow 30$. $T$ observations $6240 \rightarrow 260$.
         \item<6-> Quarterly financial data was interpolated (with splines) into weekly data.
         \item<7-> Financial ratios and financial variable growth was used as a control in the Granger-based connectedness estimation
       \end{itemize}
 \end{itemize}
+
 \end{frame}
 
 \begin{frame}{Robustness check - results}
@@ -268,10 +290,10 @@ With regime changes according to Markov process: \begin{equation*}
        \hline
        & & Estimate & S.E. & Estimate & S.E. \\
        \hline
-       \multirow{3}{*}[\normalbaselineskip]{Correlation-based} & $\alpha_0$ & 1.554* & 0.206* & 4.44*  & 0.59 \\
-        & $\alpha_1$ & 0.106 & 0.108 & 0.843* & 0.45 \\
-        & $\eta$ & 1.084 & 0.034 & 2.52 & 0.086 \\
-        & $\pi_{i,i}$ &  \multicolumn{2}{c}{88.6\%} & \multicolumn{2}{c}{57\%}\\
+       \multirow{3}{*}[\normalbaselineskip]{Correlation-based} & $\alpha_0$ & 1.524* & 0.19* & 5.031*  & 0.53 \\
+        & $\alpha_1$ & 0.129 & 0.093 & 1.175* & 0.434 \\
+        & $\eta$ & 1.013 & 0.045 & 2.872 & 0.086 \\
+        & $\pi_{i,i}$ &  \multicolumn{2}{c}{80.36\%} & \multicolumn{2}{c}{51.8\%}\\
         \hline
       \multicolumn{6}{l}{\footnotesize * coefficient with 5\% statistical significance} \\
       \hline
@@ -280,23 +302,20 @@ With regime changes according to Markov process: \begin{equation*}
 \end{frame}  
 
 
-\begin{frame}{Conclusions and future research directions}
+\begin{frame}{Concluding remarks}
 \begin{itemize}
   \item<1-> The theory is confirmed to some degree - the connectedness effect is indeed regime dependent.
-  \item<2-> The effect is asymmetric - the connectedness is more important in the high shock regime.
-  \item<3-> Further research 
-  \begin{itemize}
-    \item<4-> should control for firm specific balance sheet (preliminarily, the results hold)
-    \item<5-> Possible application of Gaussian graphical models to estimate the connectedness measures
-  \end{itemize}
-  \item<6-> contact: m.dadej@unibs.it Thank you!
+  \item<2-> The effect is asymmetric - the connectedness is more important in the high shock regime. Consistent with \textit{financial network externality} (\cite{acemoglu15})
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 	Thank you!
 	
-	The working paper is available at \url{m-dadej.github.io/files/connectedness.pdf}
+	\begin{itemize}
+		\item Contac:t m.dadej@unibs.it
+		\item Working paper and replication code may be found at my github: \url{github.com/m-dadej/robust\_fragile}
+	\end{itemize}
 \end{frame}
 
 

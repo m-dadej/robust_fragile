@@ -156,3 +156,46 @@ ax.plot(plot_df.date, plot_df.value, markeredgewidth=2)
 ax.plot(plot_df_q.date, plot_df_q.value, marker='o', linestyle='None')
 plt.savefig('paper/img/interpolation.png')
 
+
+mean_df = df_quarter.groupby(['variable', 'comp'])['value'].mean()\
+    .to_frame()\
+    .merge(df.groupby(['variable', 'comp'])['value'].mean().to_frame(),
+            on = ['variable', 'comp'], suffixes= ['_quarter', '_week'])\
+    .reset_index()
+
+std_df = df_quarter.groupby(['variable', 'comp'])['value'].std()\
+    .to_frame()\
+    .merge(df.groupby(['variable', 'comp'])['value'].std().to_frame(), 
+           on = ['variable', 'comp'], suffixes= ['_quarter', '_week'])\
+    .reset_index()
+
+
+fig, ax = plt.subplots()
+ax.plot((std_df[std_df.variable == 'nii']['value_week'] ), std_df[std_df.variable == 'nii']['value_quarter'], marker='o', linestyle='None')
+ax.set_yscale('log')
+ax.set_xscale('log')
+ax.axline([0, 0], [1, 1])
+ax.set_xlabel('Interpolated data standard deviation')
+ax.set_ylabel('Original data standard deviation')
+plt.xlim(np.min(std_df[std_df.variable == 'nii']['value_week'] ))
+plt.ylim(np.min(std_df[std_df.variable == 'nii']['value_quarter']))
+plt.show()
+plt.savefig('paper/img/std_nii.png')
+
+mean_df.assign(diff = lambda x: (np.abs(x.value_quarter - x.value_week) / x.value_quarter))\
+    .groupby('variable')['diff']\
+    .mean()
+
+std_df.assign(diff = lambda x: (np.abs(x.value_quarter - x.value_week) / x.value_quarter))\
+    .groupby('variable')['diff']\
+    .mean()
+
+print(df_quarter.groupby(['variable', 'comp'])['value'].agg(['mean', 'std'])\
+    .merge(df.groupby(['variable', 'comp'])['value'].agg(['mean', 'std']),
+            on = ['variable', 'comp'], suffixes= ['_quarter', '_week'])\
+    .reset_index()\
+    .assign(diff_std = lambda x: (np.abs(x.std_quarter - x.std_week) / x.std_quarter),
+            diff_mean = lambda x: (np.abs(x.mean_quarter - x.mean_week) / x.mean_quarter))\
+    .groupby('variable')[['diff_std', 'diff_mean']]\
+    .mean()\
+    .to_latex())

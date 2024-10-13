@@ -41,10 +41,11 @@
   >
 ]>
 <requests version="1.0">
-  <internal package="biblatex" priority="9" active="1">
+  <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>empirical.bcf</file>
+      <file>empirical.aux</file>
+      <file>empirical-blx.bib</file>
     </provides>
     <requires type="dynamic">
       <file>empirical.bbl</file>
@@ -52,6 +53,7 @@
     <requires type="static">
       <file>blx-dm.def</file>
       <file>blx-compat.def</file>
+      <file>blx-bibtex.def</file>
       <file>biblatex.def</file>
       <file>standard.bbx</file>
       <file>authoryear.bbx</file>
@@ -62,13 +64,14 @@
     </requires>
   </internal>
   <external package="biblatex" priority="5" active="0">
-    <generic>biber</generic>
+    <generic>bibtex</generic>
     <cmdline>
-      <binary>biber</binary>
+      <binary>bibtex</binary>
+      <option>-min-crossrefs 2</option>
       <infile>empirical</infile>
     </cmdline>
     <input>
-      <file>empirical.bcf</file>
+      <file>empirical.aux</file>
     </input>
     <output>
       <file>empirical.bbl</file>
@@ -77,10 +80,14 @@
       <file>empirical.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>empirical.bcf</file>
+      <file>empirical.aux</file>
+      <file>empirical-blx.bib</file>
     </requires>
     <requires type="editable">
       <file>sample.bib</file>
+    </requires>
+    <requires type="static">
+      <file>biblatex.bst</file>
     </requires>
   </external>
 </requests>

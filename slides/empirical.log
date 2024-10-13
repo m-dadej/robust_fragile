@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.21)  11 SEP 2024 23:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.21)  20 SEP 2024 13:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -754,6 +754,47 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 brarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )))
+(c:/texlive/2024/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(c:/texlive/2024/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(c:/texlive/2024/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen308
+\captionmargin=\dimen309
+\caption@leftmargin=\dimen310
+\caption@rightmargin=\dimen311
+\caption@width=\dimen312
+\caption@indent=\dimen313
+\caption@parindent=\dimen314
+\caption@hangindent=\dimen315
+Package caption Info: beamer document class detected.
+
+(c:/texlive/2024/texmf-dist/tex/latex/caption/caption-beamer.sto
+File: caption-beamer.sto 2022/01/06 v2.0c Adaption of the caption package to th
+e beamer document classes (AR)
+))
+\c@caption@flags=\count348
+\c@continuedfloat=\count349
+Package caption Info: hyperref package is loaded.
+Package caption Info: Hyperref support is turned off
+(caption)             because hyperref has stopped early.
+)
+\c@KVtest=\count350
+\sf@farskip=\skip67
+\sf@captopadj=\dimen316
+\sf@capskip=\skip68
+\sf@nearskip=\skip69
+\c@subfigure=\count351
+\c@subfigure@save=\count352
+\c@depth=\count353
+\c@subtable=\count354
+\c@subtable@save=\count355
+\sf@top=\skip70
+\sf@bottom=\skip71
+)
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -764,14 +805,14 @@ brarydecorations.pathreplacing.code.tex
 brarydecorations.code.tex
 (c:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.t
 ex
-\pgfdecoratedcompleteddistance=\dimen308
-\pgfdecoratedremainingdistance=\dimen309
-\pgfdecoratedinputsegmentcompleteddistance=\dimen310
-\pgfdecoratedinputsegmentremainingdistance=\dimen311
-\pgf@decorate@distancetomove=\dimen312
-\pgf@decorate@repeatstate=\count348
-\pgfdecorationsegmentamplitude=\dimen313
-\pgfdecorationsegmentlength=\dimen314
+\pgfdecoratedcompleteddistance=\dimen317
+\pgfdecoratedremainingdistance=\dimen318
+\pgfdecoratedinputsegmentcompleteddistance=\dimen319
+\pgfdecoratedinputsegmentremainingdistance=\dimen320
+\pgf@decorate@distancetomove=\dimen321
+\pgf@decorate@repeatstate=\count356
+\pgfdecorationsegmentamplitude=\dimen322
+\pgfdecorationsegmentlength=\dimen323
 )
 \tikz@lib@dec@box=\box81
 )
@@ -790,29 +831,29 @@ eometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (c:/texlive/2024/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen315
-\lightrulewidth=\dimen316
-\cmidrulewidth=\dimen317
-\belowrulesep=\dimen318
-\belowbottomsep=\dimen319
-\aboverulesep=\dimen320
-\abovetopsep=\dimen321
-\cmidrulesep=\dimen322
-\cmidrulekern=\dimen323
-\defaultaddspace=\dimen324
-\@cmidla=\count349
-\@cmidlb=\count350
-\@aboverulesep=\dimen325
-\@belowrulesep=\dimen326
-\@thisruleclass=\count351
-\@lastruleclass=\count352
-\@thisrulewidth=\dimen327
+\heavyrulewidth=\dimen324
+\lightrulewidth=\dimen325
+\cmidrulewidth=\dimen326
+\belowrulesep=\dimen327
+\belowbottomsep=\dimen328
+\aboverulesep=\dimen329
+\abovetopsep=\dimen330
+\cmidrulesep=\dimen331
+\cmidrulekern=\dimen332
+\defaultaddspace=\dimen333
+\@cmidla=\count357
+\@cmidlb=\count358
+\@aboverulesep=\dimen334
+\@belowrulesep=\dimen335
+\@thisruleclass=\count359
+\@lastruleclass=\count360
+\@thisrulewidth=\dimen336
 ) (c:/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
 
 (c:/texlive/2024/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count353
+\lrq@indent=\count361
 
 (c:/texlive/2024/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -820,63 +861,63 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 (c:/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\c@tabx@nest=\count354
-\c@listtotal=\count355
-\c@listcount=\count356
-\c@liststart=\count357
-\c@liststop=\count358
-\c@citecount=\count359
-\c@citetotal=\count360
-\c@multicitecount=\count361
-\c@multicitetotal=\count362
-\c@instcount=\count363
-\c@maxnames=\count364
-\c@minnames=\count365
-\c@maxitems=\count366
-\c@minitems=\count367
-\c@citecounter=\count368
-\c@maxcitecounter=\count369
-\c@savedcitecounter=\count370
-\c@uniquelist=\count371
-\c@uniquename=\count372
-\c@refsection=\count373
-\c@refsegment=\count374
-\c@maxextratitle=\count375
-\c@maxextratitleyear=\count376
-\c@maxextraname=\count377
-\c@maxextradate=\count378
-\c@maxextraalpha=\count379
-\c@abbrvpenalty=\count380
-\c@highnamepenalty=\count381
-\c@lownamepenalty=\count382
-\c@maxparens=\count383
-\c@parenlevel=\count384
-\blx@tempcnta=\count385
-\blx@tempcntb=\count386
-\blx@tempcntc=\count387
-\c@blx@maxsection=\count388
-\blx@maxsegment@0=\count389
-\blx@notetype=\count390
-\blx@parenlevel@text=\count391
-\blx@parenlevel@foot=\count392
-\blx@sectionciteorder@0=\count393
-\blx@sectionciteorderinternal@0=\count394
-\blx@entrysetcounter=\count395
-\blx@biblioinstance=\count396
-\labelnumberwidth=\skip67
-\labelalphawidth=\skip68
-\biblabelsep=\skip69
-\bibitemsep=\skip70
-\bibnamesep=\skip71
-\bibinitsep=\skip72
-\bibparsep=\skip73
-\bibhang=\skip74
+\c@tabx@nest=\count362
+\c@listtotal=\count363
+\c@listcount=\count364
+\c@liststart=\count365
+\c@liststop=\count366
+\c@citecount=\count367
+\c@citetotal=\count368
+\c@multicitecount=\count369
+\c@multicitetotal=\count370
+\c@instcount=\count371
+\c@maxnames=\count372
+\c@minnames=\count373
+\c@maxitems=\count374
+\c@minitems=\count375
+\c@citecounter=\count376
+\c@maxcitecounter=\count377
+\c@savedcitecounter=\count378
+\c@uniquelist=\count379
+\c@uniquename=\count380
+\c@refsection=\count381
+\c@refsegment=\count382
+\c@maxextratitle=\count383
+\c@maxextratitleyear=\count384
+\c@maxextraname=\count385
+\c@maxextradate=\count386
+\c@maxextraalpha=\count387
+\c@abbrvpenalty=\count388
+\c@highnamepenalty=\count389
+\c@lownamepenalty=\count390
+\c@maxparens=\count391
+\c@parenlevel=\count392
+\blx@tempcnta=\count393
+\blx@tempcntb=\count394
+\blx@tempcntc=\count395
+\c@blx@maxsection=\count396
+\blx@maxsegment@0=\count397
+\blx@notetype=\count398
+\blx@parenlevel@text=\count399
+\blx@parenlevel@foot=\count400
+\blx@sectionciteorder@0=\count401
+\blx@sectionciteorderinternal@0=\count402
+\blx@entrysetcounter=\count403
+\blx@biblioinstance=\count404
+\labelnumberwidth=\skip72
+\labelalphawidth=\skip73
+\biblabelsep=\skip74
+\bibitemsep=\skip75
+\bibnamesep=\skip76
+\bibinitsep=\skip77
+\bibparsep=\skip78
+\bibhang=\skip79
 \blx@bcfin=\read3
 \blx@bcfout=\write5
 \blx@langwohyphens=\language89
-\c@mincomprange=\count397
-\c@maxcomprange=\count398
-\c@mincompwidth=\count399
+\c@mincomprange=\count405
+\c@maxcomprange=\count406
+\c@mincompwidth=\count407
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -887,112 +928,122 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'authoryear-comp.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count400
-\c@savedafterword=\count401
-\c@annotator=\count402
-\c@savedannotator=\count403
-\c@author=\count404
-\c@savedauthor=\count405
-\c@bookauthor=\count406
-\c@savedbookauthor=\count407
-\c@commentator=\count408
-\c@savedcommentator=\count409
-\c@editor=\count410
-\c@savededitor=\count411
-\c@editora=\count412
-\c@savededitora=\count413
-\c@editorb=\count414
-\c@savededitorb=\count415
-\c@editorc=\count416
-\c@savededitorc=\count417
-\c@foreword=\count418
-\c@savedforeword=\count419
-\c@holder=\count420
-\c@savedholder=\count421
-\c@introduction=\count422
-\c@savedintroduction=\count423
-\c@namea=\count424
-\c@savednamea=\count425
-\c@nameb=\count426
-\c@savednameb=\count427
-\c@namec=\count428
-\c@savednamec=\count429
-\c@translator=\count430
-\c@savedtranslator=\count431
-\c@shortauthor=\count432
-\c@savedshortauthor=\count433
-\c@shorteditor=\count434
-\c@savedshorteditor=\count435
-\c@labelname=\count436
-\c@savedlabelname=\count437
-\c@institution=\count438
-\c@savedinstitution=\count439
-\c@lista=\count440
-\c@savedlista=\count441
-\c@listb=\count442
-\c@savedlistb=\count443
-\c@listc=\count444
-\c@savedlistc=\count445
-\c@listd=\count446
-\c@savedlistd=\count447
-\c@liste=\count448
-\c@savedliste=\count449
-\c@listf=\count450
-\c@savedlistf=\count451
-\c@location=\count452
-\c@savedlocation=\count453
-\c@organization=\count454
-\c@savedorganization=\count455
-\c@origlocation=\count456
-\c@savedoriglocation=\count457
-\c@origpublisher=\count458
-\c@savedorigpublisher=\count459
-\c@publisher=\count460
-\c@savedpublisher=\count461
-\c@language=\count462
-\c@savedlanguage=\count463
-\c@origlanguage=\count464
-\c@savedoriglanguage=\count465
-\c@pageref=\count466
-\c@savedpageref=\count467
-\shorthandwidth=\skip75
-\shortjournalwidth=\skip76
-\shortserieswidth=\skip77
-\shorttitlewidth=\skip78
-\shortauthorwidth=\skip79
-\shorteditorwidth=\skip80
-\locallabelnumberwidth=\skip81
-\locallabelalphawidth=\skip82
-\localshorthandwidth=\skip83
-\localshortjournalwidth=\skip84
-\localshortserieswidth=\skip85
-\localshorttitlewidth=\skip86
-\localshortauthorwidth=\skip87
-\localshorteditorwidth=\skip88
+\c@afterword=\count408
+\c@savedafterword=\count409
+\c@annotator=\count410
+\c@savedannotator=\count411
+\c@author=\count412
+\c@savedauthor=\count413
+\c@bookauthor=\count414
+\c@savedbookauthor=\count415
+\c@commentator=\count416
+\c@savedcommentator=\count417
+\c@editor=\count418
+\c@savededitor=\count419
+\c@editora=\count420
+\c@savededitora=\count421
+\c@editorb=\count422
+\c@savededitorb=\count423
+\c@editorc=\count424
+\c@savededitorc=\count425
+\c@foreword=\count426
+\c@savedforeword=\count427
+\c@holder=\count428
+\c@savedholder=\count429
+\c@introduction=\count430
+\c@savedintroduction=\count431
+\c@namea=\count432
+\c@savednamea=\count433
+\c@nameb=\count434
+\c@savednameb=\count435
+\c@namec=\count436
+\c@savednamec=\count437
+\c@translator=\count438
+\c@savedtranslator=\count439
+\c@shortauthor=\count440
+\c@savedshortauthor=\count441
+\c@shorteditor=\count442
+\c@savedshorteditor=\count443
+\c@labelname=\count444
+\c@savedlabelname=\count445
+\c@institution=\count446
+\c@savedinstitution=\count447
+\c@lista=\count448
+\c@savedlista=\count449
+\c@listb=\count450
+\c@savedlistb=\count451
+\c@listc=\count452
+\c@savedlistc=\count453
+\c@listd=\count454
+\c@savedlistd=\count455
+\c@liste=\count456
+\c@savedliste=\count457
+\c@listf=\count458
+\c@savedlistf=\count459
+\c@location=\count460
+\c@savedlocation=\count461
+\c@organization=\count462
+\c@savedorganization=\count463
+\c@origlocation=\count464
+\c@savedoriglocation=\count465
+\c@origpublisher=\count466
+\c@savedorigpublisher=\count467
+\c@publisher=\count468
+\c@savedpublisher=\count469
+\c@language=\count470
+\c@savedlanguage=\count471
+\c@origlanguage=\count472
+\c@savedoriglanguage=\count473
+\c@pageref=\count474
+\c@savedpageref=\count475
+\shorthandwidth=\skip80
+\shortjournalwidth=\skip81
+\shortserieswidth=\skip82
+\shorttitlewidth=\skip83
+\shortauthorwidth=\skip84
+\shorteditorwidth=\skip85
+\locallabelnumberwidth=\skip86
+\locallabelalphawidth=\skip87
+\localshorthandwidth=\skip88
+\localshortjournalwidth=\skip89
+\localshortserieswidth=\skip90
+\localshorttitlewidth=\skip91
+\localshortauthorwidth=\skip92
+\localshorteditorwidth=\skip93
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
 (c:/texlive/2024/texmf-dist/tex/latex/biblatex/blx-compat.def
 File: blx-compat.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
 )
+Package biblatex Info: Trying to load BibTeX backend compatibility...
+Package biblatex Info: ... file 'blx-bibtex.def' found.
+
+(c:/texlive/2024/texmf-dist/tex/latex/biblatex/blx-bibtex.def
+File: blx-bibtex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
+
+
+Package biblatex Warning: Using fall-back bibtex backend:
+(biblatex)                functionality may be reduced/unavailable.
+
+)
 Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
-
-(c:/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.def
+ (c:/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
-\c@textcitecount=\count468
-\c@textcitetotal=\count469
-\c@textcitemaxnames=\count470
-\c@biburlbigbreakpenalty=\count471
-\c@biburlbreakpenalty=\count472
-\c@biburlnumpenalty=\count473
-\c@biburlucpenalty=\count474
-\c@biburllcpenalty=\count475
+\c@textcitecount=\count476
+\c@textcitetotal=\count477
+\c@textcitemaxnames=\count478
+\c@biburlbigbreakpenalty=\count479
+\c@biburlbreakpenalty=\count480
+\c@biburlnumpenalty=\count481
+\c@biburlucpenalty=\count482
+\c@biburllcpenalty=\count483
 \biburlbigskip=\muskip18
 \biburlnumskip=\muskip19
 \biburlucskip=\muskip20
 \biburllcskip=\muskip21
-\c@smartand=\count476
+\c@smartand=\count484
 )
 Package biblatex Info: Trying to load bibliography style 'authoryear-comp'...
 Package biblatex Info: ... file 'authoryear-comp.bbx' found.
@@ -1009,8 +1060,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (c:/texlive/2024/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count477
-\c@bbx:relatedtotal=\count478
+\c@bbx:relatedcount=\count485
+\c@bbx:relatedtotal=\count486
 )))
 Package biblatex Info: Trying to load citation style 'authoryear-comp'...
 Package biblatex Info: ... file 'authoryear-comp.cbx' found.
@@ -1044,7 +1095,7 @@ Package: expl3 2024-04-11 L3 programming layer (loader)
 
 (c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-04-11 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count479
+\l__color_backend_stack_int=\count487
 \l__pdf_internal_box=\box82
 ))
 Package biblatex Info: ... and expl3
@@ -1063,30 +1114,30 @@ Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 (c:/texlive/2024/texmf-dist/tex/latex/beamer/beamercolorthemeorchid.sty)
 (c:/texlive/2024/texmf-dist/tex/latex/beamer/beamerinnerthemerounded.sty)
 (c:/texlive/2024/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty))
-\@quotelevel=\count480
-\@quotereset=\count481
+\@quotelevel=\count488
+\@quotereset=\count489
 
 (./empirical.aux)
 \openout1 = `empirical.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1124,16 +1175,16 @@ LaTeX Font Info:    ... okay on input line 26.
 
 (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count482
-\scratchdimen=\dimen328
+\scratchcounter=\count490
+\scratchdimen=\dimen337
 \scratchbox=\box83
-\nofMPsegments=\count483
-\nofMParguments=\count484
+\nofMPsegments=\count491
+\nofMParguments=\count492
 \everyMPshowfont=\toks48
-\MPscratchCnt=\count485
-\MPscratchDim=\dimen329
-\MPnumerator=\count486
-\makeMPintoPDFobject=\count487
+\MPscratchCnt=\count493
+\MPscratchDim=\dimen338
+\MPnumerator=\count494
+\makeMPintoPDFobject=\count495
 \everyMPtoPDFconversion=\toks49
 ) (c:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1144,64 +1195,64 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 26.
+Package hyperref Info: Link coloring OFF on input line 25.
 
 (./empirical.out) (./empirical.out)
 \@outlinefile=\write6
 \openout6 = `empirical.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 26.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 25.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 26.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 25.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 26.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 26.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 26.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 25.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 26.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 26.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 25.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 26.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 26.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 26.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 25.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 26.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 26.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 25.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 26.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 25.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 26.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 26.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 26.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 26.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 26.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 26.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 26.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 25.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 25.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 2
-6.
+5.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 2
-6.
+5.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 26.
+ut line 25.
 
 (c:/texlive/2024/texmf-dist/tex/latex/translator/translator-basic-dictionary-En
 glish.dict
@@ -1227,6 +1278,9 @@ Dictionary: translator-numbers-dictionary, Language: English
 English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (c:/texlive/2024/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1235,41 +1289,55 @@ File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout5 = `empirical.bcf'.
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Data encoding 'utf8' specified.
+(biblatex)             No need to reencode data.
+\openout5 = `empirical-blx.bib'.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'empirical.bbl' found.
 
-(./empirical.bbl)
-Package biblatex Info: Reference section=0 on input line 26.
-Package biblatex Info: Reference segment=0 on input line 26.
+(./empirical.bbl
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'acemoglu':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'haldane':
+(biblatex)                - Invalid format of field 'month'.
+
+)
+Package biblatex Info: Reference section=0 on input line 25.
+Package biblatex Info: Reference segment=0 on input line 25.
  (./empirical.nav)
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 26--26
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 25--25
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 26--26
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 25--25
  [][][][]  
  []
 
 
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 26--26
+Overfull \hbox (110.854pt too wide) in paragraph at lines 25--25
  [] [] 
  []
 
 
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 41--41
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 40--40
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 41--41
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 40--40
  [][][][]  
  []
 
 
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 41--41
+Overfull \hbox (110.854pt too wide) in paragraph at lines 40--40
  [] [] 
  []
 
@@ -1284,7 +1352,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1301,7 +1369,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1316,7 +1384,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1333,7 +1401,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1350,7 +1418,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1367,40 +1435,40 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [6
 
 ]
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 59--59
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 58--58
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 59--59
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 58--58
  [][][][]  
  []
 
 
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 59--59
+Overfull \hbox (110.854pt too wide) in paragraph at lines 58--58
  [] [] 
  []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 59.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
 
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 59.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 58.
 
 
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 59.
+ut line 58.
 
 (c:/texlive/2024/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
@@ -1416,7 +1484,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1433,7 +1501,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1450,7 +1518,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1467,7 +1535,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1484,7 +1552,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1501,35 +1569,35 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [12
 
 ]
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 132--132
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 131--131
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 132--132
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 131--131
  [][][][]  
  []
 
 
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 132--132
+Overfull \hbox (110.854pt too wide) in paragraph at lines 131--131
  [] [] 
  []
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <9> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 132.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 131.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 132.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 131.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 132.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 131.
 
 
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
@@ -1542,7 +1610,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1559,7 +1627,7 @@ Overfull \hbox (49.03667pt too wide) in paragraph at lines 150--150
  []
 
 
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 150--150
+Overfull \hbox (110.854pt too wide) in paragraph at lines 150--150
  [] [] 
  []
 
@@ -1574,7 +1642,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1591,7 +1659,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1608,7 +1676,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1625,7 +1693,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1642,7 +1710,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1659,37 +1727,13 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [19
 
 ]
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 160--160
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 160--160
- [][][][]  
- []
-
-
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 160--160
- [] [] 
- []
-
-<connectmeasures.png, id=607, 602.25pt x 602.25pt>
-File: connectmeasures.png Graphic file (type png)
-<use connectmeasures.png>
-Package pdftex.def Info: connectmeasures.png  used on input line 160.
-(pdftex.def)             Requested size: 180.67639pt x 180.67639pt.
-
-Overfull \vbox (0.1058pt too high) detected at line 160
- []
-
-
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
@@ -1700,27 +1744,37 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [20
 
- <./connectmeasures.png>]
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 180--180
+]
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 165--165
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 180--180
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 165--165
  [][][][]  
  []
 
 
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 180--180
+Overfull \hbox (110.854pt too wide) in paragraph at lines 165--165
  [] [] 
  []
 
+<graph_eu_circl.png, id=636, 758.835pt x 758.835pt>
+File: graph_eu_circl.png Graphic file (type png)
+<use graph_eu_circl.png>
+Package pdftex.def Info: graph_eu_circl.png  used on input line 165.
+(pdftex.def)             Requested size: 128.02762pt x 128.02762pt.
+<graph_eu.png, id=638, 758.835pt x 758.835pt>
+File: graph_eu.png Graphic file (type png)
+<use graph_eu.png>
+Package pdftex.def Info: graph_eu.png  used on input line 165.
+(pdftex.def)             Requested size: 128.02762pt x 128.02762pt.
 
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
@@ -1732,27 +1786,32 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [21
 
-]
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 212--212
+ <./graph_eu_circl.png> <./graph_eu.png>]
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 175--175
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 212--212
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 175--175
  [][][][]  
  []
 
 
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 212--212
+Overfull \hbox (110.854pt too wide) in paragraph at lines 175--175
  [] [] 
  []
 
+<connect_ts.png, id=668, 578.16pt x 361.35pt>
+File: connect_ts.png Graphic file (type png)
+<use connect_ts.png>
+Package pdftex.def Info: connect_ts.png  used on input line 175.
+(pdftex.def)             Requested size: 289.07928pt x 180.67456pt.
 
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
@@ -1764,25 +1823,29 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [22
 
-]
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 244--244
+ <./connect_ts.png>]
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 201--201
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 244--244
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 201--201
  [][][][]  
  []
 
 
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 244--244
+Overfull \hbox (110.854pt too wide) in paragraph at lines 201--201
  [] [] 
+ []
+
+
+Overfull \vbox (3.1608pt too high) detected at line 201
  []
 
 
@@ -1796,24 +1859,24 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [23
 
 ]
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 259--259
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 233--233
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 259--259
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 233--233
  [][][][]  
  []
 
 
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 259--259
+Overfull \hbox (110.854pt too wide) in paragraph at lines 233--233
  [] [] 
  []
 
@@ -1828,13 +1891,28 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [24
 
 ]
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 265--265
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 265--265
+ [][][][]  
+ []
+
+
+Overfull \hbox (110.854pt too wide) in paragraph at lines 265--265
+ [] [] 
+ []
+
+
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
@@ -1845,13 +1923,28 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [25
 
 ]
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 281--281
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 281--281
+ [][][][]  
+ []
+
+
+Overfull \hbox (110.854pt too wide) in paragraph at lines 281--281
+ [] [] 
+ []
+
+
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
@@ -1862,7 +1955,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1879,7 +1972,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1896,7 +1989,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1913,7 +2006,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -1930,28 +2023,13 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [30
 
 ]
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 280--280
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 280--280
- [][][][]  
- []
-
-
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 280--280
- [] [] 
- []
-
-
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
@@ -1962,28 +2040,13 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [31
 
 ]
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 294--294
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 294--294
- [][][][]  
- []
-
-
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 294--294
- [] [] 
- []
-
-
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
@@ -1994,13 +2057,28 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [32
 
 ]
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 302--302
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 302--302
+ [][][][]  
+ []
+
+
+Overfull \hbox (110.854pt too wide) in paragraph at lines 302--302
+ [] [] 
+ []
+
+
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
@@ -2011,13 +2089,28 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [33
 
 ]
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 310--310
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 310--310
+ [][][][]  
+ []
+
+
+Overfull \hbox (110.854pt too wide) in paragraph at lines 310--310
+ [] [] 
+ []
+
+
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
@@ -2028,7 +2121,7 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
@@ -2045,13 +2138,28 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [35
 
 ]
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 319--319
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 319--319
+ [][][][]  
+ []
+
+
+Overfull \hbox (110.854pt too wide) in paragraph at lines 319--319
+ [] [] 
+ []
+
+
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
@@ -2062,13 +2170,32 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [36
 
 ]
+Overfull \hbox (203.49477pt too wide) in paragraph at lines 325--325
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (49.03667pt too wide) in paragraph at lines 325--325
+ [][][][]  
+ []
+
+
+Overfull \hbox (110.854pt too wide) in paragraph at lines 325--325
+ [] [] 
+ []
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10.95> not available
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 325.
+
+
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
@@ -2079,28 +2206,13 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [37
 
 ]
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 300--300
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 300--300
- [][][][]  
- []
-
-
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 300--300
- [] [] 
- []
-
-
 Overfull \hbox (203.49477pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
@@ -2111,64 +2223,11 @@ Overfull \hbox (49.03667pt too wide) has occurred while \output is active
  []
 
 
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
+Overfull \hbox (110.854pt too wide) has occurred while \output is active
  [] [] 
  []
 
 [38
-
-]
-Overfull \hbox (203.49477pt too wide) in paragraph at lines 306--306
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (49.03667pt too wide) in paragraph at lines 306--306
- [][][][]  
- []
-
-
-Overfull \hbox (124.34999pt too wide) in paragraph at lines 306--306
- [] [] 
- []
-
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10.95> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 306.
-
-
-Overfull \hbox (203.49477pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (49.03667pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
- [] [] 
- []
-
-[39
-
-]
-Overfull \hbox (203.49477pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (49.03667pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-
-Overfull \hbox (124.34999pt too wide) has occurred while \output is active
- [] [] 
- []
-
-[40
 
 
 ]
@@ -2188,23 +2247,18 @@ L3 programming layer <2024-04-11>
  ***********
 Package rerunfilecheck Info: File `empirical.out' has not changed.
 (rerunfilecheck)             Checksum: AEA4B6A8AE45636C75679C2F0DFA4493;93.
-
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
-
 Package logreq Info: Writing requests to 'empirical.run.xml'.
 \openout1 = `empirical.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33783 strings out of 474050
- 683383 string characters out of 5746298
- 1971754 words of memory out of 5000000
- 55520 multiletter control sequences out of 15000+600000
+ 35386 strings out of 474050
+ 714348 string characters out of 5746298
+ 1972754 words of memory out of 5000000
+ 57108 multiletter control sequences out of 15000+600000
  579054 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,19n,123p,933b,1501s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,19n,123p,1885b,1491s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/te
 xlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/202
 4/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2024/tex
@@ -2230,10 +2284,10 @@ c/amsfonts/cm/cmsy9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/
 msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfso0900.pfb
 >
-Output written on empirical.pdf (40 pages, 455974 bytes).
+Output written on empirical.pdf (38 pages, 983489 bytes).
 PDF statistics:
- 1316 PDF objects out of 1440 (max. 8388607)
- 1175 compressed objects within 12 object streams
- 87 named destinations out of 1000 (max. 500000)
- 122 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1275 PDF objects out of 1440 (max. 8388607)
+ 1131 compressed objects within 12 object streams
+ 84 named destinations out of 1000 (max. 500000)
+ 132 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -79,6 +79,12 @@ Battiston, S., {Delli Gatti}, D., Gallegati, M., Greenwald, B., and Stiglitz,
 \newblock {\em Journal of Economic Dynamics and Control}, 36(8):1121--1141.
 \newblock Quantifying and Understanding Dysfunctions in Financial Markets.
 
+\bibitem[BenSaïda, 2018]{saida18}
+BenSaïda, A. (2018).
+\newblock The contagion effect in european sovereign debt markets: A
+  regime-switching vine copula approach.
+\newblock {\em International Review of Financial Analysis}, 58:153--165.
+
 \bibitem[Bernanke, 2009]{bernanke09}
 Bernanke, B.~S. (2009).
 \newblock Financial reform to address systemic risk.
@@ -160,6 +166,11 @@ Carlson, J.~M. and Doyle, J. (2002).
 Cerchiello, P. and Giudici, P. (2016).
 \newblock Conditional graphical models for systemic risk estimation.
 \newblock {\em Expert Systems with Applications}, 43:165--174.
+
+\bibitem[Chan et~al., 2019]{chan19}
+Chan, J.~C., Fry-McKibbin, R.~A., and Hsiao, C. Y.-L. (2019).
+\newblock A regime switching skew-normal model of contagion.
+\newblock {\em Studies in Nonlinear Dynamics \& Econometrics}, 23(1):20170001.
 
 \bibitem[Cifuentes et~al., 2005]{cifuentes05}
 Cifuentes, R., Ferrucci, G., and Shin, H.~S. (2005).
@@ -325,6 +336,20 @@ Granger, C. W.~J. (1969).
   cross-spectral methods.
 \newblock {\em Econometrica}, 37(3):424--438.
 
+\bibitem[Grant and Yung, 2021]{everett21}
+Grant, E. and Yung, J. (2021).
+\newblock The double-edged sword of global integration: Robustness, fragility,
+  and contagion in the international firm network.
+\newblock {\em Journal of Applied Econometrics}, 36(6):760--783.
+
+\bibitem[Guo et~al., 2011]{guo11}
+Guo, F., Chen, C.~R., and Huang, Y.~S. (2011).
+\newblock Markets contagion during financial crisis: A regime-switching
+  approach.
+\newblock {\em International Review of Economics \& Finance}, 20(1):95--109.
+\newblock Special Issue: The emerging global financial architecture and
+  exchange rate regimes in a volatile world.
+
 \bibitem[Ha{\l}aj and Kok, 2013]{halaj13}
 Ha{\l}aj, G. and Kok, C. (2013).
 \newblock Assessing interbank contagion using simulated networks.
@@ -351,10 +376,15 @@ Harris, C.~R., Millman, K.~J., van~der Walt, S.~J., Gommers, R., Virtanen, P.,
 \newblock Array programming with {NumPy}.
 \newblock {\em Nature}, 585(7825):357--362.
 
-\bibitem[Hautsch et~al., 2014]{hautsch14}
-Hautsch, N., Schaumburg, J., and Schienle, M. (2014).
+\bibitem[Hautsch et~al., 2014a]{hautsch14}
+Hautsch, N., Schaumburg, J., and Schienle, M. (2014a).
 \newblock {Financial Network Systemic Risk Contributions*}.
 \newblock {\em Review of Finance}, 19(2):685--738.
+
+\bibitem[Hautsch et~al., 2014b]{hautsch14a}
+Hautsch, N., Schaumburg, J., and Schienle, M. (2014b).
+\newblock Forecasting systemic impact in financial networks.
+\newblock {\em International Journal of Forecasting}, 30(3):781--794.
 
 \bibitem[Haw et~al., 1990]{hawk90}
 Haw, I.-M., Pastena, V.~S., and Lilien, S.~B. (1990).
@@ -415,6 +445,12 @@ Ledoit, O. and Wolf, M. (2004).
 \newblock A well-conditioned estimator for large-dimensional covariance
   matrices.
 \newblock {\em Journal of Multivariate Analysis}, 88(2):365--411.
+
+\bibitem[Lopes and Nunes, 2012]{lopes12}
+Lopes, J.~M. and Nunes, L.~C. (2012).
+\newblock A markov regime switching model of crises and contagion: The case of
+  the iberian countries in the ems.
+\newblock {\em Journal of Macroeconomics}, 34(4):1141--1153.
 
 \bibitem[May and Arinaminpathy, 2010]{may10}
 May, R.~M. and Arinaminpathy, N. (2010).
@@ -481,6 +517,11 @@ Rowan, T.~H. (1990).
 Savona, R. (2014).
 \newblock Hedge fund systemic risk signals.
 \newblock {\em European Journal of Operational Research}, 236(1):282--291.
+
+\bibitem[Savona et~al., 2015]{savona15}
+Savona, R., Soumare, M., and Andersen, J.~V. (2015).
+\newblock Financial symmetry and moods in the market.
+\newblock {\em PLOS ONE}, 10(4):1--21.
 
 \bibitem[Silva et~al., 2016]{silva16}
 Silva, T.~C., {de Souza}, S. R.~S., and Tabak, B.~M. (2016).

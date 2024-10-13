@@ -5,8 +5,10 @@ The style file: apalike.bst
 Database file #1: bibliography.bib
 Warning--I'm ignoring gallegati08's extra "title" field
 --line 131 of file bibliography.bib
+Warning--I'm ignoring chan19's extra "title" field
+--line 1537 of file bibliography.bib
 Warning--entry type for "reback20" isn't style-file defined
---line 2097 of file bibliography.bib
+--line 2303 of file bibliography.bib
 Too many commas in name 1 of "L. Bargigli, G. di Iasio, L. Infante, F. Lillo and F. Pierobon" for entry bargigli15
 while executing---line 1023 of file apalike.bst
 Too many commas in name 1 of "L. Bargigli, G. di Iasio, L. Infante, F. Lillo and F. Pierobon" for entry bargigli15
@@ -15,45 +17,45 @@ Warning--there's a number but no volume in acemoglu15
 Too many commas in name 1 of "L. Bargigli, G. di Iasio, L. Infante, F. Lillo and F. Pierobon" for entry bargigli15
 while executing---line 1098 of file apalike.bst
 Warning--there's a number but no volume in ledoit03
-You've used 91 entries,
+You've used 98 entries,
             1935 wiz_defined-function locations,
-            1022 strings with 18730 characters,
-and the built_in function-call counts, 36406 in all, are:
-= -- 3564
-> -- 1494
-< -- 60
-+ -- 518
-- -- 498
-* -- 3241
-:= -- 6391
-add.period$ -- 278
-call.type$ -- 91
-change.case$ -- 702
-chr.to.int$ -- 89
-cite$ -- 93
-duplicate$ -- 1265
-empty$ -- 2537
-format.name$ -- 653
-if$ -- 7049
-int.to.chr$ -- 3
+            1059 strings with 19963 characters,
+and the built_in function-call counts, 39231 in all, are:
+= -- 3837
+> -- 1599
+< -- 63
++ -- 561
+- -- 532
+* -- 3499
+:= -- 6879
+add.period$ -- 300
+call.type$ -- 98
+change.case$ -- 754
+chr.to.int$ -- 95
+cite$ -- 100
+duplicate$ -- 1363
+empty$ -- 2745
+format.name$ -- 698
+if$ -- 7603
+int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 83
-newline$ -- 462
-num.names$ -- 273
-pop$ -- 500
+missing$ -- 90
+newline$ -- 498
+num.names$ -- 294
+pop$ -- 534
 preamble$ -- 1
-purify$ -- 704
+purify$ -- 756
 quote$ -- 0
-skip$ -- 961
+skip$ -- 1033
 stack$ -- 0
-substring$ -- 2772
-swap$ -- 103
+substring$ -- 3008
+swap$ -- 110
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 540
+type$ -- 582
 warning$ -- 2
-while$ -- 288
+while$ -- 309
 width$ -- 0
-write$ -- 1187
+write$ -- 1280
 (There were 3 error messages)
