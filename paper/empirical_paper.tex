@@ -28,11 +28,21 @@
 
 \bibliographystyle{apalike}
 \title{Systemic Risk and Financial Connectedness: Empirical Evidence}
-\author{Mateusz Dadej}
-\date{\today}
+\author[1]{Mateusz Dadej}
+\author[1]{Roberto Savona}
+\affil[1]{University of Brescia}
+\date{\today \\ \text{} \\
+\small{Click} \href{https://m-dadej.github.io/files/connectedness.pdf}{\small{\underline{here}} for the lates version of the paper.}\\}
+
 \begin{document}
 
 \maketitle
+
+\begin{abstract}
+This research aims at providing an empirical evidence for the otherwise well described phenomena of robust-yet-fragile. The theory suggest that the connectedness of the financial system is improving its stability up to a certain shock threshold. Once the shock to the system exceeds some level, the connectedness amplifies the damages further. This paper is the first one that provides empirical evidence of this regime-dependent effect of connectedness on financial stability. The research design is two-step process. First the connectedness of the financial system is estimated on a rolling window basis. The resulting time series are used as an exogenous variable in the Markov switching ARCH model. The results shows that the effect is highly asymmetric between the regimes. The connectedness is negligible during calm regime of the markets but is substantially damaging in the high-shock regime.
+\end{abstract}
+
+\newpage
 
 \section{Introduction}\label{section:introduction}
 
@@ -539,7 +549,7 @@ The results of model estimates for window sizes of 56 (a year) and 84 (year and 
 
 The economic theory thoroughly described and modeled the conjecture of \citet{haldane13} through the lens of financial network theory. The models suggested e.g. in \citet{acemoglu13} provided a theory in which connectedness in the financial sector has a regime-dependent effect on the stability thereof. According to the work, more dense networks may diversify and spread the shock of a relatively small magnitude. On the other hand, once the shock is above some threshold, the effect of connectedness changes substantially. The shock is transmitted further into the network with more financial intermediaries being affected.
 
-This work presented a first empirical evidence of this regime-dependent effect of connectedness on financial stability. The research design allowing us to test these phenomena was a two step process. First, the connectedness of the financial system was estimated based on various, well established methods from the literature. The rolling-window estimation produced a time series describing how interconnectedness changes through time. In the next step, the produced time-series was used as an exogenous variable in a Markov-switching ARCH model. The estimated coefficients of the model allow us to see how the effect of connectedness changes, depending on the regime. The research design also includes a robustness check with a balance sheet and profit and loss information of the financial intermediaries. The robustness check further confirms the main results.
+This work presented a first empirical evidence of the \textit{robust-yet-fragile} phenomena, that is a regime-dependent effect of connectedness on financial stability. The research design followed a description of the  The research design allowing us to test these phenomena was a two step process. First, the connectedness of the financial system was estimated based on various, well established methods from the literature. The rolling-window estimation produced a time series describing how interconnectedness changes through time. In the next step, the produced time-series was used as an exogenous variable in a Markov-switching ARCH model. The estimated coefficients of the model allow us to see how the effect of connectedness changes, depending on the regime. The research design also includes a robustness check with a balance sheet and profit and loss information of the financial intermediaries. The robustness check further confirms the main results.
 
 The evidence of the research is mixed. The effect of connectedness on financial stability is substantially asymmetric. During the higher shock regime, the more connected the system is, the more volatility it suffers once the shock arrives. The second part of the results, less aligned with the theory, is that during a calm market regime connectedness does not play a significant role in the contagion dynamics. The asymmetry may be explained by the \textit{financial network externality} described in \citet{acemoglu15}. According to which, the overall connectedness has a damaging effect on the system because the market participants are not internalizing the consequences of credit risk on other parts of the network, not directly related to thereof.
 
