@@ -3,13 +3,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
-df = pd.read_excel('src/data/Export 14_04_2024 14_01.xlsx', sheet_name = 'Results')
+# orbis_usa or orbis_eu
+region = 'orbis_eu'
+region + '.xlsx'
+df = pd.read_excel('src/data/' + region + '.xlsx', sheet_name = 'Results')
 #df.columns.str.replace(r'(\d*\.\d+|\d+)', '', regex=True).unique()
 
 df.drop(df.filter(regex=' yr').columns, axis=1, inplace=True)
 
 df.columns = df.columns.str.replace('Credit Default Swaps – Spread 5 years Senior Unsecurred\n', 'cds_')
-df.columns = df.columns.str.replace('Total assets\nth EUR ', 'assets_')
+
 df.columns = df.columns.str.replace('Last avail. quarter', '')
 df.columns = df.columns.str.replace('Interbank assets\n', 'ib_assets_')
 df.columns = df.columns.str.replace('Derivative financial instruments (Assets)\n', 'derivs_assets_')
@@ -28,11 +31,23 @@ df.columns = df.columns.str.replace('Common and Preferred dividends declared\n',
 df.columns = df.columns.str.replace('Common and Preferred dividends declared\n', 'div_')
 df.columns = df.columns.str.replace('Quarter - ', '')
 df.columns = df.columns.str.replace('th EUR Last avail. yr', '')
-df.columns = df.columns.str.replace('th EUR ', '')
 df.columns = df.columns.str.replace('Last avail. yr', '')
+
+df.columns
+
+if region == 'orbis_usa':
+    df.columns = df.columns.str.replace('Total assets\nth USD ', 'assets_')
+    df.columns = df.columns.str.replace('th USD ', '')
+    df.columns = df.columns.str.replace('\n', '')
+else:
+    df.columns = df.columns.str.replace('Total assets\nth EUR ', 'assets_')
+    df.columns = df.columns.str.replace('th EUR ', '')
+    
+
 df.rename(columns = {'Company name Latin alphabet': 'comp'}, inplace = True)
 df.drop(['Unnamed: 0'], axis=1, inplace=True)
 df = df[df.comp != 'BANK OF IRELAND GROUP PLC'] # BANK OF IRELAND has more non-na values
+
 
 id_vars = ['comp', 'Country']
 
@@ -70,11 +85,10 @@ for i_comp in df.comp.unique():
                 df = pd.concat([df, new_row], ignore_index=True)
 
 
-df.loc[(df.comp == "ABN AMRO BANK NV") & (df.variable == "assets")].sort_values('date')
-
 df.sort_values(['comp', 'variable', 'date'], inplace=True)
 df.reset_index(drop=True,inplace=True)
 df['month'] = pd.DatetimeIndex(df['date']).month
+
 
 # interpolate the weeks from quarter data using cubic spline
 df = df.assign(value = df.groupby(['comp', 'variable']).value\
@@ -83,6 +97,35 @@ df = df.assign(value = df.groupby(['comp', 'variable']).value\
         .dropna()
 
 df = df[~df.drop(['value'], axis = 1).duplicated()]
+
+to_ticker_usa = { 'ALLY FINANCIAL INC': 'ALLY',
+    'AMERICAN EXPRESS COMPANY': 'AXP',
+    'BANCO SANTANDER SA': 'SAN',
+    'BANK OF AMERICA CORPORATION': 'BAC',
+    'BARCLAYS PLC': 'BCS',
+    'CAPITAL ONE FINANCIAL CORPORATION': 'COF',
+    'CHARLES SCHWAB CORPORATION, THE': 'SCHW',
+    'CITIZENS FINANCIAL GROUP INC.': 'CFG',
+    'DEUTSCHE BANK AG': 'DB',
+    'DISCOVER FINANCIAL SERVICES': 'DFS',
+    'FIFTH THIRD BANCORP': 'FITB',
+    'GOLDMAN SACHS GROUP, INC': 'GS',
+    'HSBC HOLDINGS PLC': 'HSBC',
+    'HUNTINGTON BANCSHARES INC': 'HBAN',
+    'JPMORGAN CHASE & CO': 'JPM',
+    'KEYCORP': 'KEY',
+    'M&T BANK CORPORATION': 'MTB',
+    'MITSUBISHI UFJ FINANCIAL GROUP, INC.': 'MUFG',
+    'MORGAN STANLEY': 'MS',
+    'NORTHERN TRUST CORPORATION': 'NTRS',
+    'PNC FINANCIAL SERVICES GROUP INC': 'PNC',
+    'REGIONS FINANCIAL CORPORATION': 'RF',
+    'STATE STREET CORPORATION': 'STT',
+    'THE BANK OF NEW YORK MELLON CORPORATION': 'BK',
+    'TORONTO DOMINION BANK': 'TD',
+    'TRUIST FINANCIAL CORPORATION': 'TFC',
+    'UBS AG': 'UBS',
+    'WELLS FARGO & COMPANY': 'WFC' }
 
 # Add the ticker symbol for each company
 to_ticker = {'ABN AMRO BANK NV' : 'ABN.AS',
@@ -126,8 +169,12 @@ to_ticker = {'ABN AMRO BANK NV' : 'ABN.AS',
        'UNICAJA BANCO SA': 'UNI.MC',
         'UNICREDIT SPA': 'UCG.MI'}
 
-df['ticker'] = df.comp.map(to_ticker)
-df[df.comp == 'UNICAJA BANCO SA']
+if region == 'orbis_usa':
+    df['ticker'] = df.comp.map(to_ticker_usa)
+else:
+    df['ticker'] = df.comp.map(to_ticker)
+
+df.variable.unique()
 
 df_long = df.pivot(index=['comp', 'date', 'month', 'Country', 'ticker'], 
          columns=['variable'], values='value')\
@@ -143,11 +190,9 @@ df_long = df.pivot(index=['comp', 'date', 'month', 'Country', 'ticker'],
 df_long.assign(prof_ch = df_long.groupby('comp').opincome.pct_change())\
     .melt(id_vars=['comp', 'date', 'month', 'Country', 'ticker'],
           var_name='variable', value_name='value')\
-    .to_csv('src/data/orbis_preproc.csv', index=False)
+    .to_csv('src/data/' + region + '_preproc.csv', index=False)
 
-pd.unique(df.comp)
-
-bank = 'COMMERZBANK AG'
+bank = 'WELLS FARGO & COMPANY'
 plot_df_q = df_quarter[(df_quarter.comp == bank) & (df_quarter.variable == "assets")].sort_values('date')
 
 fig, ax = plt.subplots()
