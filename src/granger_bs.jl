@@ -50,7 +50,7 @@ function granger_mat(df::DataFrame, w::DataFrame)
     network = zeros(N, N)
 
     @threads for (i, j) in collect(Iterators.product(1:N, 1:N))  
-
+        #println("i: $i | j: $j")
         if i == j
             network[i, j] = 0.0
             continue
@@ -101,11 +101,15 @@ end
 # data_raw = CSV.read("src/data/df_rets_granger.csv", DataFrame)
 
 # ...or use the archived data
-data_raw = CSV.read("src/data/archive/df_rets_granger_eu_weekly.csv", DataFrame)
+data_raw = CSV.read("src/data/archive/df_rets_granger_us_weekly.csv", DataFrame)
 
 
-orbis_data = CSV.read("src/data/orbis_preproc.csv", DataFrame)
+orbis_data = CSV.read("src/data/orbis_usa_preproc.csv", DataFrame)
 orbis_data = subset(orbis_data, :comp => x -> x .!= "AIB GROUP PUBLIC LIMITED COMPANY")
+orbis_data = dropmissing(orbis_data)
+orbis_data = filter(x -> !isinf(x.value), orbis_data)
+
+sum(isinf.(filter(x -> (x.variable .== "ib_net_save"), orbis_data).value))
 
 # number of observations per group
 @chain orbis_data begin
@@ -132,10 +136,20 @@ end
 
 df = filter((x)-> x.comp in top_names.comp, df)
 df = sort(df, [:Date, :comp])
+df = dropmissing(df)
 
 df_dates = unique(df.Date)
 
+@chain df begin
+    dropmissing(_)
+    groupby(_, :variable)
+    combine(_, nrow)
+    sort(_, :nrow, rev = false)
+end
+
 cor_w = 84
+
+filter(x -> (x.variable .== "assets"), df)
 
 # average asset size
 network_weight = @chain df begin
@@ -158,7 +172,7 @@ end
 
 plot(granger_ts)
 
-CSV.write("src/data/bs_granger84.csv", 
+CSV.write("src/data/bs_granger84_us.csv", 
           DataFrame(Date = df_dates[cor_w:end],
                     bs_granger = granger_ts))
 
